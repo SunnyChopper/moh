@@ -4,13 +4,13 @@
 		<div class="row fullscreen d-flex align-items-center justify-content-between">
 			<div class="banner-content col-lg-9 col-md-12">
 				<h1 class="text-uppercase">
-					We Ensure better education
-					for a better world			
+					Unlock Your Full Potential,<br>
+					Master Your Mind		
 				</h1>
 				<p class="pt-10 pb-10">
-					In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope known as the Hubble.
+					Whatever your dream or goal is, in order to achieve, you must first master your mind. Our goal is to give you the resources and education needed to do so.
 				</p>
-				<a href="#" class="primary-btn text-uppercase">Get Started</a>
+				<a href="#" class="primary-btn text-uppercase">Get Started For Free</a>
 			</div>										
 		</div>
 	</div>					
