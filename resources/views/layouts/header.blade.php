@@ -18,7 +18,7 @@
 	<div class="container main-menu">
 		<div class="row align-items-center justify-content-between d-flex">
 			<div id="logo">
-				<a href="index.html"><img src="img/logo.png" alt="" title="" style="width: 50%;" /></a>
+				<a href="{{ url('/') }}"><img src="{{ URL::asset('img/logo.png') }}" alt="" title="" style="width: 50%;" /></a>
 			</div>
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">

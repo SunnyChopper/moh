@@ -30,6 +30,7 @@
 		<link rel="stylesheet" href="{{ URL::asset('css/owl.carousel.css') }}">			
 		<link rel="stylesheet" href="{{ URL::asset('css/jquery-ui.css') }}">			
 		<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+		<link rel="stylesheet" href="{{ URL::asset('css/layouts.css') }}">
 	</head>
 	<body>
 		@include('layouts.header')
