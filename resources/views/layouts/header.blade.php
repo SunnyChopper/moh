@@ -21,19 +21,45 @@
 				<a href="{{ url('/') }}"><img src="{{ URL::asset('img/logo.png') }}" alt="" title="" style="width: 50%;" /></a>
 			</div>
 			<nav id="nav-menu-container">
+				@if(Auth::guest())
 				<ul class="nav-menu">
 					<li><a href="{{ url('/') }}">Home</a></li>
 					<li><a href="{{ url('/courses') }}">Courses</a></li>
-					<li><a href="{{ url('/tools') }}">Tools</a></li>
+					{{-- <li><a href="{{ url('/tools') }}">Tools</a></li> --}}
 					<li><a href="{{ url('/blog') }}">Blog</a></li>
 					<li><a href="{{ url('/contact') }}">Contact</a></li>
 					<li><a href="">Members</a>
 						<ul>
-							<li><a href="{{ url('/register') }}">Register for Free</a></li>
+							<li><a href="{{ url('/register') }}">Register</a></li>
 							<li><a href="{{ url('/login') }}">Login</a></li>
 						</ul>
 					</li>
 				</ul>
+				@elseif((!Auth::guest()) && (App\Custom\AdminHelper::isAuthorized() == false))
+				<ul class="nav-menu">
+					<li><a href="{{ url('/members/dashboard') }}">Dashboard</a></li>
+					<li><a href="{{ url('/members/courses') }}">Courses</a></li>
+					{{-- <li><a href="{{ url('/tools') }}">Tools</a></li> --}}
+					<li><a href="{{ url('/blog') }}">Blog</a></li>
+					<li><a href="{{ url('/contact') }}">Contact</a></li>
+					<li><a href="">Members</a>
+						<ul>
+							<li><a href="{{ url('/members/logout') }}">Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+				@elseif(App\Custom\AdminHelper::isAuthorized() == true)
+				<ul class="nav-menu">
+					<li><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
+					<li><a href="{{ url('/members/courses') }}">Courses</a></li>
+					{{-- <li><a href="{{ url('/tools') }}">Tools</a></li> --}}
+					<li><a href="">{{ Auth::user()->first_name }}</a>
+						<ul>
+							<li><a href="{{ url('/members/logout') }}">Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+				@endif
 			</nav>		    		
 		</div>
 	</div>

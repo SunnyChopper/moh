@@ -20,7 +20,7 @@ class CreateRiceEnrollmentsTable extends Migration
             $table->string('customer_id', 64);
             $table->string('subscription_id', 64);
             $table->double('total_revenue')->default(5.00);
-            $tavle->integer('status')->default(1);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

@@ -31,6 +31,7 @@
 		<link rel="stylesheet" href="{{ URL::asset('css/jquery-ui.css') }}">			
 		<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/layouts.css') }}">
+		<link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}">
 	</head>
 	<body>
 		@include('layouts.header')

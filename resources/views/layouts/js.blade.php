@@ -12,5 +12,6 @@
 <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>									
 <script src="{{ URL::asset('js/mail-script.js') }}"></script>	
 <script src="{{ URL::asset('js/main.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
 @yield('page_js')

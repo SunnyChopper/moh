@@ -13,6 +13,13 @@
 
 Route::get('/', 'PagesController@index');
 
-Auth::routes();
+// Admin functions
+Route::get('/admin', 'AdminController@login');
+Route::post('/admin/login/attempt', 'AdminController@attempt_login');
+Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::get('/admin/logout', 'AdminController@logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Member functions
+Auth::routes();
+Route::get('/members/dashboard', 'MembersController@dashboard');
+Route::get('/members/logout', 'MembersController@logout');
