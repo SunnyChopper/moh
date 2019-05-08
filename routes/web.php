@@ -18,6 +18,9 @@ Route::get('/admin', 'AdminController@login');
 Route::post('/admin/login/attempt', 'AdminController@attempt_login');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
 Route::get('/admin/logout', 'AdminController@logout');
+Route::get('/admin/courses', 'AdminController@view_all_courses');
+Route::get('/admin/courses/new', 'AdminController@new_course');
+Route::post('/admin/courses/create', 'AdminController@create_course');
 
 // Member functions
 Auth::routes();

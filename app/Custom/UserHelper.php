@@ -13,7 +13,7 @@ class UserHelper {
 		$chart = new UsersJoinedChart;
 		$days = array();
 		$user_count = array();
-		for ($i = 8; $i > 0; $i--) {
+		for ($i = 8; $i > -1; $i--) {
 			$date = Carbon::today()->subDays($i)->format('M jS, Y');
 			array_push($days, $date);
 			$num_users = User::whereDate('created_at', Carbon::today()->subDays($i))->count();

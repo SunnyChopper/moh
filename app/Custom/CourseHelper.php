@@ -12,6 +12,10 @@ use App\CourseForumComment;
 use App\CourseCompletion;
 
 class CourseHelper {
+
+	public static function viewCourses() {
+		return Course::where('is_active', 1)->get();
+	}
 	
 	public static function getModules($course_id) {
 		return CourseModule::where('course_id', $course_id)->get();
@@ -42,7 +46,7 @@ class CourseHelper {
 	private function numberOfVideos($course_id) {
 		$total = 0;
 		$modules = CourseModule::where('course_id', $course_id)->get();
-		foreach $modules as $module {
+		foreach ($modules as $module) {
 			$videos = CourseVideo::where('module_id', $module_id)->count();
 			$total += $videos;
 		}

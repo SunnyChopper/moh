@@ -51,7 +51,7 @@
 				@elseif(App\Custom\AdminHelper::isAuthorized() == true)
 				<ul class="nav-menu">
 					<li><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
-					<li><a href="{{ url('/members/courses') }}">Courses</a></li>
+					<li><a href="{{ url('/admin/courses') }}">Courses</a></li>
 					{{-- <li><a href="{{ url('/tools') }}">Tools</a></li> --}}
 					<li><a href="">{{ Auth::user()->first_name }}</a>
 						<ul>
