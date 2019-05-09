@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\CourseModule;
+use App\CourseVideo;
 use App\Custom\UserHelper;
 use App\Custom\AdminHelper;
 use App\Custom\CourseHelper;
@@ -113,7 +115,15 @@ class AdminController extends Controller
     	return redirect(url('/admin/courses'));
     }
 
-    public function view_course_content($course_id) {
+    public function delete_course(Request $data) {
+    	$course = Course::find($data->course_id);
+    	$course->is_active = 0;
+    	$course->save();
+
+    	return redirect()->back();
+    }
+
+    public function view_course_modules($course_id) {
     	if (AdminHelper::isAuthorized() == false) {
     		return redirect(url('/admin'));
     	}
@@ -124,13 +134,136 @@ class AdminController extends Controller
     	$page_title = "Course Content";
     	$page_header = $page_title;
 
-    	return view('admin.courses.content.view')->with('course', $course)->with('modules', $modules)->with('page_title', $page_title)->with('page_header', $page_header);
+    	return view('admin.courses.modules.view')->with('course', $course)->with('modules', $modules)->with('page_title', $page_title)->with('page_header', $page_header);
     }
 
-    public function delete_course(Request $data) {
-    	$course = Course::find($data->course_id);
-    	$course->is_active = 0;
-    	$course->save();
+    public function new_course_module($course_id) {
+    	if (AdminHelper::isAuthorized() == false) {
+    		return redirect(url('/admin'));
+    	}
+
+    	$course = Course::find($course_id);
+
+    	$page_title = "New Course Module";
+    	$page_header = $page_title;
+
+    	return view('admin.courses.modules.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course);
+    }
+
+    public function create_course_module(Request $data) {
+    	$module = new CourseModule;
+    	$module->course_id = $data->course_id;
+    	$module->title = $data->title;
+    	$module->description = $data->description;
+    	$module->order = $data->order;
+    	$module->save();
+
+    	return redirect(url('/admin/courses/' . $data->course_id . '/modules'));
+    }
+
+    public function edit_course_module($course_id, $module_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $course = Course::find($course_id);
+        $module = CourseModule::find($module_id);
+
+        $page_title = $module->title;
+        $page_header = "Edit Module";
+
+        return view('admin.courses.modules.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course)->with('module', $module);
+    }
+
+    public function update_course_module(Request $data) {
+        $module = CourseModule::find($data->module_id);
+        $module->title = $data->title;
+        $module->description = $data->description;
+        $module->order = $data->order;
+        $module->save();
+
+        return redirect(url('/admin/courses/' . $data->course_id . '/modules'));
+    }
+
+    public function delete_course_module(Request $data) {
+    	$module = CourseModule::find($data->module_id);
+    	$module->is_active = 0;
+    	$module->save();
+
+    	return redirect()->back();
+    }
+
+    public function view_module_content($course_id, $module_id) {
+    	if (AdminHelper::isAuthorized() == false) {
+    		return redirect(url('/admin'));
+    	}
+
+    	$course = Course::find($course_id);
+    	$module = CourseModule::find($module_id);
+    	$videos = CourseHelper::getVideos($module_id);
+
+    	$page_title = "Module Content";
+    	$page_header = $page_title;
+
+    	return view('admin.courses.modules.content.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course)->with('module', $module)->with('videos', $videos);
+    }
+
+    public function new_module_content($course_id, $module_id) {
+    	if (AdminHelper::isAuthorized() == false) {
+    		return redirect(url('/admin'));
+    	}
+
+    	$course = Course::find($course_id);
+    	$module = CourseModule::find($module_id);
+
+    	$page_title = "New Module Content";
+    	$page_header = $page_title;
+
+    	return view('admin.courses.modules.content.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course)->with('module', $module);
+    }
+
+    public function create_module_content(Request $data) {
+    	$content = new CourseVideo;
+    	$content->module_id = $data->module_id;
+    	$content->title = $data->title;
+    	$content->description = $data->description;
+    	$content->order = $data->order;
+    	$content->youtube_id = $data->youtube_id;
+    	$content->save();
+
+    	return redirect(url('/admin/courses/' . $data->course_id . '/modules/' . $data->module_id . '/content'));
+    }
+
+    public function edit_content($course_id, $module_id, $content_id) {
+    	if (AdminHelper::isAuthorized() == false) {
+    		return redirect(url('/admin'));
+    	}
+
+    	$course = Course::find($course_id);
+    	$module = CourseModule::find($module_id);
+    	$content = CourseVideo::find($content_id);
+
+    	$page_title = $content->title;
+    	$page_header = "Edit Content";
+
+    	return view('admin.courses.modules.content.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course)->with('module', $module)->with('content', $content);
+    }
+
+    public function update_content(Request $data) {
+    	$content = CourseVideo::find($data->content_id);
+    	$content->title = $data->title;
+    	$content->description = $data->description;
+    	$content->order = $data->order;
+    	$content->youtube_id = $data->youtube_id;
+    	$content->save();
+
+    	return redirect(url('/admin/courses/' . $data->course_id . '/modules/' . $data->module_id . '/content'));
+    }
+
+    public function delete_content(Request $data) {
+    	$content = CourseVideo::find($data->content_id);
+    	$content->is_active = 0;
+    	$content->save();
 
     	return redirect()->back();
     }

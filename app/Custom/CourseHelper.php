@@ -18,7 +18,7 @@ class CourseHelper {
 	}
 	
 	public static function getModules($course_id) {
-		return CourseModule::where('course_id', $course_id)->get();
+		return CourseModule::where('course_id', $course_id)->where('is_active', 1)->get();
 	}
 
 	public static function getNumMembers($course_id) {
@@ -36,7 +36,7 @@ class CourseHelper {
 	}
 
 	public static function getVideos($module_id) {
-		return CourseVideo::where('module_id', $module_id)->get();
+		return CourseVideo::where('module_id', $module_id)->where('is_active', 1)->get();
 	}
 
 	public static function getComments($forum_id) {
