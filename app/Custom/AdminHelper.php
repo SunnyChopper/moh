@@ -38,8 +38,12 @@ class AdminHelper {
 	}
 
 	public static function isAuthorized() {
-		if (Session::has('backend_auth')) {
-			return true;
+		if (!Auth::guest()) {
+			if (Session::has('backend_auth') == Auth::id()) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
