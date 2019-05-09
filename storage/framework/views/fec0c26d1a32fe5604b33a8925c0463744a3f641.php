@@ -1,14 +1,13 @@
-@extends('layouts.app')
-
-@section('content')
-	@include('layouts.banner')
+<?php $__env->startSection('content'); ?>
+	<?php echo $__env->make('layouts.banner', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
 			<div class="col-lg-8 col-md-8 col-sm-10 col-12">
 				<div class="gray-box">
 					<form id="create_course_form" action="/admin/courses/create" method="POST">
-						{{ csrf_field() }}
+						<?php echo e(csrf_field()); ?>
+
 						<div class="form-group">
 							<h3>Create a New Course</h3>
 							<p>Fields with <span class="red">*</span> are required.</p>
@@ -26,8 +25,8 @@
 
 						<div class="form-group row">
 							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
-								<label>Image URL<span class="red">*</span>:</label>
-								<input type="text" name="image_url" class="form-control" required>
+								<label>Image URL:</label>
+								<input type="text" name="image_url" class="form-control">
 							</div>
 
 							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -59,4 +58,5 @@
 			</div>
 		</div>
 	</div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/moh/resources/views/admin/courses/new.blade.php ENDPATH**/ ?>

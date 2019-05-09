@@ -418,4 +418,10 @@ $(document).ready(function() {
         $('#mc_embed_signup').find('form').ajaxChimp();
     });
 
+    $('.set-bg').each(function() {
+        var bg = $(this).data('setbg');
+        console.log(bg);
+        $(this).css('background-image', 'url(' + bg + ')');
+    });
+
 });
