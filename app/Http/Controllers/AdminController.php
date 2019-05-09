@@ -85,5 +85,53 @@ class AdminController extends Controller
     	$course->save();
 
     	return redirect(url('/admin/courses'));
-    } 
+    }
+
+    public function edit_course($course_id) {
+    	if (AdminHelper::isAuthorized() == false) {
+    		return redirect(url('/admin'));
+    	}
+
+    	$course = Course::find($course_id);
+
+    	$page_title = $course->title;
+    	$page_header = $page_title;
+
+    	return view('admin.courses.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course);
+    }
+
+    public function update_course(Request $data) {
+    	$course = Course::find($data->course_id);
+    	$course->title = $data->title;
+    	$course->description = $data->description;
+    	$course->image_url = $data->image_url;
+    	$course->youtube_id = $data->youtube_id;
+    	$course->price = $data->price;
+    	$course->monthly = $data->monthly;
+    	$course->save();
+
+    	return redirect(url('/admin/courses'));
+    }
+
+    public function view_course_content($course_id) {
+    	if (AdminHelper::isAuthorized() == false) {
+    		return redirect(url('/admin'));
+    	}
+
+    	$course = Course::find($course_id);
+    	$modules = CourseHelper::getModules($course_id);
+
+    	$page_title = "Course Content";
+    	$page_header = $page_title;
+
+    	return view('admin.courses.content.view')->with('course', $course)->with('modules', $modules)->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function delete_course(Request $data) {
+    	$course = Course::find($data->course_id);
+    	$course->is_active = 0;
+    	$course->save();
+
+    	return redirect()->back();
+    }
 }

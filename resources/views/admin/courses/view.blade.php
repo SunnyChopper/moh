@@ -2,6 +2,7 @@
 
 @section('content')
 	@include('layouts.banner')
+	@include('admin.courses.modals.delete')
 
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
@@ -27,9 +28,9 @@
 								<td style="width: 10%; vertical-align: middle;">${{ sprintf("%.2f", $c->price) }}</td>
 								<td style="width: 15%; vertical-align: middle;">{{ App\Custom\CourseHelper::getNumMembers($c->id) }}</td>
 								<td style="width: 35%; vertical-align: middle;">
-									<a href="{{ url('/admin/courses/' . $c->id . 'content/') }}" class="genric-btn primary small m-1" style="float: right;">Edit Content</a>
+									<a href="{{ url('/admin/courses/' . $c->id . '/modules/') }}" class="genric-btn primary small m-1" style="float: right;">Edit Content</a>
 									<a href="{{ url('/admin/courses/edit/' . $c->id) }}" class="genric-btn info small m-1" style="float: right;">Edit</a>
-									<button class="genric-btn danger small m-1" style="float: right;">Delete</button>
+									<button id="{{ $c->id}}" class="genric-btn delete_course_button danger small m-1" style="float: right;">Delete</button>
 								</td>
 							</tr>
 							@endforeach
@@ -50,4 +51,19 @@
 			@endif
 		</div>
 	</div>
+@endsection
+
+@section('page_js')
+	<script type="text/javascript">
+		$(".delete_course_button").on('click', function() {
+			// Get course ID
+			var course_id = $(this).attr('id');
+
+			// Set in modal
+			$("#delete_course_id").val(course_id);
+
+			// Show modal
+			$("#delete_course_modal").modal();
+		});
+	</script>
 @endsection

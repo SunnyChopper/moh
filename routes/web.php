@@ -21,6 +21,10 @@ Route::get('/admin/logout', 'AdminController@logout');
 Route::get('/admin/courses', 'AdminController@view_all_courses');
 Route::get('/admin/courses/new', 'AdminController@new_course');
 Route::post('/admin/courses/create', 'AdminController@create_course');
+Route::get('/admin/courses/edit/{course_id}', 'AdminController@edit_course');
+Route::post('/admin/courses/update', 'AdminController@update_course');
+Route::get('/admin/courses/{course_id}/modules', 'AdminController@view_course_content');
+Route::post('/admin/courses/delete', 'AdminController@delete_course');
 
 // Member functions
 Auth::routes();
