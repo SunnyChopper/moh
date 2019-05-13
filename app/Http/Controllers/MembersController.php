@@ -27,14 +27,21 @@ class MembersController extends Controller
 			return redirect(url('/login?redirect_action=/members/dashboard'));
 		}
 
+		// Get course information
 		$course = Course::find($course_id);
-		if ($course->price == 0) {
-			$membership = new CourseMembership;
-			$membership->user_id = Auth::id();
-			$membership->course_id = $course_id;
-			$membership->save();
 
-			return redirect(url('/'));
+		// Check if it's free. Just create the membership and redirect to dashboard.
+		if ($course->price == 0) {
+			if (CourseMembership::where('user_id', Auth::id())->where('course_id', $course_id)->count() > 0) {
+				return redirect(url('/members/courses/' . $course_id . '/dashboard'));
+			} else {
+				$membership = new CourseMembership;
+				$membership->user_id = Auth::id();
+				$membership->course_id = $course_id;
+				$membership->save();
+
+				return redirect(url('/members/courses/' . $course_id . '/dashboard'));
+			}
 		}
 	}
 

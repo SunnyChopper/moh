@@ -2,6 +2,7 @@
 
 namespace App\Custom;
 
+use Auth;
 use App\Course;
 use App\CourseModule;
 use App\CourseVideo;
@@ -41,6 +42,14 @@ class CourseHelper {
 
 	public static function getComments($forum_id) {
 		return CourseForumComment::where('forum_id', $forum_id)->get();
+	}
+
+	public static function isUserAuthorizedForCourse($course_id) {
+		if (CourseMembership::where('user_id', Auth::id())->where('course_id', $course_id)->where('status', 1)->count() > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	private function numberOfVideos($course_id) {

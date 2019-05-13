@@ -15,6 +15,8 @@
 Route::get('/', 'PagesController@index');
 Route::get('/courses', 'PagesController@courses');
 Route::get('/courses/{course_id}', 'PagesController@view_course');
+Route::get('/courses/{course_id}/enroll', 'MembersController@enroll_course');
+Route::post('/courses/{course_id}/enroll/submit', 'MembersController@create_course_membership');
 
 // Admin functions
 Route::get('/admin', 'AdminController@login');
@@ -44,5 +46,4 @@ Route::post('/admin/courses/modules/update', 'AdminController@update_course_modu
 Auth::routes();
 Route::get('/members/dashboard', 'MembersController@dashboard');
 Route::get('/members/logout', 'MembersController@logout');
-Route::get('/courses/{course_id}/enroll', 'MembersController@enroll_course');
-Route::post('/courses/{course_id}/enroll/submit', 'MembersController@create_course_membership');
+Route::get('/members/courses/{course_id}/dashboard', 'CoursesController@dashboard');

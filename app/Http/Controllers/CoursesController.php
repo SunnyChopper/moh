@@ -3,10 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Custom\CourseHelper;
 use App\Course;
+use App\CourseModule;
+use App\CourseForum;
 
 class CoursesController extends Controller
 {
+
+    public function dashboard($course_id) {
+        if (CourseHelper::isUserAuthorizedForCourse($course_id) == false) {
+            return redirect(url('/courses/' . $course_id));
+        }
+
+        $course = Course::find($course_id);
+        $modules = CourseModule::where('course_id', $course_id)->get();
+        $forums = CourseForum::where('course_id', $course_id)->orderBy('created_at', 'DESC')->get();
+
+        $page_title = $course->title;
+        $page_header = $page_title;
+
+        return view('members.courses.dashboard')->with('course', $course)->with('modules', $modules)->with('forums', $forums)->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
     public function create(Request $data) {
     	$course = new Course;
     	$course->title = $data->title;

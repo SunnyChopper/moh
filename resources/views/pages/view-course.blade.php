@@ -40,7 +40,11 @@
 					<p class="black text-center">If you already have an account, click the button below to login and enroll.</p>
 					<a href="{{ url('/login?redirect_action=/courses/' . $course->id . '/enroll') }}" class="genric-btn info rounded centered mb-0">Login and Enroll</a>
 					@else
-					<a href="{{ url('/courses/' . $course->id . '/enroll') }}" class="genric-btn info rounded centered">Enroll in Course</a>
+					@if(App\Custom\CourseHelper::isUserAuthorizedForCourse($course->id) == true)
+						<a href="{{ url('/members/courses/' . $course->id . '/dashboard') }}" class="genric-btn primary rounded centered">Go to Course Dashboard</a>
+					@else
+						<a href="{{ url('/courses/' . $course->id . '/enroll') }}" class="genric-btn info rounded centered">Enroll in Course</a>
+					@endif
 					@endif
 				</div>
 			</div>
