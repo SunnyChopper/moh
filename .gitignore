@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 /storage
+storage
 storage/*
 .editorconfig
 .env.example
