@@ -17,6 +17,7 @@ Route::get('/courses', 'PagesController@courses');
 Route::get('/courses/{course_id}', 'PagesController@view_course');
 Route::get('/courses/{course_id}/enroll', 'MembersController@enroll_course');
 Route::post('/courses/{course_id}/enroll/submit', 'MembersController@create_course_membership');
+Route::get('/personal-coaching', 'PagesController@personal_coaching');
 
 // Admin functions
 Route::get('/admin', 'AdminController@login');
@@ -41,6 +42,23 @@ Route::post('/admin/courses/modules/content/delete', 'AdminController@delete_con
 Route::post('/admin/modules/delete', 'AdminController@delete_course_module');
 Route::get('/admin/courses/{course_id}/modules/{module_id}/edit', 'AdminController@edit_course_module');
 Route::post('/admin/courses/modules/update', 'AdminController@update_course_module');
+Route::get('/admin/personal-coaching', 'AdminController@view_personal_coaching');
+Route::get('/admin/personal-coaching/mentee/{mentee_id}', 'AdminController@view_mentee');
+Route::get('/admin/personal-coaching/mentee/{mentee_id}/documents/new', 'AdminController@new_mentee_document');
+Route::post('/admin/personal-coaching/documents/create', 'AdminController@create_mentee_document');
+Route::get('/admin/personal-coaching/mentee/{mentee_id}/documents/{document_id}/edit', 'AdminController@edit_mentee_document');
+Route::post('/admin/personal-coaching/documents/update', 'AdminController@update_mentee_document');
+Route::post('/admin/personal-coaching/documents/delete', 'AdminController@delete_mentee_document');
+Route::get('/admin/personal-coaching/mentee/{mentee_id}/recommendations/new', 'AdminController@new_recommendation');
+Route::post('/admin/personal-coaching/recommendations/create', 'AdminController@create_recommendation');
+Route::get('/admin/personal-coaching/mentee/{mentee_id}/recommendations/{r_id}/edit', 'AdminController@edit_recommendation');
+Route::post('/admin/personal-coaching/recommendations/update', 'AdminController@update_recommendation');
+Route::post('/admin/personal-coaching/recommendations/delete', 'AdminController@delete_recommendation');
+Route::get('/admin/personal-coaching/mentee/{mentee_id}/tasks/new', 'AdminController@new_task');
+Route::post('/admin/personal-coaching/tasks/create', 'AdminController@create_task');
+Route::get('/admin/personal-coaching/mentee/{mentee_id}/tasks/{task_id}/edit', 'AdminController@edit_task');
+Route::post('/admin/personal-coaching/tasks/update', 'AdminController@update_task');
+Route::post('/admin/personal-coaching/tasks/delete', 'AdminController@delete_task');
 
 // Member functions
 Auth::routes();

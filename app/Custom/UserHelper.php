@@ -23,6 +23,21 @@ class UserHelper {
 		$chart->dataset('Number of Users', 'line', $user_count);
 		return $chart;
 	}
+
+	public static function getFirstName($id) {
+		return $id;
+		return User::find($id)->first_name;
+	}
+
+	public static function getLastName($id) {
+		return $id;
+		return User::find($id)->last_name;
+	}
+
+	public static function getEmail($id) {
+		return $id;
+		return User::find($id)->email;
+	}
 	
 	public static function logout() {
 		Auth::logout();

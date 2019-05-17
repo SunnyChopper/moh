@@ -31,4 +31,11 @@ class PagesController extends Controller
 
     	return view('pages.view-course')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course);
     }
+
+    public function personal_coaching() {
+        $page_title = "Personal Coaching";
+        $page_header = $page_title;
+
+        return view('pages.personal-coaching')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
 }

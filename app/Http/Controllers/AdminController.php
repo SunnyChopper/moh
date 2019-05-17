@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Course;
 use App\CourseModule;
 use App\CourseVideo;
+use App\MentorTask;
+use App\MentorDocument;
+use App\MentorEnrollment;
+use App\MentorRecommendation;
 use App\Custom\UserHelper;
 use App\Custom\AdminHelper;
 use App\Custom\CourseHelper;
+use App\Custom\MentorHelper;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -267,4 +273,199 @@ class AdminController extends Controller
 
     	return redirect()->back();
     }
+
+    public function view_personal_coaching() {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $mentees = MentorHelper::getAllMentees();
+
+        $page_title = "Your Mentees";
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.view')->with('mentees', $mentees)->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function view_mentee($mentee_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $mentee = User::find(MentorEnrollment::find($mentee_id)->user_id);
+        $appointments = MentorHelper::getFutureAppointmentsForUser($mentee->id);
+        $documents = MentorHelper::getDocumentsForUser($mentee->id);
+        $recommendations = MentorHelper::getRecommendationsForUser($mentee->id);
+        $tasks = MentorHelper::getOpenTasksForUser($mentee->id);
+        $videos = MentorHelper::getVideosForUser($mentee->id);
+
+        $page_title = $mentee->first_name . " " . $mentee->last_name;
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('mentee', $mentee)->with('appointments', $appointments)->with('documents', $documents)->with('recommendations', $recommendations)->with('tasks', $tasks)->with('videos', $videos)->with('mentee_id', $mentee_id);
+    }
+
+    public function new_mentee_document($mentee_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $mentee = User::find(MentorEnrollment::find($mentee_id)->user_id);
+
+        $page_title = "Share New Document";
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.documents.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('mentee', $mentee)->with('mentee_id', $mentee_id);
+    }
+
+    public function create_mentee_document(Request $data) {
+        $doc = new MentorDocument;
+        $doc->user_id = $data->mentee_id;
+        $doc->title = $data->title;
+        $doc->description = $data->description;
+        $doc->link = $data->link;
+        $doc->save();
+
+        return redirect(url('/admin/personal-coaching/mentee/' . $data->mentee_id));
+    }
+
+    public function edit_mentee_document($mentee_id, $document_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $document = MentorDocument::find($document_id);
+
+        $page_title = "Edit " . $document->title;
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.documents.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('mentee_id', $mentee_id)->with('document', $document);
+    }
+
+    public function update_mentee_document(Request $data) {
+        $document = MentorDocument::find($data->doc_id);
+        $document->title = $data->title;
+        $document->description = $data->description;
+        $document->link = $data->link;
+        $document->save();
+
+        return redirect(url('/admin/personal-coaching/mentee/' . $data->mentee_id));
+    }
+
+    public function delete_mentee_document(Request $data) {
+        $document = MentorDocument::find($data->doc_id);
+        $document->status = 0;
+        $document->save();
+
+        return redirect()->back();
+    }
+
+    public function new_recommendation($mentee_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $page_title = "New Recommendation";
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.recommendations.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('mentee_id', $mentee_id);
+    }
+
+    public function create_recommendation(Request $data) {
+        $r = new MentorRecommendation;
+        $r->user_id = $data->mentee_id;
+        $r->title = $data->title;
+        $r->description = $data->description;
+        $r->link = $data->link;
+        $r->type = $data->type;
+        $r->save();
+
+        return redirect(url('/admin/personal-coaching/mentee/' . $data->mentee_id));
+    }
+
+    public function edit_recommendation($mentee_id, $r_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $r = MentorRecommendation::find($r_id);
+
+        $page_title = "Edit " . $r->title;
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.recommendations.edit')->with('recommendation', $r)->with('page_title', $page_title)->with('page_header', $page_header)->with('mentee_id', $mentee_id);    
+    }
+
+    public function update_recommendation(Request $data) {
+        $r = MentorRecommendation::find($data->r_id);
+        $r->title = $data->title;
+        $r->description = $data->description;
+        $r->link = $data->link;
+        $r->type = $data->type;
+        $r->save();
+
+        return redirect(url('/admin/personal-coaching/mentee/' . $data->mentee_id));
+    }
+
+    public function delete_recommendation(Request $data) {
+        $r = MentorRecommendation::find($data->r_id);
+        $r->is_active = 0;
+        $r->save();
+
+        return redirect()->back();
+    }
+
+    public function new_task($mentee_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $page_title = "Assign New Task";
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.tasks.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('mentee_id', $mentee_id);
+    }
+
+    public function create_task(Request $data) {
+        $task = new MentorTask;
+        $task->user_id = $data->mentee_id;
+        $task->title = $data->title;
+        $task->description = $data->description;
+        $task->due_date = $data->due_date;
+        $task->save();
+
+        return redirect(url('/admin/personal-coaching/mentee/' . $data->mentee_id));    
+    }
+
+    public function edit_task($mentee_id, $task_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $task = MentorTask::find($task_id);
+
+        $page_title = "Edit " . $task->title;
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.tasks.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('mentee_id', $mentee_id)->with('task', $task);
+    }
+
+    public function update_task(Request $data) {
+        $task = MentorTask::find($data->task_id);
+        $task->title = $data->title;
+        $task->description = $data->description;
+        $task->due_date = $data->due_date;
+        $task->save();
+
+        return redirect(url('/admin/personal-coaching/mentee/' . $data->mentee_id));
+    }
+
+    public function delete_task(Request $data) {
+        $task = MentorTask::find($data->task_id);
+        $task->status = 0;
+        $task->save();
+
+        return redirect()->back();
+    }
+
 }

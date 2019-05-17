@@ -29,7 +29,7 @@ class CourseHelper {
 	public static function getCourseCompletion($course_id, $user_id) {
 		$completed_videos = CourseCompletion::where('user_id', $user_id)->where('course_id', $course_id)->count();
 		$total_videos = $this->numberOfVideos($course_id);
-		return $completed_videos / $total_videos;
+		return (float)$completed_videos / (float)$total_videos;
 	}
 
 	public static function getReviews($course_id) {
@@ -38,6 +38,14 @@ class CourseHelper {
 
 	public static function getVideos($module_id) {
 		return CourseVideo::where('module_id', $module_id)->where('is_active', 1)->get();
+	}
+
+	public static function getForums($course_id) {
+		return CourseForum::where('course_id', $course_id)->where('is_active', 1)->get();
+	}
+
+	public static function getUserForums($user_id) {
+		return CourseForum::where('user_id', $user_id)->where('is_active', 1)->get();
 	}
 
 	public static function getComments($forum_id) {
