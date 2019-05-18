@@ -11,20 +11,50 @@ use App\MentorVideo;
 use App\MentorDocument;
 use App\MentorTask;
 use App\MentorEnrollment;
+use App\Custom\MentorHelper;
 use Illuminate\Http\Request;
 
 class MentorsController extends Controller
 {
-	public function create_mentor_recommendation(Request $data) {
-		$r = new MentorRecommendation;
-		$r->user_id = $data->user_id;
-		$r->title = $data->title;
-		$r->description = $data->description;
-		$r->link = $data->link;
-		$r->type = $data->type;
-		$r->save();
 
-		return redirect(url('/admin/mentors/recommendations'));
+	public function personal_coaching() {
+		if ($this->isUserAuthorized() == false) {
+			return redirect(url('/personal-coaching'));
+		}
+
+		$member = Auth::user();
+		$appointments = MentorHelper::getFutureAppointmentsForUser($member->id);
+		$documents = MentorDocument::where('user_id', $member->id)->get();
+		$recommendations = MentorRecommendation::where('user_id', $member->id)->get();
+		$tasks = MentorTask::where('user_id', $member->id)->get();
+		$videos = MentorVideo::where('user_id', $member->id)->get();
+
+		$page_title = "Your Mentorship Dashboard";
+		$page_header = $page_title;
+
+		return view('members.mentors.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('member', $member)->with('documents', $documents)->with('recommendations', $recommendations)->with('tasks', $tasks)->with('videos', $videos)->with('appointments', $appointments);
+	}
+
+	public function edit_task($task_id) {
+		if ($this->isUserAuthorized() == false) {
+			return redirect(url('/personal-coaching'));
+		}
+
+		$member = Auth::user();
+		$task = MentorTask::find($task_id);
+
+		$page_title = "Edit " . $task->title;
+		$page_header = $page_title;
+
+		return view('members.mentors.tasks.edit')->with('member', $member)->with('task', $task)->with('page_title', $page_title)->with('page_header', $page_header);
+	}
+
+	public function update_task(Request $data) {
+		$task = MentorTask::find($data->task_id);
+		$task->status = $data->status;
+		$task->save();
+
+		return redirect(url('/members/personal-coaching'));
 	}
 
 	public function read_mentor_recommendation($r_id) {
@@ -234,5 +264,13 @@ class MentorsController extends Controller
 		$enrollment->save();
 
 		return redirect(url('/members/dashboard'));
+	}
+
+	private function isUserAuthorized() {
+		if (MentorEnrollment::where('user_id', Auth::id())->count() > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

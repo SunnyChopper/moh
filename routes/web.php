@@ -70,3 +70,6 @@ Auth::routes();
 Route::get('/members/dashboard', 'MembersController@dashboard');
 Route::get('/members/logout', 'MembersController@logout');
 Route::get('/members/courses/{course_id}/dashboard', 'CoursesController@dashboard');
+Route::get('/members/personal-coaching', 'MentorsController@personal_coaching');
+Route::get('/members/personal-coaching/tasks/{task_id}/edit', 'MentorsController@edit_task');
+Route::post('/members/personal-coaching/tasks/update', 'MentorsController@update_task');

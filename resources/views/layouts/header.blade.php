@@ -24,11 +24,11 @@
 				@if(Auth::guest())
 				<ul class="nav-menu">
 					<li><a href="{{ url('/') }}">Home</a></li>
-					<li><a href="{{ url('/courses') }}">Courses</a></li>
+					{{-- <li><a href="{{ url('/courses') }}">Courses</a></li> --}}
 					{{-- <li><a href="{{ url('/tools') }}">Tools</a></li> --}}
 					<li><a href="{{ url('/personal-coaching') }}">Personal Coaching</a></li>
-					<li><a href="{{ url('/blog') }}">Blog</a></li>
-					<li><a href="{{ url('/contact') }}">Contact</a></li>
+					{{-- <li><a href="{{ url('/blog') }}">Blog</a></li>
+					<li><a href="{{ url('/contact') }}">Contact</a></li> --}}
 					<li class="menu-has-children"><a href="">Members</a>
 						<ul>
 							<li><a href="{{ url('/register') }}">Register</a></li>
@@ -39,8 +39,9 @@
 				@elseif((!Auth::guest()) && (App\Custom\AdminHelper::isAuthorized() == false))
 				<ul class="nav-menu">
 					<li><a href="{{ url('/members/dashboard') }}">Dashboard</a></li>
-					<li><a href="{{ url('/members/courses') }}">Courses</a></li>
+					{{-- <li><a href="{{ url('/members/courses') }}">Courses</a></li> --}}
 					{{-- <li><a href="{{ url('/tools') }}">Tools</a></li> --}}
+					<li><a href="{{ url('/members/personal-coaching') }}">Personal Coaching</a></li>
 					<li><a href="{{ url('/blog') }}">Blog</a></li>
 					<li><a href="{{ url('/contact') }}">Contact</a></li>
 					<li class="menu-has-children"><a href="">Members</a>

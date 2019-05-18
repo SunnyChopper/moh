@@ -16,6 +16,7 @@ use App\Custom\AdminHelper;
 use App\Custom\CourseHelper;
 use App\Custom\MentorHelper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -55,7 +56,7 @@ class AdminController extends Controller
     }
 
     public function logout() {
-    	AdminHelper::logout();
+        AdminHelper::logout();
     	return redirect(url('/'));
     }
 

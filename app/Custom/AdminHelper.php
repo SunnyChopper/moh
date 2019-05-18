@@ -39,7 +39,7 @@ class AdminHelper {
 
 	public static function isAuthorized() {
 		if (!Auth::guest()) {
-			if (Session::has('backend_auth') == Auth::id()) {
+			if (Session::has('backend_auth')) {
 				return true;
 			} else {
 				return false;
