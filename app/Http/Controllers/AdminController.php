@@ -7,6 +7,7 @@ use App\Course;
 use App\CourseModule;
 use App\CourseVideo;
 use App\MentorTask;
+use App\MentorVideo;
 use App\MentorDocument;
 use App\MentorEnrollment;
 use App\MentorRecommendation;
@@ -319,8 +320,10 @@ class AdminController extends Controller
     }
 
     public function create_mentee_document(Request $data) {
+        $mentee = MentorEnrollment::find($data->mentee_id);
+
         $doc = new MentorDocument;
-        $doc->user_id = $data->mentee_id;
+        $doc->user_id = $mentee->user_id;
         $doc->title = $data->title;
         $doc->description = $data->description;
         $doc->link = $data->link;
@@ -372,8 +375,10 @@ class AdminController extends Controller
     }
 
     public function create_recommendation(Request $data) {
+        $mentee = MentorEnrollment::find($data->mentee_id);
+
         $r = new MentorRecommendation;
-        $r->user_id = $data->mentee_id;
+        $r->user_id = $mentee->user_id;
         $r->title = $data->title;
         $r->description = $data->description;
         $r->link = $data->link;
@@ -427,8 +432,9 @@ class AdminController extends Controller
     }
 
     public function create_task(Request $data) {
+        $mentee = MentorEnrollment::find($data->mentee_id);
         $task = new MentorTask;
-        $task->user_id = $data->mentee_id;
+        $task->user_id = $mentee->user_id;
         $task->title = $data->title;
         $task->description = $data->description;
         $task->due_date = $data->due_date;
@@ -464,6 +470,61 @@ class AdminController extends Controller
         $task = MentorTask::find($data->task_id);
         $task->status = 0;
         $task->save();
+
+        return redirect()->back();
+    }
+
+    public function new_video($mentee_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $page_title = "Create New Video";
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.videos.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('mentee_id', $mentee_id);
+    }
+
+    public function create_video(Request $data) {
+        $mentee = MentorEnrollment::find($data->mentee_id);
+
+        $video = new MentorVideo;
+        $video->user_id = $mentee->user_id;
+        $video->title = $data->title;
+        $video->description = $data->description;
+        $video->video_id = $data->video_id;
+        $video->save();
+
+        return redirect(url('/admin/personal-coaching/mentee/' . $data->mentee_id));
+    }
+
+    public function edit_video($mentee_id, $video_id) {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $video = MentorVideo::find($video_id);
+
+        $page_title = "Edit " . $video->title;
+        $page_header = $page_title;
+
+        return view('admin.personal-coaching.videos.edit')->with('video', $video)->with('mentee_id', $mentee_id)->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function update_video(Request $data) {
+        $video = MentorVideo::find($data->vid_id);
+        $video->title = $data->title;
+        $video->description = $data->description;
+        $video->video_id = $data->video_id;
+        $video->save();
+
+        return redirect(url('/admin/personal-coaching/mentee/' . $data->mentee_id));
+    }
+
+    public function delete_video(Request $data) {
+        $video = MentorVideo::find($data->video_id);
+        $video->status = 0;
+        $video->save();
 
         return redirect()->back();
     }

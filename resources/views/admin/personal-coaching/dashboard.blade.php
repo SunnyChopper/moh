@@ -5,6 +5,7 @@
 	@include('admin.personal-coaching.modals.delete-document')
 	@include('admin.personal-coaching.modals.delete-recommendation')
 	@include('admin.personal-coaching.modals.delete-task')
+	@include('admin.personal-coaching.modals.delete-video')
 
 	<div class="container pt-64 pb-64">
 		<div class="row">
@@ -145,7 +146,39 @@
 				<h3 class="mt-32 mb-16">Videos</h3>
 
 				@if(count($videos) > 0)
+				<div style="overflow: auto;">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Created At</th>
+								<th>Status</th>
+								<th></th>
+							</tr>
+						</thead>
 
+						<tbody>
+							@foreach($videos as $v)
+							<tr>
+								<td style="vertical-align: middle;"><a href="{{ url('https://www.youtube.com/watch?v=' . $v->video_id) }}">{{ $v->title }}</a></td>
+								<td style="vertical-align: middle;">{{ Carbon\Carbon::parse($v->created_at)->format('M jS, Y') }}</td>
+								<td style="vertical-align: middle;">
+									@if($v->status == 1)
+									Not Viewed
+									@elseif($v->status == 2)
+									Viewed
+									@endif
+								</td>
+								<td style="vertical-align: middle;">
+
+									<button id="{{ $v->id }}" class="genric-btn danger rounded small delete_video_button" style="float: right;">Delete</button>
+									<a href="{{ url('/admin/personal-coaching/mentee/' . $mentee_id . '/videos/' . $v->id . '/edit') }}" class="genric-btn info rounded small mr-2" style="float: right;">Edit</a>
+								</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
 				@else
 				<div class="gray-box">
 					<h4 class="text-center mb-2">No Videos</h4>
@@ -209,6 +242,12 @@
 			var id = $(this).attr('id');
 			$("#delete_task_id").val(id);
 			$("#delete_task_modal").modal();
+		});
+
+		$(".delete_video_button").on('click', function() {
+			var id = $(this).attr('id');
+			$("#delete_video_id").val(id);
+			$("#delete_video_modal").modal();
 		});
 	</script>
 @endsection

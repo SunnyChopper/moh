@@ -31,7 +31,7 @@ class MentorHelper {
 	}
 
 	public static function getVideosForUser($user_id) {
-		return MentorVideo::where('user_id', $user_id)->where('status', '>', 1)->get();
+		return MentorVideo::where('user_id', $user_id)->where('status', '>', 0)->get();
 	}
 
 	public static function getDocumentsForUser($user_id) {
