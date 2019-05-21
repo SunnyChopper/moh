@@ -6,7 +6,7 @@
 	<div class="container mt-64 mb-64">
 		<div class="row mb-32">
 			<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12 col-xs-12">
-				<img src="{{ $post->featured_image_url }}" class="regular-image">
+				<img src="{{ $post->featured_image_url }}" class="regular-image-100">
 			</div>
 		</div>
 		<div class="row">

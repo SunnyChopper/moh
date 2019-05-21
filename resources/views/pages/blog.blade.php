@@ -12,7 +12,7 @@
 						<a class="blog-link" href="/post/{{ $post->id }}/{{ $post->slug }}">
 							<div class="row">
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-									<img class="regular-image rounded-image" src="{{ $post->featured_image_url }}">
+									<img class="regular-image-100 rounded-image" src="{{ $post->featured_image_url }}">
 								</div>
 								<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 									<h4>{{ $post->title }}</h4>
