@@ -10,7 +10,7 @@
 				<p class="pt-10 pb-10">
 					Whatever your dream or goal is, in order to achieve, you must first master your mind. Our goal is to give you the resources and education needed to do so.
 				</p>
-				<a href="#" class="primary-btn text-uppercase">Get Started For Free</a>
+				<a href="{{ url('/personal-coaching') }}" class="primary-btn text-uppercase">Get Personal Coaching</a>
 			</div>										
 		</div>
 	</div>					
