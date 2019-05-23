@@ -11,11 +11,58 @@ use App\MentorVideo;
 use App\MentorDocument;
 use App\MentorTask;
 use App\MentorEnrollment;
+use App\User;
 use App\Custom\MentorHelper;
+use App\Custom\StripeHelper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MentorsController extends Controller
 {
+
+	public function enroll(Request $data) {
+		// Step 1: Get user profile
+		if (Auth::guest()) {
+			// Create the user
+			$user = new User;
+			$user->first_name = $data->first_name;
+			$user->last_name = $data->last_name;
+			$user->username = $data->username;
+			$user->email = strtolower($data->email);
+			$user->password = Hash::make($data->password);
+			$user->save();
+			Auth::loginUsingId($user->id);
+		} else {
+			$user = User::find(Auth::id());
+		}
+
+		// Step 2: Make subscription payment
+		$data = array(
+			'plan_id' => 'plan_DXo8PQEzNADNjk',
+			'email' => $data->email,
+			'card_number' => $data->card_number,
+			'cvvNumber' => $data->cvvNumber,
+			'ccExpiryMonth' => $data->ccExpiryMonth,
+			'ccExpiryYear' => $data->ccExpiryYear
+		);
+
+		$response = StripeHelper::subscribe($data);
+
+		if ($response == "error") {
+			return redirect()->back()->with('error', 'There was an error while processing your information.');
+		} else {
+			// Create enrollment
+			$enrollment = new MentorEnrollment;
+			$enrollment->user_id = $user->id;
+			$enrollment->customer_id = $response[0];
+			$enrollment->subscription_id = $response[1];
+			$enrollment->next_payment_date = Carbon::today()->addMonth();
+			$enrollment->save();
+
+			// Redirect to personal coaching dashboard
+			return redirect(url('/members/personal-coaching'));
+		}
+	}
 
 	public function personal_coaching() {
 		if ($this->isUserAuthorized() == false) {

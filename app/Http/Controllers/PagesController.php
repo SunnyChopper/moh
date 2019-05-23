@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use App\Custom\CourseHelper;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Stripe\Error\Card;
 
 class PagesController extends Controller
 {
+
+    public function test() {
+        // Start by creating a charge
+        $stripe = Stripe::make(env('STRIPE_SECRET'));
+        $plan = $stripe->plans()->find('personal-coaching');
+        return var_dump($plan);
+    }
+
     public function index() {
     	$page_title = "Welcome";
 

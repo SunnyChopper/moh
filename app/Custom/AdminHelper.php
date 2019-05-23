@@ -24,13 +24,17 @@ class AdminHelper {
 	public static function attempt_login($username, $password) {
 		if (User::where('username', strtolower($username))->count() > 0) {
 			$user = User::where('username', strtolower($username))->first();
-			if (Hash::check($password, $user->password) == true) {
+			if ($user->backend_auth > 0) {
+				if (Hash::check($password, $user->password) == true) {
 				Auth::login($user);
-				Session::put('backend_auth', $user->backend_auth);
-				Session::save();
-				return 1;
+					Session::put('backend_auth', $user->backend_auth);
+					Session::save();
+					return 1;
+				} else {
+					return 0;
+				}
 			} else {
-				return 0;
+				return -2;
 			}
 		} else {
 			return -1;

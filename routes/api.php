@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
 
 /*
@@ -15,4 +16,21 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('/username/check', function(Request $data) {
+	if (User::where('username', strtolower($data->username))->count() > 0) {
+		return response()->json(true, 200);
+	} else {
+		return response()->json(false, 200);
+	}
+});
+
+
+Route::post('/email/check', function(Request $data) {
+	if (User::where('email', strtolower($data->email))->count() > 0) {
+		return response()->json(true, 200);
+	} else {
+		return response()->json(false, 200);
+	}
 });

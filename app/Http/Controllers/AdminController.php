@@ -37,9 +37,11 @@ class AdminController extends Controller
     		return redirect(url('/admin/dashboard'));
     	} elseif ($login_result == -1) {
     		return redirect()->back()->with('error', 'Username not found in system.');
-    	} else {
+    	} elseif ($login_result == 0) {
     		return redirect()->back()->with('error', 'Password is incorrect.');
-    	}
+    	} else {
+            return redirect(url('/members/dashboard'));
+        }
     }
 
     public function dashboard() {
