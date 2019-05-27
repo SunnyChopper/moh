@@ -68,6 +68,10 @@ class BlogPostHelper {
 		return BlogPost::where('is_active', 1)->paginate($pagination);
 	}
 
+	public static function get_recent() {
+		return BlogPost::where('is_active', 1)->orderBy('created_at', 'DESC')->limit(3)->get();
+	}
+
 	public function get_all_from_author($author_id) {
 		return BlogPost::where('author_id', $author_id)->where('is_active', 1)->get();
 	}

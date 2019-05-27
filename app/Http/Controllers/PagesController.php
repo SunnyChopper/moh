@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use App\Custom\CourseHelper;
+use App\Custom\BlogPostHelper;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Stripe\Error\Card;
 
@@ -21,7 +22,9 @@ class PagesController extends Controller
     public function index() {
     	$page_title = "Welcome";
 
-    	return view('pages.index')->with('page_title', $page_title);
+        $posts = BlogPostHelper::get_recent();
+
+    	return view('pages.index')->with('page_title', $page_title)->with('posts', $posts);
     }
 
     public function courses() {
