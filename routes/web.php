@@ -19,6 +19,8 @@ Route::get('/courses/{course_id}/enroll', 'MembersController@enroll_course');
 Route::post('/courses/{course_id}/enroll/submit', 'MembersController@create_course_membership');
 Route::get('/personal-coaching', 'PagesController@personal_coaching');
 Route::post('/personal-coaching/enroll', 'MentorsController@enroll');
+Route::get('/self-dev-quiz', 'PagesController@self_dev_quiz');
+Route::post('/consultation/submit', 'PagesController@submit_free_consultation');
 Route::get('/test', 'PagesController@test');
 
 // Admin functions

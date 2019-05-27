@@ -51,4 +51,17 @@ class PagesController extends Controller
 
         return view('pages.personal-coaching')->with('page_title', $page_title)->with('page_header', $page_header);
     }
+
+    public function self_dev_quiz() {
+        $page_title = "Self-Development Quiz";
+        $page_header = $page_title;
+
+        return view('pages.self-dev-quiz')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function submit_free_consultation(Request $data) {
+        $first_name = $data->first_name;
+        $last_name = $data->last_name;
+        $skype = $data->skype;
+    }
 }

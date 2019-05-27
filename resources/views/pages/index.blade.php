@@ -37,7 +37,7 @@
 				<div class="col-12">
 					<h2 class="text-center">Want to Know How Self-Development Can Help You?</h2>
 					<p class="text-center mt-8">We've developed a free quiz that you can take to figure out how you can specifically benefit from self-development. Click below to get started.</p>
-					<a href="" class="genric-btn primary centered rounded" style="font-size: 18px;">Take the Free Quiz</a>
+					<a href="{{ url('/self-dev-quiz') }}" class="genric-btn primary centered rounded" style="font-size: 18px;">Take the Free Quiz</a>
 				</div>
 			</div>
 		</div>
