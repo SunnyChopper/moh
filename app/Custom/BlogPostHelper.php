@@ -61,7 +61,7 @@ class BlogPostHelper {
 	}
 
 	public function get_all() {
-		return BlogPost::where('is_active', 1)->get();
+		return BlogPost::where('is_active', 1)->orderBy('created_at', 'DESC')->get();
 	}
 
 	public function get_all_with_pagination($pagination) {
