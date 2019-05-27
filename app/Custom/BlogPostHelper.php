@@ -65,7 +65,7 @@ class BlogPostHelper {
 	}
 
 	public function get_all_with_pagination($pagination) {
-		return BlogPost::where('is_active', 1)->paginate($pagination);
+		return BlogPost::where('is_active', 1)->orderBy('created_at', 'DESC')->paginate($pagination);
 	}
 
 	public static function get_recent() {
