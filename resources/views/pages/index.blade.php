@@ -17,13 +17,13 @@
 				<p class="text-center mt-16 mb-0">If you don't have any self-awareness, you will never truly understand what your strengths and weaknesses are and if that's the case, you will not be able to place yourself in situations where the odds of success are stacked in your favor. With self-development, you can start to learn who you are as an individual, learn what your strengths are and start to use your strengths to maximize the odds of success.</p>
 			</div>
 
-			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-16-mobile">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
 				<img src="https://image.flaticon.com/icons/svg/1777/1777659.svg" class="regular-image-30 centered">
 				<h4 class="text-center mt-32">Laser Focus</h4>
 				<p class="text-center mt-16 mb-0">Want to know what both Warren Buffett and Bill Gates thought was the most important character trait for success? It was focus. If you do not have the ability to sit down and focus on a task or even focus on a single mission, it won't matter how much effort you try to exert, you will not be able to move the needle. With self-development and practice, you can build your focus muscle and attain laser focus.</p>
 			</div>
 
-			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-16-mobile">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
 				<img src="https://image.flaticon.com/icons/svg/685/685842.svg" class="regular-image-30 centered">
 				<h4 class="text-center mt-32">Control Your Fears</h4>
 				<p class="text-center mt-16 mb-0">Fear is an abstract concept that originates from within. It served its purpose for ancient humans, however, in the modern world, we are not constantly being attacked by tigers and bears, so our sense of fear is mostly irrational. By working on the self, you will begin being able to objectively attack your fears and dismantle them. This proves to be very useful when you're trying to achieve big dreams and goals of yours.</p>
