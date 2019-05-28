@@ -71,6 +71,7 @@ Route::post('/admin/personal-coaching/videos/update', 'AdminController@update_vi
 Route::post('/admin/personal-coaching/videos/delete', 'AdminController@delete_video');
 Route::get('/admin/personal-coaching/consultations', 'AdminController@view_free_consultations');
 Route::post('/admin/personal-coaching/consultations/update', 'AdminController@update_free_consultation');
+Route::get('/admin/links/personal-coaching', 'AdminController@view_personal_coaching_link');
 
 // Member functions
 Auth::routes();

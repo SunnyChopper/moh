@@ -59,6 +59,11 @@
 							<li><a href="{{ url('/admin/personal-coaching/consultations') }}">Free Consultations <span class="badge badge-primary ml-1" style="padding: 4px; font-size: 11px;">{{ \App\Custom\MentorHelper::getNumberOfOpenFreeConsultations() }}</span></a></li>
 						</ul>
 					</li>
+					<li class="menu-has-children"><a href="">Links</a>
+						<ul>
+							<li><a href="{{ url('/admin/links/personal-coaching') }}">Personal Coaching Link</a></li>
+						</ul>
+					</li>
 					<li><a href="{{ url('/admin/posts') }}">Blog</a></li>
 					{{-- <li><a href="{{ url('/tools') }}">Tools</a></li> --}}
 					<li class="menu-has-children"><a href="">{{ Auth::user()->first_name }}</a>

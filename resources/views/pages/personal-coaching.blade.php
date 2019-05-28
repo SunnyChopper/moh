@@ -124,7 +124,15 @@
 				<div class="videoWrapper">
 				    <iframe width="560" height="349" src="https://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
 				</div>
-                <h4 class="text-center mt-32">Price: <span class="red"><strike>$497/month</strike></span> <span class="green">$50/month</span></h4>
+                @if($special_link == true)
+                    @if($expired_link == false)
+                        <h4 class="text-center mt-32">Price: <span class="red"><strike>$497/month</strike></span> <span class="red"><strike>$67/month</strike></span> <span class="green">$50/month</span></h4>
+                        <h3 class="text-center mt-16">Hurry! This link expires in...</h3>
+                        <h5 class="text-center mt-8" id="timer"></h5>
+                    @endif
+                @else
+                <h4 class="text-center mt-32">Price: <span class="red"><strike>$497/month</strike></span> <span class="green">$67/month</span></h4>
+                @endif
                 <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
 			</div>
         </div>
@@ -402,6 +410,26 @@
 
 @section('page_js')
 	<script type="text/javascript">
+        $(document).ready(function() {
+            var countDownDate = new Date("{{ Carbon\Carbon::parse(Crypt::decrypt($_GET['exl']))->format('m/d/y h:i:s') }}").getTime();
+            
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                $("#timer").html(hours + " hours, " + minutes + " minutes, " + seconds + " seconds");
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("timer").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        });
+
 		setInterval(function() { $(".custom-social-proof").stop().slideToggle('slow'); }, 8000);
      		$(".custom-close").click(function() {
     		$(".custom-social-proof").stop().slideToggle('slow');

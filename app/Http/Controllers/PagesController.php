@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\FreeConsultation;
 
-use Illuminate\Http\Request;
-
 use App\Custom\CourseHelper;
 use App\Custom\BlogPostHelper;
 
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Stripe\Error\Card;
 
@@ -53,7 +54,21 @@ class PagesController extends Controller
         $page_title = "Personal Coaching";
         $page_header = $page_title;
 
-        return view('pages.personal-coaching')->with('page_title', $page_title)->with('page_header', $page_header);
+        $special_link = false;
+        $expired_link = true;
+        if (isset($_GET['exl'])) {
+            $special_link = true;
+            $encrypted = $_GET['exl'];
+            $expiration = Crypt::decrypt($encrypted);
+
+            if (Carbon::now()->gt(Carbon::parse($expiration))) {
+                $expired_link = true;
+            } else {
+                $expired_link = false;
+            }
+        }
+
+        return view('pages.personal-coaching')->with('page_title', $page_title)->with('page_header', $page_header)->with('special_link', $special_link)->with('expired_link', $expired_link);
     }
 
     public function self_dev_quiz() {

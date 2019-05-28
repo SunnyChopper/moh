@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+
 use App\User;
 use App\Course;
 use App\CourseModule;
@@ -20,6 +22,7 @@ use App\Custom\MentorHelper;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Crypt;
 
 class AdminController extends Controller
 {
@@ -550,6 +553,16 @@ class AdminController extends Controller
         $consultation->save();
 
         return redirect()->back();
+    }
+
+    public function view_personal_coaching_link() {
+        $page_title = "Personal Coaching Link";
+        $page_header = $page_title;
+
+        $now = Carbon::now()->addDay();
+        $encrypted = Crypt::encrypt($now);
+
+        return view('admin.links.personal-coaching')->with('page_title', $page_title)->with('page_header', $page_header)->with('encrypted', $encrypted);
     }
 
 }
