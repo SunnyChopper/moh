@@ -43,12 +43,12 @@
 								<li class="list-group-item">
 									<div class="row">
 										<div class="col-12">
-											<h6 style="display: inline-block; float: left; margin-top: 0.35em;">{{ $recommendation->title }}</h6>
-											<a href="{{ $recommendation->link }}" target="_blank" class="genric-btn primary rounded small" style="display: inline-block; float: right;">Visit Link</a>
+											<h4 class="mb-2">{{ $recommendation->title }}</h4>
+											<a href="{{ $recommendation->link }}" target="_blank" class="genric-btn primary rounded small">Visit Link</a>
 										</div>
 									</div>
 
-									<div class="row">
+									<div class="row mt-16">
 										<div class="col-12">
 											<p class="mb-0">{{ $recommendation->description }}</p>
 										</div>
@@ -69,12 +69,12 @@
 								<li class="list-group-item">
 									<div class="row">
 										<div class="col-12">
-											<h6 style="display: inline-block; float: left; margin-top: 0.35em;">{{ $video->title }}</h6>
-											<a href="https://www.youtube.com/watch?v={{ $video->video_id }}" target="_blank" class="genric-btn primary rounded small" style="display: inline-block; float: right;">Watch Video</a>
+											<h4 class="mb-2">{{ $video->title }}</h4>
+											<a href="https://www.youtube.com/watch?v={{ $video->video_id }}" target="_blank" class="genric-btn primary rounded small">Watch Video</a>
 										</div>
 									</div>
 
-									<div class="row">
+									<div class="row mt-16">
 										<div class="col-12">
 											<p class="mb-0">{{ $video->description }}</p>
 										</div>
@@ -95,12 +95,12 @@
 								<li class="list-group-item">
 									<div class="row">
 										<div class="col-12">
-											<h6 style="display: inline-block; float: left; margin-top: 0.35em;">{{ $document->title }}</h6>
-											<a href="{{ $document->link }}" target="_blank" class="genric-btn primary rounded small" style="display: inline-block; float: right;"></a>
+											<h4 class="mb-2">{{ $document->title }}</h4>
+											<a href="{{ $document->link }}" target="_blank" class="genric-btn primary rounded small">Access Document</a>
 										</div>
 									</div>
 
-									<div class="row">
+									<div class="row mt-16">
 										<div class="col-12">
 											<p class="mb-0">{{ $document->description }}</p>
 										</div>
@@ -121,11 +121,11 @@
 								<li class="list-group-item">
 									<div class="row">
 										<div class="col-12">
-											<h6 style="display: inline-block; float: left; margin-top: 0.35em;">{{ $task->title }}</h6>
+											<h4>{{ $task->title }}</h6>
 										</div>
 									</div>
 
-									<div class="row">
+									<div class="row mt-16">
 										<div class="col-12">
 											<p class="mb-0">{{ $task->description }}</p>
 										</div>
