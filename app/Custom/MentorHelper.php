@@ -10,6 +10,7 @@ use App\MentorRecommendation;
 use App\MentorTask;
 use App\MentorVideo;
 use App\MentorDocument;
+use App\FreeConsultation;
 use App\User;
 
 class MentorHelper {
@@ -60,8 +61,12 @@ class MentorHelper {
 		return $users;
 	}
 
-	public static function enroll($data) {
-		// TODO: Implement Stripe feature
+	public static function getNumberOfOpenFreeConsultations() {
+		return FreeConsultation::where('status', 0)->count();
+	}
+
+	public static function getOpenFreeConsultations() {
+		return FreeConsultation::where('status', 0)->get();
 	}
 
 }

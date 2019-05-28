@@ -11,10 +11,13 @@ use App\MentorVideo;
 use App\MentorDocument;
 use App\MentorEnrollment;
 use App\MentorRecommendation;
+use App\FreeConsultation;
+
 use App\Custom\UserHelper;
 use App\Custom\AdminHelper;
 use App\Custom\CourseHelper;
 use App\Custom\MentorHelper;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -528,6 +531,23 @@ class AdminController extends Controller
         $video = MentorVideo::find($data->video_id);
         $video->status = 0;
         $video->save();
+
+        return redirect()->back();
+    }
+
+    public function view_free_consultations() {
+        $page_title = "Free Consultations";
+        $page_header = $page_title;
+
+        $consultations = MentorHelper::getOpenFreeConsultations();
+        
+        return view('admin.personal-coaching.consultations.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('consultations', $consultations);
+    }
+
+    public function update_free_consultation(Request $data) {
+        $consultation = FreeConsultation::find($data->consultation_id);
+        $consultation->status = $data->status;
+        $consultation->save();
 
         return redirect()->back();
     }

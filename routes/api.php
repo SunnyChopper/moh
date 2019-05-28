@@ -1,6 +1,8 @@
 <?php
 
 use App\User;
+use App\FreeConsultation;
+
 use Illuminate\Http\Request;
 
 /*
@@ -33,4 +35,22 @@ Route::post('/email/check', function(Request $data) {
 	} else {
 		return response()->json(false, 200);
 	}
+});
+
+Route::get('/consultations/view', function() {
+	$consultation = FreeConsultation::find($_GET['consultation_id']);
+	$return_array = array(
+		"id" => $consultation->id,
+		"first_name" => $consultation->first_name,
+		"last_name" => $consultation->last_name,
+		"skype_id" => $consultation->skype_id,
+		"sa_percentage" => $consultation->sa_percentage,
+		"f_percentage" => $consultation->f_percentage,
+		"sd_percentage" => $consultation->sd_percentage,
+		"ha_percentage" => $consultation->ha_percentage,
+		"he_percentage" => $consultation->he_percentage,
+		"sf_percentage" => $consultation->sf_percentage
+	);
+
+	return response()->json($return_array, 200);
 });

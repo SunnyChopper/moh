@@ -69,6 +69,8 @@ Route::post('/admin/personal-coaching/videos/create', 'AdminController@create_vi
 Route::get('/admin/personal-coaching/mentee/{mentee_id}/videos/{video_id}/edit', 'AdminController@edit_video');
 Route::post('/admin/personal-coaching/videos/update', 'AdminController@update_video');
 Route::post('/admin/personal-coaching/videos/delete', 'AdminController@delete_video');
+Route::get('/admin/personal-coaching/consultations', 'AdminController@view_free_consultations');
+Route::post('/admin/personal-coaching/consultations/update', 'AdminController@update_free_consultation');
 
 // Member functions
 Auth::routes();
