@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\FreeConsultation;
+
 use Illuminate\Http\Request;
+
 use App\Custom\CourseHelper;
 use App\Custom\BlogPostHelper;
+
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Stripe\Error\Card;
 
@@ -60,8 +64,25 @@ class PagesController extends Controller
     }
 
     public function submit_free_consultation(Request $data) {
-        $first_name = $data->first_name;
-        $last_name = $data->last_name;
-        $skype = $data->skype;
+        $consultation = new FreeConsultation;
+        $consultation->first_name = $data->first_name;
+        $consultation->last_name = $data->last_name;
+        $consultation->skype_id = $data->skype_id;
+        $consultation->sa_percentage = $data->sa_percentage;
+        $consultation->f_percentage = $data->f_percentage;
+        $consultation->sd_percentage = $data->sd_percentage;
+        $consultation->ha_percentage = $data->ha_percentage;
+        $consultation->he_percentage = $data->he_percentage;
+        $consultation->sf_percentage = $data->sf_percentage;
+        $consultation->save();
+
+        return redirect(url('/consultation/thank-you'));
+    }
+
+    public function thank_you_consultation() {
+        $page_title = "You're Registered";
+        $page_header = $page_title;
+
+        return view('pages.thank-you-consultation')->with('page_title', $page_title)->with('page_header', $page_header);
     }
 }

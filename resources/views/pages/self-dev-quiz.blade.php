@@ -46,6 +46,13 @@
 						<h4 class="mt-32">Sign up for a free consultation</h4>
 						<form action="/consultation/submit" method="POST">
 							{{ csrf_field() }}
+							<input type="hidden" name="sa_percentage">
+							<input type="hidden" name="f_percentage">
+							<input type="hidden" name="sd_percentage">
+							<input type="hidden" name="ha_percentage">
+							<input type="hidden" name="he_percentage">
+							<input type="hidden" name="sf_percentage">
+
 							<div class="form-group row mt-16">
 								<div class="col-lg-4 col-md-4 col-sm-12 col-12">
 									<label>First Name:</label>
@@ -59,7 +66,7 @@
 
 								<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-8-mobile">
 									<label>Skype ID:</label>
-									<input type="text" class="form-control" name="skype" required>
+									<input type="text" class="form-control" name="skype_id" required>
 								</div>
 							</div>
 
@@ -142,6 +149,13 @@
 			        $("#ha").html(ha_percentage.toFixed(2) + "%");
 			        $("#he").html(he_percentage.toFixed(2) + "%");
 			        $("#sf").html(sf_percentage.toFixed(2) + "%");
+
+			        $("input[name=sa_percentage]").val(sa_percentage);
+			        $("input[name=f_percentage]").val(f_percentage);
+			        $("input[name=sd_percentage]").val(sd_percentage);
+			        $("input[name=ha_percentage]").val(ha_percentage);
+			        $("input[name=he_percentage]").val(he_percentage);
+			        $("input[name=sf_percentage]").val(sf_percentage);
 
 			        var dynamic_html = "";
 
