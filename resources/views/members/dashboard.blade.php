@@ -146,4 +146,18 @@
 			</div> --}}
 		</div>
 	</div>
+
+	@if($is_enrolled == false)
+	<div style="background: #EAEAEA;">
+		<div class="container pt-64 pb-64">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="text-center mb-8">Self-Mastery Quiz</h2>
+					<p class="text-center">Take our free quiz to score yourself on how well you've mastered the self. If there are any weak areas, we can help you start mastering the self.</p>
+					<a href="{{ url('/self-dev-quiz') }}" class="genric-btn primary rounded centered" style="font-size: 15px;">Take Self-Mastery Quiz</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	@endif
 @endsection
