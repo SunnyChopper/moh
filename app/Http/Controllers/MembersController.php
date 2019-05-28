@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Course;
 use App\CourseMembership;
+use App\MentorEnrollment;
+
 use App\Custom\UserHelper;
 use Illuminate\Http\Request;
 
@@ -19,7 +21,15 @@ class MembersController extends Controller
 		$page_title = "Members Dashboard";
 		$page_header = $page_title;
 
-		return view('members.dashboard')->with('page_title', $page_title)->with('page_header', $page_header);
+		$courses = Course::where('is_active', 1)->get();
+
+		if (MentorEnrollment::where('user_id', Auth::id())->count() > 0) {
+			$is_enrolled = true;
+		} else {
+			$is_enrolled = false;
+		}
+
+		return view('members.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('is_enrolled', $is_enrolled)->with('courses', $courses);
 	}
 
 	public function enroll_course($course_id) {
