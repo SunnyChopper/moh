@@ -313,6 +313,13 @@ class MentorsController extends Controller
 		return redirect(url('/members/dashboard'));
 	}
 
+	public function view_open_appointments() {
+		$page_title = "Under Construction";
+		$page_header = $page_title;
+
+		return view('members.mentors.appointments.view')->with('page_header', $page_header)->with('page_title', $page_title);
+	}
+
 	private function isUserAuthorized() {
 		if (MentorEnrollment::where('user_id', Auth::id())->count() > 0) {
 			return true;

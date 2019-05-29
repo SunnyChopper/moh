@@ -81,6 +81,7 @@ Route::get('/members/courses/{course_id}/dashboard', 'CoursesController@dashboar
 Route::get('/members/personal-coaching', 'MentorsController@personal_coaching');
 Route::get('/members/personal-coaching/tasks/{task_id}/edit', 'MentorsController@edit_task');
 Route::post('/members/personal-coaching/tasks/update', 'MentorsController@update_task');
+Route::get('/members/personal-coaching/appointments', 'MentorsController@view_open_appointments');
 
 // Blog Post functions
 Route::get('/blog', 'BlogPostsController@blog');
