@@ -239,10 +239,18 @@
                 <div class="gray-box">
                     <form id="enroll_personal_coaching_form" action="/personal-coaching/enroll" method="POST">
                         {{ csrf_field() }}
+                        @if($special_link == true)
+                            @if($expired_link == false)
+                                <input type="hidden" value="1" name="special_link">
+                            @endif
+                        @else
+                            <input type="hidden" value="0" name="special_link">
+                        @endif
+
                         <h3 class="text-center mb-32">Master Your Self</h3>
                         @if(Auth::guest())
                             <h5>Step 1: Create a Mind of Habit account</h5>
-                            <p class="mb-0">If you already have a Mind of Habit account, click <a href="{{ url('/login?redirect_action=/personal-coaching#pc-form') }}">here</a> to login.</p>
+                            <p class="mb-0">If you already have a Mind of Habit account, click <a href="{{ url('/login?redirect_action=/personal-coaching?exl=' . $_GET['exl']) }}">here</a> to login.</p>
                             <hr />
 
                             <div class="form-group row">
@@ -381,6 +389,27 @@
                                 </div>
                             </div>
                         @endif
+
+                        <hr />
+
+                        <div class="form-group row">
+                            <div class="col-6">
+                                <h5>Today's Total:</h5>
+                            </div>
+
+                            <div class="col-6">
+                                <h5 style="float: right;">
+                                    @if($special_link == true)
+                                        @if($expired_link == false)
+                                            <span class="green">$50.00</span>
+                                        @endif
+                                    @else
+                                        $67.00
+                                    @endif
+                                </h5>
+                            </div>
+                        </div>
+
                         <div class="form-group mt-32">
                             <input type="submit" id="submit_button" class="genric-btn large rounded primary centered" value="Let's Get Started" style="font-size: 18px;">
                         </div>
@@ -411,23 +440,27 @@
 @section('page_js')
 	<script type="text/javascript">
         $(document).ready(function() {
-            var countDownDate = new Date("{{ Carbon\Carbon::parse(Crypt::decrypt($_GET['exl']))->format('m/d/y h:i:s') }}").getTime();
-            
-            var x = setInterval(function() {
-                var now = new Date().getTime();
-                var distance = countDownDate - now;
+            @if($special_link == true)
+                @if($expired_link == false)
+                    var countDownDate = new Date("{{ Carbon\Carbon::parse(Crypt::decrypt($_GET['exl']))->format('m/d/y h:i:s') }}").getTime();
+                    
+                    var x = setInterval(function() {
+                        var now = new Date().getTime();
+                        var distance = countDownDate - now;
 
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                $("#timer").html(hours + " hours, " + minutes + " minutes, " + seconds + " seconds");
+                        $("#timer").html(hours + " hours, " + minutes + " minutes, " + seconds + " seconds");
 
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("timer").innerHTML = "EXPIRED";
-                }
-            }, 1000);
+                        if (distance < 0) {
+                            clearInterval(x);
+                            document.getElementById("timer").innerHTML = "EXPIRED";
+                        }
+                    }, 1000);
+                @endif
+            @endif
         });
 
 		setInterval(function() { $(".custom-social-proof").stop().slideToggle('slow'); }, 8000);
