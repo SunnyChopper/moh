@@ -250,7 +250,14 @@
                         <h3 class="text-center mb-32">Master Your Self</h3>
                         @if(Auth::guest())
                             <h5>Step 1: Create a Mind of Habit account</h5>
-                            <p class="mb-0">If you already have a Mind of Habit account, click <a href="{{ url('/login?redirect_action=/personal-coaching?exl=' . $_GET['exl']) }}">here</a> to login.</p>
+                            @if($special_link == true)
+                                @if($expired_link == false)
+                                    <p class="mb-0">If you already have a Mind of Habit account, click <a href="{{ url('/login?redirect_action=/personal-coaching?exl=' . $_GET['exl']) }}">here</a> to login.</p>
+                                @endif
+                            @else
+                                <p class="mb-0">If you already have a Mind of Habit account, click <a href="{{ url('/login?redirect_action=/personal-coaching') }}">here</a> to login.</p>
+                            @endif
+                            
                             <hr />
 
                             <div class="form-group row">
