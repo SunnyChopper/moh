@@ -216,7 +216,7 @@
         </div>
     </div>
 
-    <div id="pc-form" class="container pt-64 pb-64">
+    <div class="container pt-64 pb-64">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <h3>What You Will Get</h3>
@@ -236,7 +236,7 @@
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-32-mobile">
-                <div class="gray-box">
+                <div class="gray-box" id="pc-form">
                     <form id="enroll_personal_coaching_form" action="/personal-coaching/enroll" method="POST">
                         {{ csrf_field() }}
                         @if($special_link == true)
