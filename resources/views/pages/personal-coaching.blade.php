@@ -122,7 +122,7 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12">
 				<div class="videoWrapper">
-				    <iframe width="560" height="349" src="https://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+				    <iframe width="560" height="349" src="https://www.youtube.com/embed/0FrcfBICeLk?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
 				</div>
                 @if($special_link == true)
                     @if($expired_link == false)
