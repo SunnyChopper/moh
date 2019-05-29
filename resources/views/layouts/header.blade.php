@@ -4,14 +4,13 @@
 			<div class="row">
 				<div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
 					<ul>
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="https://www.instagram.com/mindofhabit"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="https://www.youtube.com/channel/UCDMZ84EKNAsFRMzVUPMnzbw"><i class="fa fa-youtube"></i></a></li>
 					</ul>			
 				</div>
-				<div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
-					<a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span> <span class="text">info@mindofhabit.com</span></a>
-				</div>
+				{{-- <div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
+					<a href="mailto:jeremy@mindofhabit.com"><span class="lnr lnr-envelope"></span> <span class="text">info@mindofhabit.com</span></a>
+				</div> --}}
 			</div>			  					
 		</div>
 	</div>
