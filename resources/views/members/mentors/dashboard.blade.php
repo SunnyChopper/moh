@@ -17,8 +17,8 @@
 			<div class="col-lg-5 col-md-5 col-sm-12 col-12">
 				<div class="gray-box">
 					<h4 class="text-center mb-16">Contact Options</h4>
-					<h6 class="text-center mb-3"><i class="fa fa-instagram mr-2"></i><strong>Instagram: </strong> {INSERT_INSTA_USERNAME}</h6>
-					<h6 class="text-center mb-3"><i class="fa fa-twitter mr-2"></i><strong>Twitter: </strong> {INSERT_TWITTER_USERNAME}</h6>
+					{{-- <h6 class="text-center mb-3"><i class="fa fa-instagram mr-2"></i><strong>Instagram: </strong> {INSERT_INSTA_USERNAME}</h6>
+					<h6 class="text-center mb-3"><i class="fa fa-twitter mr-2"></i><strong>Twitter: </strong> {INSERT_TWITTER_USERNAME}</h6> --}}
 					<h6 class="text-center mb-0"><i class="fa fa-envelope mr-2"></i><strong>Email: </strong> <a href="mailto:info@mindofhabit.com">info@mindofhabit.com</a></h6>
 				</div>
 			</div>
