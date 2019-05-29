@@ -37,14 +37,25 @@ class MentorsController extends Controller
 		}
 
 		// Step 2: Make subscription payment
-		$data = array(
-			'plan_id' => 'plan_DXo8PQEzNADNjk',
-			'email' => $data->email,
-			'card_number' => $data->card_number,
-			'cvvNumber' => $data->cvvNumber,
-			'ccExpiryMonth' => $data->ccExpiryMonth,
-			'ccExpiryYear' => $data->ccExpiryYear
-		);
+		if (intval($data->special_link) == 1) {
+			$data = array(
+				'plan_id' => 'monthly-discounted',
+				'email' => $data->email,
+				'card_number' => $data->card_number,
+				'cvvNumber' => $data->cvvNumber,
+				'ccExpiryMonth' => $data->ccExpiryMonth,
+				'ccExpiryYear' => $data->ccExpiryYear
+			);
+		} else {
+			$data = array(
+				'plan_id' => 'monthly',
+				'email' => $data->email,
+				'card_number' => $data->card_number,
+				'cvvNumber' => $data->cvvNumber,
+				'ccExpiryMonth' => $data->ccExpiryMonth,
+				'ccExpiryYear' => $data->ccExpiryYear
+			);
+		}
 
 		$response = StripeHelper::subscribe($data);
 
