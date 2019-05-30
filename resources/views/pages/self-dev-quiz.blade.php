@@ -65,8 +65,8 @@
 								</div>
 
 								<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-8-mobile">
-									<label>Skype ID:</label>
-									<input type="text" class="form-control" name="skype_id" required>
+									<label>Email:</label>
+									<input type="email" class="form-control" name="skype_id" required>
 								</div>
 							</div>
 
