@@ -38,13 +38,14 @@
 						<h6 class="mb-2"><b>Habits: </b> <span id="ha"></span></h6>
 						<h6 class="mb-2"><b>Health: </b> <span id="he"></span></h6>
 						<h6 class="mb-2"><b>Self-fulfillment: </b> <span id="sf"></span></h6>
-						<h3 class="mt-32">How We Can Help You</h3>
+
+						<h3 class="mt-32">What Does This Mean For You</h3>
 						<div id="dynamic_html" class="mt-8">
 						</div>
 						<p>That being said, we'll make you a one-time offer for a free consultation. Get on the phone, talk out your situation, and we'll see exactly how we can help you master the self. We'll even throw in a gift for getting on the phone.</p>
 						<p>Again, this is a one-time offer, so you won't get this anywhere else on the site.</p>
 						<h4 class="mt-32">Sign up for a free consultation</h4>
-						<form action="/consultation/submit" method="POST">
+						<form id="submit_consultation_form" action="/consultation/submit" method="POST">
 							{{ csrf_field() }}
 							<input type="hidden" name="sa_percentage">
 							<input type="hidden" name="f_percentage">
@@ -52,25 +53,51 @@
 							<input type="hidden" name="ha_percentage">
 							<input type="hidden" name="he_percentage">
 							<input type="hidden" name="sf_percentage">
+							<input type="hidden" name="timezone">
 
 							<div class="form-group row mt-16">
-								<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-12">
 									<label>First Name:</label>
 									<input type="text" class="form-control" name="first_name" required>
 								</div>
 
-								<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-8-mobile">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
 									<label>Last Name:</label>
 									<input type="text" class="form-control" name="last_name" required>
 								</div>
+							</div>
 
-								<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-8-mobile">
-									<label>Email:</label>
-									<input type="email" class="form-control" name="skype_id" required>
+							<div class="form-group row mt-16">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
+									<label>Select App:</label>
+									<select name="app" form="submit_consultation_form" class="form-control">
+										<option value="Instagram">Instagram</option>
+										<option value="Skype">Skype</option>
+										<option value="Facebook Messenger">Facebook Messenger</option>
+										<option value="WhatsApp">WhatsApp</option>
+										<option value="Telegram">Telegram</option>
+									</select>
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
+									<label id="username_label">Instagram username:</label>
+									<input type="text" class="form-control" name="contact" required>
 								</div>
 							</div>
 
-							<div class="form-group">
+							<div class="form-group row">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+									<label>Date:</label>
+									<input type="date" name="meeting_date" class="form-control" required>
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
+									<label>Time:</label>
+									<input type="time" name="meeting_time" class="form-control" required>
+								</div>
+							</div>
+
+							<div class="form-group mt-32">
 								<input type="submit" class="genric-btn centered primary rounded" style="font-size: 15px;" value="Signup for Free Consultation">
 							</div>
 						</form>
@@ -84,6 +111,27 @@
 @section('page_js')
 	<script type="text/javascript">
 		var responses = Array();
+
+		$(document).ready(function() {
+			var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+			$("input[name=timezone]").val(timezone);
+		});
+
+		$("select[name=app]").on('change', function() {
+			var selected = $(this).val();
+
+			if (selected == "Instagram") {
+				$("#username_label").html('Instagram Username:');
+			} else if (selected == "Skype") {
+				$("#username_label").html('Skype Email/Username:');
+			} else if (selected == "Facebook Messenger") {
+				$("#username_label").html('Facebook Profile URL:');
+			} else if (selected == "WhatsApp") {
+				$("#username_label").html('WhatsApp Number:');
+			} else {
+				$("#username_label").html('Telegram Username:');
+			}
+		});
 
 		$(".response").on('mouseover', function() {
 			$(this).css('background', '#FAFAFA');

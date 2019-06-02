@@ -89,6 +89,11 @@ class PagesController extends Controller
         $consultation->ha_percentage = $data->ha_percentage;
         $consultation->he_percentage = $data->he_percentage;
         $consultation->sf_percentage = $data->sf_percentage;
+        $consultation->timezone = $data->timezone;
+        $consultation->app = $data->app;
+        $consultation->contact = $data->contact;
+        $consultation->meeting_date = $data->meeting_date;
+        $consultation->meeting_time = $data->meeting_time;
         $consultation->save();
 
         return redirect(url('/consultation/thank-you'));
