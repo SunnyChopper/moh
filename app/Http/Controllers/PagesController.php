@@ -78,10 +78,14 @@ class PagesController extends Controller
         return view('pages.self-dev-quiz')->with('page_title', $page_title)->with('page_header', $page_header);
     }
 
+
+
     public function submit_free_consultation(Request $data) {
+        $name_array = $this->split_name($data->name);
+
         $consultation = new FreeConsultation;
-        $consultation->first_name = $data->first_name;
-        $consultation->last_name = $data->last_name;
+        $consultation->first_name = $name_array[0];
+        $consultation->last_name = $name_array[1];
         $consultation->skype_id = $data->skype_id;
         $consultation->sa_percentage = $data->sa_percentage;
         $consultation->f_percentage = $data->f_percentage;
@@ -104,5 +108,12 @@ class PagesController extends Controller
         $page_header = $page_title;
 
         return view('pages.thank-you-consultation')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    private function split_name($name) {
+        $name = trim($name);
+        $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+        $first_name = trim( preg_replace('#'.$last_name.'#', '', $name ) );
+        return array($first_name, $last_name);
     }
 }

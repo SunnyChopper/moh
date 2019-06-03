@@ -56,14 +56,9 @@
 							<input type="hidden" name="timezone">
 
 							<div class="form-group row mt-16">
-								<div class="col-lg-6 col-md-6 col-sm-12 col-12">
-									<label>First Name:</label>
-									<input type="text" class="form-control" name="first_name" required>
-								</div>
-
-								<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
-									<label>Last Name:</label>
-									<input type="text" class="form-control" name="last_name" required>
+								<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+									<label>Name:</label>
+									<input type="text" class="form-control" name="name" required>
 								</div>
 							</div>
 
