@@ -57,6 +57,7 @@
 		var total_time = 0;
 		var isPaused = false;
 		var cycles = 0;
+		var start_time;
 
 		function startTimer(duration, display) {
 		    var timer = duration, minutes, seconds;
@@ -71,12 +72,18 @@
 			        display.html(minutes + ":" + seconds);
 
 			        if (--timer < 0) {
+			        	cycles += 1;
+			        	isPaused = true;
+			        	$("#pause_session_button").hide();
 			            display.html('25:00');
 			            $("#start_session_button").fadeIn();
 			        }
 
 			        total_time += 1;
-			        $("#session_time").html(total_time + " seconds");
+
+			        var display_string = (new Date).clearTime().addSeconds(total_time).toString('H:mm:ss');
+
+			        $("#session_time").html(display_string);
 		    	}
 		    }, 1000);
 		}
@@ -93,7 +100,7 @@
 		}
 
 		$(document).ready(function() {
-			var start_time = new Date();
+			start_time = new Date();
 			var formatted = formatAMPM(start_time);
 			$("#start_time").html(formatted + " on " + monthNames[start_time.getMonth()] + " " + start_time.getDate());
 
@@ -108,6 +115,26 @@
 			$(this).fadeOut("fast");
 			$("#pause_session_button").delay(800).fadeIn();
 			$("#end_session_button").delay(800).fadeIn();
+		});
+
+		$("#end_session_button").on('click', function() {
+			if (cycles < 1) {
+				window.location.href = "{{ url('/members/pomodoro') }}";
+			} else {
+				$.ajax({
+					url: '/members/pomodoro/session/create',
+					type: 'POST',
+					data: {
+						'_token' : '{{ crsf_token() }}',
+						'session_date' : start_time,
+						'session_seconds' : total_time,
+						'cycles' : cycles
+					},
+					success: function(data) {
+						window.location.href = "{{ url('/members/pomodoro') }}";
+					}
+				});
+			}
 		});
 
 		$("#pause_session_button").on('click', function() {
