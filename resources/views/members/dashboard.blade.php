@@ -30,6 +30,27 @@
 					@endif
 				</div>
 
+				@if($session_stats["average_cycles"] != 0 || $session_stats["average_seconds"] != 0)
+				<h3 class="mb-16 mt-32">Pomodoro Tool</h3>
+				<div class="gray-box">
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+							<h2 class="text-center">{{ sprintf("%.2f", $session_stats["average_cycles"]) }}</h2>
+							<h6 class="text-center">Average Pomodoro Cycles</h6>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
+							<h2 class="text-center">{{ gmdate("H:i:s", $session_stats["average_seconds"]) }}</h2>
+							<h6 class="text-center">Average Session Time</h6>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
+							<a href="{{ url('/members/pomodoro/session') }}" class="primary genric-btn rounded mt-8 centered">New Session</a>
+						</div>
+					</div>
+				</div>
+				@endif
+
 				@if($is_enrolled == true)
 					<h3 class="mt-32 mb-16">Personal Coaching</h3>
 

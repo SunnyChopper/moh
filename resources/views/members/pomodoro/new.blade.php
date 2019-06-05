@@ -61,7 +61,7 @@
 
 		function startTimer(duration, display) {
 		    var timer = duration, minutes, seconds;
-		    setInterval(function () {
+		    var interval = setInterval(function () {
 		    	if (isPaused == false) {
 		    		minutes = parseInt(timer / 60, 10);
 			        seconds = parseInt(timer % 60, 10);
@@ -81,6 +81,8 @@
 
 			            display.html('25:00');
 			            timer = duration, minutes, seconds;
+
+			            clearInterval(interval);
 			        }
 
 			        total_time += 1;
@@ -104,10 +106,6 @@
 		}
 
 		$(document).ready(function() {
-			var timerDuration = 25 * 60;
-			var display = $("#timer");
-			startTimer(timerDuration, display);
-
 			var unformatted = new Date();
 			start_time = new Date().toISOString().slice(0,10);
 			var formatted = formatAMPM(unformatted);
@@ -117,6 +115,10 @@
 		});
 
 		$("#start_session_button").on('click', function() {
+			var timerDuration = 3;
+			var display = $("#timer");
+			startTimer(timerDuration, display);
+
 			isPaused = false;
 
 			$(this).hide();
