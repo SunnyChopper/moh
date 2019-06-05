@@ -58,6 +58,12 @@
                                     {{ __('Login') }}
                                 </button>
 
+                                @if (count($errors) > 0)
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ var_dump($errors) }}</strong>
+                                    </span>
+                                @endif
+
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
