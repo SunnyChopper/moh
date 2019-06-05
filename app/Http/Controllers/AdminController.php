@@ -65,7 +65,7 @@ class AdminController extends Controller
 
     public function logout() {
         Auth::logout();
-        Session::forget('backend_auth');
+        Session::flush();
         Session::save();
     	return redirect(url('/'));
     }
