@@ -18,8 +18,9 @@ class RICEController extends Controller
 
     	$tasks = RICEHelper::viewAllTasks(Auth::id());
     	$page_title = "Your RICE Tasks";
+        $page_header = $page_title;
 
-    	return view('members.rice.index')->with('tasks', $tasks)->with('page_title', $page_title);
+    	return view('members.rice.view')->with('tasks', $tasks)->with('page_title', $page_title)->with('page_header', $page_header);
 	}
 
     public function newTask() {
@@ -45,7 +46,7 @@ class RICEController extends Controller
     	$task->status = 1;
     	$task->save();
 
-    	return redirect(url('/members/rice/view/' . $task->id));
+    	return response()->json(['success' => 'Task successfully created.']);
     }
 
     public function readTask($task_id) {
@@ -90,7 +91,7 @@ class RICEController extends Controller
     	$task->status = 0;
     	$task->save();
 
-    	return redirect(url('/members/rice'));
+    	return response()->json(['success' => 'Task successfully deleted.']);
     }
 
     public function enroll() {
@@ -110,6 +111,6 @@ class RICEController extends Controller
     	$stats = RICEHelper::viewStats($user_id);
     	$page_title = "View RICE Stats";
 
-    	return view('members.rice.stats');
+    	return view('members.rice.stats')->with('stats', $stats);
     }
 }

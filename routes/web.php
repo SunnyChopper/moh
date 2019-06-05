@@ -85,6 +85,7 @@ Route::get('/members/personal-coaching/appointments', 'MentorsController@view_op
 Route::get('/members/pomodoro', 'PomodoroController@view_sessions');
 Route::get('/members/pomodoro/session', 'PomodoroController@new_session');
 Route::post('/members/pomodoro/session/create', 'PomodoroController@create_session');
+Route::get('/members/rice', 'RICEController@index');
 
 // Blog Post functions
 Route::get('/blog', 'BlogPostsController@blog');

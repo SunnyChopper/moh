@@ -6,11 +6,11 @@ use App\RICEEnrollment;
 
 class RICEHelper {
 	
-	public function viewAllTasks($user_id) {
+	public static function viewAllTasks($user_id) {
 		return RICETask::where('user_id', $user_id)->orderBy('created_at', 'DESC')->get();
 	}
 
-	public function viewStats($user_id) {
+	public static function viewStats($user_id) {
 		return array(
 			"reach_average" => $this->calculateAverageReach(),
 			"impact_average" => $this->calculateAverageImpact(),
@@ -21,17 +21,17 @@ class RICEHelper {
 		);
 	}
 
-	public function viewAllEnrollments() {
+	public static function viewAllEnrollments() {
 		return RICEEnrollment::where('status', 1)->get();
 	}
 
-	public function createEnrollment(Request $data) {
+	public static function createEnrollment(Request $data) {
 		// TODO: Create Stripe function
 	}
 
-	public function isAuth($user_id) {
+	public static function isAuth($user_id) {
 		if (RICEEnrollment::where('user_id', $user_id)->count() > 0) {
-			$enrollment = RICEEnrollment::where('user_id', $user_id)->get();
+			$enrollment = RICEEnrollment::where('user_id', $user_id)->first();
 			if($enrollment->status == 1) {
 				return true;
 			} else {
