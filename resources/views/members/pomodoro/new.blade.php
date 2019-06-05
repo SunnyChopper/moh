@@ -9,7 +9,7 @@
 				<h1 class="mobile-text-center mb-32" id="timer" style="font-size: 56px;">25:00</h1>
 				<button type="button" id="start_session_button" class="genric-btn primary rounded mobile-center-button" style="font-size: 16px;">Start Session</button>
 				<button type="button" id="pause_session_button" class="genric-btn success rounded mobile-center-button" style="font-size: 16px; display: none;">Pause Session</button>
-				<button type="button" id="end_session_button" class="genric-btn danger rounded mobile-center-button" style="font-size: 16px; display: none;">End Session</button>
+				<button type="button" id="end_session_button" class="genric-btn danger rounded mobile-center-button mt-8-mobile" style="font-size: 16px; display: none;">End Session</button>
 			</div>
 
 			<div class="col-lg-5 col-md-4 col-sm-12 col-12 mt-32-mobile">
@@ -42,7 +42,7 @@
 						</div>
 
 						<div class="col-6">
-							<h6 style="float: right;" id="session_time">0 seconds</h6>
+							<h6 style="float: right;" id="session_time">00:00:00</h6>
 						</div>
 					</div>
 				</div>
@@ -71,17 +71,21 @@
 
 			        display.html(minutes + ":" + seconds);
 
-			        if (--timer < 0) {
+			        if (--timer <= 0) {
 			        	cycles += 1;
+			        	$("#cycles").html(cycles);
+
 			        	isPaused = true;
 			        	$("#pause_session_button").hide();
+			        	$("#start_session_button").show();
+
 			            display.html('25:00');
-			            $("#start_session_button").fadeIn();
+			            timer = duration, minutes, seconds;
 			        }
 
 			        total_time += 1;
 
-			        var display_string = (new Date).clearTime().addSeconds(total_time).toString('H:mm:ss');
+			        var display_string = new Date(total_time * 1000).toISOString().substr(11, 8);
 
 			        $("#session_time").html(display_string);
 		    	}
@@ -100,21 +104,24 @@
 		}
 
 		$(document).ready(function() {
-			start_time = new Date();
-			var formatted = formatAMPM(start_time);
-			$("#start_time").html(formatted + " on " + monthNames[start_time.getMonth()] + " " + start_time.getDate());
+			var timerDuration = 25 * 60;
+			var display = $("#timer");
+			startTimer(timerDuration, display);
+
+			var unformatted = new Date();
+			start_time = new Date().toISOString().slice(0,10);
+			var formatted = formatAMPM(unformatted);
+			$("#start_time").html(formatted + " on " + monthNames[unformatted.getMonth()] + " " + unformatted.getDate());
 
 			$("#cycles").html(cycles);
 		});
 
 		$("#start_session_button").on('click', function() {
-			var timerDuration = 60 * 25;
-			var display = $("#timer");
-			startTimer(timerDuration, display);
+			isPaused = false;
 
-			$(this).fadeOut("fast");
-			$("#pause_session_button").delay(800).fadeIn();
-			$("#end_session_button").delay(800).fadeIn();
+			$(this).hide();
+			$("#pause_session_button").show();
+			$("#end_session_button").show();
 		});
 
 		$("#end_session_button").on('click', function() {
@@ -125,7 +132,7 @@
 					url: '/members/pomodoro/session/create',
 					type: 'POST',
 					data: {
-						'_token' : '{{ crsf_token() }}',
+						'_token' : '{{ csrf_token() }}',
 						'session_date' : start_time,
 						'session_seconds' : total_time,
 						'cycles' : cycles
