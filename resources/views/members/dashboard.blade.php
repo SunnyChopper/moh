@@ -49,6 +49,17 @@
 						</div>
 					</div>
 				</div>
+				@else
+				<h3 class="mb-16 mt-32">Pomodoro Tool</h3>
+				<div class="gray-box">
+					<div class="row">
+						<div class="col-12">
+							<h4 class="mb-2 text-center">No Sessions Found</h4>
+							<p class="text-center">Start your first Pomodoro session! Click below!</p>
+							<a href="{{ url('/members/pomodoro/session') }}" class="primary genric-btn rounded mt-8 centered">New Session</a>
+						</div>
+					</div>
+				</div>
 				@endif
 
 				@if($is_enrolled == true)
