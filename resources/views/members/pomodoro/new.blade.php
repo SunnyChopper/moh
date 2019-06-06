@@ -71,6 +71,8 @@
 
 			        display.html(minutes + ":" + seconds);
 
+			        document.title = "(" + minutes + ":" + seconds + ") Mind of Habit - Pomodoro Tool";
+
 			        if (--timer <= 0) {
 			        	cycles += 1;
 			        	$("#cycles").html(cycles);
@@ -90,6 +92,8 @@
 			        var display_string = new Date(total_time * 1000).toISOString().substr(11, 8);
 
 			        $("#session_time").html(display_string);
+		    	} else {
+		    		document.title = "Mind of Habit - Pomodoro Tool";
 		    	}
 		    }, 1000);
 		}
