@@ -3,10 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
-!vendor/laravel/framework/src/Illuminate
 /storage
-storage
-storage/*
 .editorconfig
 .env.example
 .gitattributes
