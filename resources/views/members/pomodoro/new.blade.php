@@ -115,7 +115,7 @@
 		});
 
 		$("#start_session_button").on('click', function() {
-			var timerDuration = 3;
+			var timerDuration = 25 * 60;
 			var display = $("#timer");
 			startTimer(timerDuration, display);
 
