@@ -163,8 +163,9 @@ class StripeHelper {
 				'plan' => $data["plan_id"]
 			]);
 
-			if($subscription['status'] == 'active') {
-				$return_array = array($customer["id"], $subscription["id"]);
+
+			if($subscription['status'] == 'active' || $subscription['status'] == 'trialing') {
+				$return_array = array($customer["id"], $subscription["id"], $card["id"]);
 				return $return_array;
 			} else {
 				return "error";

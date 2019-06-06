@@ -133,7 +133,12 @@
                 @else
                 <h4 class="text-center mt-32">Price: <span class="red"><strike>$497/month</strike></span> <span class="green">$67/month</span></h4>
                 @endif
-                <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+
+                @if($special_link == true)
+                    <a href="#pc-form" class="genric-btn primary centered rounded large mt-32" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+                @else
+                    <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">Start Your 7-Day Free Trial <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+                @endif
 			</div>
         </div>
 
@@ -148,7 +153,12 @@
                 <p>The Ancient Greeks may not have the technology that we do, but they definitely understood how the human works. They have plenty of stories to tell us. For example, the minotaur, a being of half-human and half-bull, is said to be trapped in a gigantic labyrinth underneath a palace, never to escape because of its anger.</p>
                 <p>This story symbolizes how there are two "sides" of your mind, the more ancient animal-like brain (the bull) and the more logical brain (the human). Just how the minotaur is not able to control his rage, your two minds are always fighting each other. Neuroscience has proved this. So learning how to bring harmony between the two will allow you to tap into deeper potential.</p>
                 <p>This deeper potential is the edge you need in our hyper-competitive world. If you're ready to reach this stage in life and master the Self just like how Aristotle wanted you to, click that button below right now. Become the master of yourself.</p>
-                <a href="#pc-form" class="genric-btn primary centered rounded large mt-32" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+                
+                @if($special_link == true)
+                    <a href="#pc-form" class="genric-btn primary centered rounded large mt-32" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+                @else
+                    <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">Start Your 7-Day Free Trial <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+                @endif
             </div>
 		</div>
 	</div>
@@ -201,7 +211,11 @@
                 </div>
             </div>
 
-            <a href="#pc-form" class="genric-btn primary centered rounded large mt-32" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+            @if($special_link == true)
+                <a href="#pc-form" class="genric-btn primary centered rounded large mt-32" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+            @else
+                <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">Start Your 7-Day Free Trial <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+            @endif
         </div>
     </div>
 

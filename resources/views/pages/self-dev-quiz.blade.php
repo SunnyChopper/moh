@@ -44,8 +44,9 @@
 						</div>
 						<p>That being said, we'll make you a one-time offer for a free consultation. Get on the phone, talk out your situation, and we'll see exactly how we can help you master the self. We'll even throw in a gift for getting on the phone.</p>
 						<p>Again, this is a one-time offer, so you won't get this anywhere else on the site.</p>
-						<h4 class="mt-32">Sign up for a free consultation</h4>
-						<form id="submit_consultation_form" action="/consultation/submit" method="POST">
+
+						<h4 class="mt-32">Sign up for a free 7-day trial of our mentoring program</h4>
+						<form id="submit_consultation_form" method="POST">
 							{{ csrf_field() }}
 							<input type="hidden" name="sa_percentage">
 							<input type="hidden" name="f_percentage">
@@ -55,45 +56,116 @@
 							<input type="hidden" name="sf_percentage">
 							<input type="hidden" name="timezone">
 
-							<div class="form-group row mt-16">
-								<div class="col-lg-12 col-md-12 col-sm-12 col-12">
-									<label>Name:</label>
-									<input type="text" class="form-control" name="name" required>
+							<div id="step_1">
+								<div class="form-group mt-16">
+									<h5>Step 1 of 2: Create an account</h5>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<label>First Name:</label>
+										<input type="text" class="form-control" name="first_name" required>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
+										<label>Last Name:</label>
+										<input type="text" class="form-control" name="last_name" required>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-12">
+										<label>Email:</label>
+										<input type="email" name="email" class="form-control" required>
+										<p class="mb-0 mt-1 red" id="email_error" style="display: none;">Email already taken.</p>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<label>Username:</label>
+										<input type="text" name="username" class="form-control" required>
+										<p class="mb-0 mt-1 red" id="username_error" style="display: none;">Username already taken.</p>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
+										<label>Password:</label>
+										<input type="password" name="password" class="form-control" required>
+									</div>
+								</div>
+
+								<div class="form-group mt-32">
+									<p class="red text-center" id="create_account_error" style="display: none;">Please verify fields.</p>
+									<button type="button" class="genric-btn centered primary rounded create_account_button" style="font-size: 15px;">Create Account</button>
 								</div>
 							</div>
 
-							<div class="form-group row mt-16">
-								<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
-									<label>Select App:</label>
-									<select name="app" form="submit_consultation_form" class="form-control">
-										<option value="Instagram">Instagram</option>
-										<option value="Skype">Skype</option>
-										<option value="Facebook Messenger">Facebook Messenger</option>
-										<option value="WhatsApp">WhatsApp</option>
-										<option value="Telegram">Telegram</option>
-									</select>
+							<div id="step_2" style="display: none;">
+								<input type="hidden" name="user_id">
+								<div class="form-group mt-16">
+									<h5>Step 2 of 2: Enter billing information</h5>
 								</div>
 
-								<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
-									<label id="username_label">Instagram username:</label>
-									<input type="text" class="form-control" name="contact" required>
-								</div>
-							</div>
-
-							<div class="form-group row">
-								<div class="col-lg-6 col-md-6 col-sm-12 col-12">
-									<label>Date:</label>
-									<input type="date" name="meeting_date" class="form-control" required>
+								<div class="form-group row">
+									<div class="col-12">
+										<label>Card Number:</label>
+										<input type="text" maxlength="16" class="form-control" name="card_number" placeholder="4242424242424242" required>
+									</div>
 								</div>
 
-								<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
-									<label>Time:</label>
-									<input type="time" name="meeting_time" class="form-control" required>
-								</div>
-							</div>
+								<div class="form-group row">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<label>Expiry Month:</label>
+										<select name="ccExpiryMonth" class="form-control">
+											<option value="01">01 - January</option>
+											<option value="02">02 - February</option>
+											<option value="03">03 - March</option>
+											<option value="04">04 - April</option>
+											<option value="05">05 - May</option>
+											<option value="06">06 - June</option>
+											<option value="07">07 - July</option>
+											<option value="08">08 - August</option>
+											<option value="09">09 - September</option>
+											<option value="10">10 - October</option>
+											<option value="11">11 - Novemeber</option>
+											<option value="12">12 - December</option>
+										</select>
+									</div>
 
-							<div class="form-group mt-32">
-								<input type="submit" class="genric-btn centered primary rounded" style="font-size: 15px;" value="Signup for Free Consultation">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<label>Expiry Year:</label>
+										<select name="ccExpiryYear" class="form-control">
+											<option value="2019">2019</option>
+											<option value="2020">2020</option>
+											<option value="2021">2021</option>
+											<option value="2022">2022</option>
+											<option value="2023">2023</option>
+											<option value="2024">2024</option>
+											<option value="2025">2025</option>
+											<option value="2026">2026</option>
+											<option value="2027">2027</option>
+											<option value="2028">2028</option>
+											<option value="2029">2029</option>
+											<option value="2030">2030</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-12">
+										<label>Security Code:</label>
+										<input type="text" class="form-control" name="cvvNumber" placeholder="123">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-12">
+										<p class="text-center black">What you are getting today: appointments, direct-messaging, custom videos, custom documents, recommendations, and accountability. After your 7-day trial is up, it's just $67/month.</p>
+										<p class="text-center red" id="card_error" style="display: none;">Please fill out all fields.</p>
+										<button type="button" class="genric-btn primary rounded centered start_trial_button" style="font-size: 15px;">Start Free Trial</button>
+
+									</div>
+								</div>
 							</div>
 						</form>
 					</div>
@@ -107,24 +179,151 @@
 	<script type="text/javascript">
 		var responses = Array();
 
-		$(document).ready(function() {
-			var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-			$("input[name=timezone]").val(timezone);
+		function validateStepOne() {
+			if ($("input[name=first_name]").val() == "") {
+				return false;
+			}
+
+			if ($("input[name=last_name]").val() == "") {
+				return false;
+			}
+
+			if ($("input[name=email]").val() == "") {
+				return false;
+			}
+
+			if ($("input[name=username]").val() == "") {
+				return false;
+			}
+
+			if ($("input[name=password]").val() == "") {
+				return false;
+			}
+
+			return true;
+		}
+
+		function validateStepTwo() {
+			if ($("input[name=card_number]").val() == "") {
+				return false;
+			}
+
+			if ($("input[name=cvvNumber]").val() == "") {
+				return false;
+			}
+
+			return true;
+		}
+
+		$("input[name=email]").on('change', function() {
+			var email = $(this).val();
+			$.ajax({
+				url: '/api/email/check',
+				type: 'POST',
+				data: {
+					'_token' : '{{ csrf_token() }}',
+					'email' : email
+				},
+				success: function(data) {
+					if (data == true) {
+						$("input[name=email]").css('border', '1px solid red');
+						$("#email_error").show();
+						$(".create_account_button").removeClass('primary');
+						$(".create_account_button").addClass('disabled');
+					} else {
+						$("input[name=email]").css('border', '1px solid green');
+						$("#email_error").hide();
+						$(".create_account_button").removeClass('disabled');
+						$(".create_account_button").addClass('primary');
+					}
+				}
+			});
 		});
 
-		$("select[name=app]").on('change', function() {
-			var selected = $(this).val();
+		$("input[name=username]").on('change', function() {
+			var username = $(this).val();
+			$.ajax({
+				url: '/api/username/check',
+				type: 'POST',
+				data: {
+					'_token' : '{{ csrf_token() }}',
+					'username' : username
+				},
+				success: function(data) {
+					if (data == true) {
+						$("input[name=username]").css('border', '1px solid red');
+						$("#username_error").show();
+						$(".create_account_button").removeClass('primary');
+						$(".create_account_button").addClass('disabled');
+					} else {
+						$("input[name=username]").css('border', '1px solid green');
+						$("#username_error").hide();
+						$(".create_account_button").removeClass('disabled');
+						$(".create_account_button").addClass('primary');
+					}
+				}
+			});
+		});
 
-			if (selected == "Instagram") {
-				$("#username_label").html('Instagram Username:');
-			} else if (selected == "Skype") {
-				$("#username_label").html('Skype Email/Username:');
-			} else if (selected == "Facebook Messenger") {
-				$("#username_label").html('Facebook Profile URL:');
-			} else if (selected == "WhatsApp") {
-				$("#username_label").html('WhatsApp Number:');
+		$(".create_account_button").on('click', function() {
+			$(this).prop('disabled', true);
+			if ($(this).hasClass('disabled')) {
+				$("#create_account_error").show();
+			}
+
+			if (validateStepOne() == true) {
+				$("#create_account_error").hide();
+				$.ajax({
+					url: '/api/account/create',
+					type: 'POST',
+					data: {
+						'_token' : '{{ csrf_token() }}',
+						'first_name' : $("input[name=first_name]").val(),
+						'last_name' : $("input[name=last_name]").val(),
+						'email' : $("input[name=email]").val(),
+						'username' : $("input[name=username]").val(),
+						'password' : $("input[name=password]").val()
+					},
+					success: function(data) {
+						$("input[name=user_id]").val(data);
+						$("#step_1").hide();
+						$("#step_2").show();
+					}
+				});
 			} else {
-				$("#username_label").html('Telegram Username:');
+				$(this).prop('disabled', false);
+				$("#create_account_error").show();
+			}
+		});
+
+		$(".start_trial_button").on('click', function() {
+			$(this).prop('disabled', true);
+			if (validateStepTwo() == true) {
+				$("#card_error").hide();
+				$.ajax({
+					url : '/api/personal-coaching/trial/enroll',
+					type : 'POST',
+					data: {
+						'_token' : '{{ csrf_token() }}',
+						'user_id' : $("input[name=user_id]").val(),
+						'card_number' : $("input[name=card_number]").val(),
+						'ccExpiryMonth' : $("select[name=ccExpiryMonth]").val(),
+						'ccExpiryYear' : $("select[name=ccExpiryYear]").val(),
+						'cvvNumber' : $("select[name=cvvNumber]").val(),
+						'email' : $("input[name=email]").val()
+					},
+					success: function(data) {
+						if (data == true) {
+							$("#card_error").hide();
+							window.location.href = "{{ url('/login') }}";
+						} else {
+							$("#card_error").show();
+						}
+					}
+				});
+			} else {
+				$(this).prop('disabled', false);
+				$("#card_error").show();
 			}
 		});
 

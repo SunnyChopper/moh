@@ -54,3 +54,6 @@ Route::get('/consultations/view', function() {
 
 	return response()->json($return_array, 200);
 });
+
+Route::post('/account/create', 'MentorsController@create_trial_account');
+Route::post('/personal-coaching/trial/enroll', 'MentorsController@enroll_trial');

@@ -68,10 +68,71 @@ class MentorsController extends Controller
 			$enrollment->customer_id = $response[0];
 			$enrollment->subscription_id = $response[1];
 			$enrollment->next_payment_date = Carbon::today()->addMonth();
+			$enrollment->trial = 0;
 			$enrollment->save();
 
 			// Redirect to personal coaching dashboard
 			return redirect(url('/members/personal-coaching'));
+		}
+	}
+
+	public function create_trial_account(Request $data) {
+		$user = new User;
+		$user->email = $data->email;
+		$user->password = Hash::make($data->password);
+		$user->first_name = $data->first_name;
+		$user->last_name = $data->last_name;
+		$user->username = strtolower($data->username);
+		$user->source = "QUIZ";
+		$user->save();
+
+		Auth::login($user);
+
+		return response()->json($user->id, 200);
+	}
+
+	public function enroll_trial(Request $data) {
+		// Create Stripe trial product
+		$stripe_data = array(
+			'plan_id' => 'trial',
+			'user_id' => $data->user_id,
+			'email' => $data->email,
+			'card_number' => $data->card_number,
+			'cvvNumber' => $data->cvvNumber,
+			'ccExpiryMonth' => $data->ccExpiryMonth,
+			'ccExpiryYear' => $data->ccExpiryYear
+		);
+
+		$response = StripeHelper::subscribe($stripe_data);
+
+		if ($response == "error") {
+			return response()->json(false, 200);
+		} else {
+			// Create enrollment
+			$enrollment = new MentorEnrollment;
+			$enrollment->user_id = $data->user_id;
+			$user = User::find(intval($data->user_id));
+			$user->customer_id = $response[0];
+			$user->card_id = $response[2];
+			$user->save();
+			$enrollment->customer_id = $response[0];
+			$enrollment->subscription_id = $response[1];
+			$enrollment->next_payment_date = Carbon::today()->addDays(7);
+			$enrollment->trial = 1;
+
+			if(isset($data->sa_score)) {
+				$enrollment->sa_score = $data->sa_score;
+				$enrollment->f_score = $data->f_score;
+				$enrollment->sd_score = $data->sd_score;
+				$enrollment->ha_score = $data->ha_score;
+				$enrollment->he_score = $data->he_score;
+				$enrollment->sf_score = $data->sf_score;
+			}
+
+			$enrollment->save();
+
+			// Redirect to personal coaching dashboard
+			return response()->json(true, 200);
 		}
 	}
 
