@@ -331,10 +331,8 @@ class AdminController extends Controller
     }
 
     public function create_mentee_document(Request $data) {
-        $mentee = MentorEnrollment::find($data->mentee_id);
-
         $doc = new MentorDocument;
-        $doc->user_id = $mentee->user_id;
+        $doc->user_id = $data->mentee_id;
         $doc->title = $data->title;
         $doc->description = $data->description;
         $doc->link = $data->link;
@@ -386,10 +384,8 @@ class AdminController extends Controller
     }
 
     public function create_recommendation(Request $data) {
-        $mentee = MentorEnrollment::find($data->mentee_id);
-
         $r = new MentorRecommendation;
-        $r->user_id = $mentee->user_id;
+        $r->user_id = $data->mentee_id;
         $r->title = $data->title;
         $r->description = $data->description;
         $r->link = $data->link;
@@ -443,9 +439,8 @@ class AdminController extends Controller
     }
 
     public function create_task(Request $data) {
-        $mentee = MentorEnrollment::find($data->mentee_id);
         $task = new MentorTask;
-        $task->user_id = $mentee->user_id;
+        $task->user_id = $data->mentee_id;
         $task->title = $data->title;
         $task->description = $data->description;
         $task->due_date = $data->due_date;
@@ -497,10 +492,8 @@ class AdminController extends Controller
     }
 
     public function create_video(Request $data) {
-        $mentee = MentorEnrollment::find($data->mentee_id);
-
         $video = new MentorVideo;
-        $video->user_id = $mentee->user_id;
+        $video->user_id = $data->mentee_id;
         $video->title = $data->title;
         $video->description = $data->description;
         $video->video_id = $data->video_id;
