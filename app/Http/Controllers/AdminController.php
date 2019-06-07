@@ -304,7 +304,7 @@ class AdminController extends Controller
             return redirect(url('/admin'));
         }
 
-        $mentee = User::find(MentorEnrollment::find($mentee_id)->user_id);
+        $mentee = User::find($mentee_id);
         $appointments = MentorHelper::getFutureAppointmentsForUser($mentee->id);
         $documents = MentorHelper::getDocumentsForUser($mentee->id);
         $recommendations = MentorHelper::getRecommendationsForUser($mentee->id);
