@@ -322,7 +322,7 @@ class AdminController extends Controller
             return redirect(url('/admin'));
         }
 
-        $mentee = User::find(MentorEnrollment::find($mentee_id)->user_id);
+        $mentee = User::find($mentee_id);
 
         $page_title = "Share New Document";
         $page_header = $page_title;
