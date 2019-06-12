@@ -77,17 +77,29 @@ Route::get('/admin/links/personal-coaching', 'AdminController@view_personal_coac
 Auth::routes();
 Route::get('/members/dashboard', 'MembersController@dashboard');
 Route::get('/members/logout', 'MembersController@logout');
+
+// Course functions
 Route::get('/members/courses/{course_id}/dashboard', 'CoursesController@dashboard');
+Route::get('/members/courses/{course_id}/modules/{module_id}', 'CoursesController@view_module');
+Route::get('/members/courses/{course_id}/module/{module_id}/watch/{video_id}', 'CoursesController@view_video');
+Route::get('/members/courses/{course_id}/forums/new', 'CoursesController@new_forum');
+Route::post('/members/courses/forums/create', 'CoursesController@create_forum');
+Route::get('/members/courses/{course_id}/forums/{forum_id}', 'CoursesController@view_forum');
+Route::post('/members/courses/forums/comment/create', 'CoursesController@create_comment');
+
+// Personal coaching functions
 Route::get('/members/personal-coaching', 'MentorsController@personal_coaching');
 Route::get('/members/personal-coaching/tasks/{task_id}/edit', 'MentorsController@edit_task');
 Route::post('/members/personal-coaching/tasks/update', 'MentorsController@update_task');
 Route::get('/members/personal-coaching/appointments', 'MentorsController@view_open_appointments');
+
+// Pomodoro tool functions
 Route::get('/members/pomodoro', 'PomodoroController@view_sessions');
 Route::get('/members/pomodoro/session', 'PomodoroController@new_session');
 Route::post('/members/pomodoro/session/create', 'PomodoroController@create_session');
 Route::get('/members/rice', 'RICEController@index');
 
-// Blog Post functions
+// Blog post functions
 Route::get('/blog', 'BlogPostsController@blog');
 Route::get('/post/{post_id}/{slug}', 'BlogPostsController@read');
 Route::get('/admin/posts', 'BlogPostsController@view_blog_posts');

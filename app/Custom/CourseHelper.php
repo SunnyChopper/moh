@@ -41,7 +41,7 @@ class CourseHelper {
 	}
 
 	public static function getForums($course_id) {
-		return CourseForum::where('course_id', $course_id)->where('is_active', 1)->get();
+		return CourseForum::where('course_id', $course_id)->where('is_active', 1)->orderBy('created_at', 'DESC')->get();
 	}
 
 	public static function getUserForums($user_id) {
@@ -49,7 +49,11 @@ class CourseHelper {
 	}
 
 	public static function getComments($forum_id) {
-		return CourseForumComment::where('forum_id', $forum_id)->get();
+		return CourseForumComment::where('forum_id', $forum_id)->where('is_active', 1)->get();
+	}
+
+	public static function getNumberOfReplies($forum_id) {
+		return CourseForumComment::where('forum_id', $forum_id)->where('is_active', 1)->count();
 	}
 
 	public static function isUserAuthorizedForCourse($course_id) {

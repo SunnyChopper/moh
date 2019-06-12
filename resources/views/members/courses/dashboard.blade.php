@@ -49,16 +49,16 @@
 							<tbody>
 								@foreach($forums as $f)
 								<tr>
-									<td style="width: 75%;">{{ $f->title }}</td>
-									<td style="width: 15%;">{{ $f->created_at->format('H:i:s M jS, Y') }}</td>
-									<td style="width: 10%">TODO</td>
+									<td style="width: 65%;"><a href="{{ url('/members/courses/' . $course->id . '/forums/' . $f->id) }}">{{ $f->title }}</a></td>
+									<td style="width: 25%;">{{ $f->created_at->format('M jS, Y') }} at {{ $f->created_at->format('h:i A') }}</td>
+									<td style="width: 10%">{{ \App\Custom\CourseHelper::getNumberOfReplies($f->id) }}</td>
 								</tr>
 								@endforeach
 							</tbody>
 						</table>
 
 						<div class="centered">
-							<a href="{{ url('/members/courses/' . $course->id . '/forums') }}" class="genric-btn rounded centered info" style="display: inline-block;">View All Forums</a>
+							{{-- <a href="{{ url('/members/courses/' . $course->id . '/forums') }}" class="genric-btn rounded centered info" style="display: inline-block;">View All Forums</a> --}}
 							<a href="{{ url('/members/courses/' . $course->id . '/forums/new') }}" class="genric-btn rounded centered primary" style="display: inline-block;">New Forum</a>
 						</div>
 					</div>
