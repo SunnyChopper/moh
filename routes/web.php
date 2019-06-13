@@ -24,6 +24,8 @@ Route::post('/consultation/submit', 'PagesController@submit_free_consultation');
 Route::get('/consultation/thank-you', 'PagesController@thank_you_consultation');
 Route::get('/tools', 'PagesController@tools');
 Route::get('/tools/pomodoro', 'PagesController@pomodoro');
+Route::get('/tools/student', 'PagesController@student_planner');
+Route::get('/tools/rice', 'PagesController@rice_planner');
 Route::get('/test', 'PagesController@test');
 
 // Admin functions
@@ -31,6 +33,8 @@ Route::get('/admin', 'AdminController@login');
 Route::post('/admin/login/attempt', 'AdminController@attempt_login');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
 Route::get('/admin/logout', 'AdminController@logout');
+
+// Admin course functions
 Route::get('/admin/courses', 'AdminController@view_all_courses');
 Route::get('/admin/courses/new', 'AdminController@new_course');
 Route::post('/admin/courses/create', 'AdminController@create_course');
@@ -49,6 +53,8 @@ Route::post('/admin/courses/modules/content/delete', 'AdminController@delete_con
 Route::post('/admin/modules/delete', 'AdminController@delete_course_module');
 Route::get('/admin/courses/{course_id}/modules/{module_id}/edit', 'AdminController@edit_course_module');
 Route::post('/admin/courses/modules/update', 'AdminController@update_course_module');
+
+// Admin personal coaching functions
 Route::get('/admin/personal-coaching', 'AdminController@view_personal_coaching');
 Route::get('/admin/personal-coaching/mentee/{mentee_id}', 'AdminController@view_mentee');
 Route::get('/admin/personal-coaching/mentee/{mentee_id}/documents/new', 'AdminController@new_mentee_document');
@@ -100,6 +106,22 @@ Route::get('/members/pomodoro', 'PomodoroController@view_sessions');
 Route::get('/members/pomodoro/session', 'PomodoroController@new_session');
 Route::post('/members/pomodoro/session/create', 'PomodoroController@create_session');
 Route::get('/members/rice', 'RICEController@index');
+
+// Student planner functions
+Route::get('/members/student', 'StudentController@dashboard');
+Route::get('/members/student/class/new', 'StudentController@new_class');
+Route::post('/members/student/class/create', 'StudentController@create_class');
+Route::get('/members/student/class/edit/{class_id}', 'StudentController@edit_class');
+Route::post('/members/student/class/update', 'StudentController@update_class');
+Route::post('/members/student/class/delete', 'StudentController@delete_class');
+Route::get('/members/student/tasks/new', 'StudentController@new_task');
+Route::post('/members/student/tasks/create', 'StudentController@create_task');
+Route::get('/members/student/tasks/edit/{task_id}', 'StudentController@edit_task');
+Route::post('/members/student/tasks/update', 'StudentController@update_task');
+Route::post('/members/student/tasks/delete', 'StudentController@delete_task');
+
+// RICE planner functions
+Route::get('/members/rice/enroll', 'RICEController@start_trial');
 
 // Blog post functions
 Route::get('/blog', 'BlogPostsController@blog');

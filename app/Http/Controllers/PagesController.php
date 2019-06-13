@@ -95,6 +95,20 @@ class PagesController extends Controller
         return view('pages.pomodoro')->with('page_title', $page_title)->with('page_header', $page_header)->with('sessions', $sessions);
     }
 
+    public function student_planner() {
+        $page_title = "Student Planner Tool";
+        $page_header = $page_title;
+
+        return view('pages.student-planner')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function rice_planner() {
+        $page_title = "RICE Planner Tool";
+        $page_header = $page_title;
+
+        return view('pages.rice-planner')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
     public function submit_free_consultation(Request $data) {
         $name_array = $this->split_name($data->name);
 

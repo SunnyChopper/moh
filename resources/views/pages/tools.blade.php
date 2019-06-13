@@ -68,6 +68,24 @@
 								<p class="mb-1"><b>Category: </b> Focus</p>
 							</li>
 						</a>
+						<a href="{{ url('/tools/student') }}" class="blog-link">
+							<li class="list-group-item">
+								<h3 class="mb-2 blue">Student Planner Tool</h3>
+								<p class="mb-1">Being a student is tough and being a successful student is even tougher. So how do the successful students get ahead? Are they just smarter than the rest? Are they just gifted? In rare cases, this is true, however, most successful students don't have Einstein level IQs. They just know how to prioritize better.</p>
+								<p class="mb-1">Being able to prioritize your studying schedule is exactly what this tool aims to help you with. By breaking down each task into its components, you'll be able to quickly see which tasks are a higher priority than others. This will help you overcome the stress of having a million things to do and give you the freedom to focus and learn faster.</p>
+								<p class="mb-1"><b>Category: </b> Prioritization</p>
+							</li>
+						</a>
+						<a href="{{ url('/tools/rice') }}" class="blog-link">
+							<li class="list-group-item">
+								<h3 class="mb-2 blue">RICE Planner Tool</h3>
+								<p class="mb-1">The most effective and productive people have the same 24 hours as everyone else. So how are they able to make more of an impact in their work or business in the same amount of time? Not only are they able to focus, they prioritize effectively.</p>
+								<p class="mb-1">This is exactly what this tool aims to do. Its aim is to help you become better at prioritizing tasks so you can work on things that matter and will have an impact. Creating a to-do list is no longer enough, you need to have a to-do list that is ordered by priority.</p>
+								<p class="mb-1">So how can we prioritize tasks? Well, that's where our tool can help you. You break down each task into its components and from there, each task is assigned a priority score. After you create your to-do list and load up all your tasks, all you have to do is click one button to get a to-do list that is ordered by priority. This will help you focus on the things that have a higher impact on your work or business.</p>
+								<p class="mb-1">So if you're ready to start making a larger impact on your work or business, then click below to get started on your 7-day free trial. After your 7-day free trial is over, it's just $4.97/mo!</p>
+								<p class="mb-1"><b>Category: </b> Prioritization</p>
+							</li>
+						</a>
 					</ul>
 				</div>
 			</div>

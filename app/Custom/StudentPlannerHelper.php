@@ -10,6 +10,10 @@ use App\StudentTask;
 
 class StudentPlannerHelper {
 
+	public static function getTasksForUser($user_id) {
+		return StudentTask::whereDate('due_date', '>=', Carbon::now())->get();
+	}
+
 	public static function getClassesForUser($user_id) {
 		return StudentClass::where('user_id', $user_id)->get();
 	}
