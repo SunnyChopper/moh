@@ -23,8 +23,14 @@
 				@if(Auth::guest())
 				<ul class="nav-menu">
 					<li><a href="{{ url('/') }}">Home</a></li>
-					{{-- <li><a href="{{ url('/courses') }}">Courses</a></li> --}}
-					{{-- <li><a href="{{ url('/tools') }}">Tools</a></li> --}}
+					@if(\App\Custom\CourseHelper::numberOfCourses() > 0)
+					<li><a href="{{ url('/courses') }}">Courses</a></li>
+					@endif
+					<li class="menu-has-children"><a href="{{ url('/tools') }}">Tools</a>
+						<ul>
+							<li><a href="{{ url('/tools/pomodoro') }}">Pomodoro Tool</a></li>
+						</ul>
+					</li>
 					<li><a href="{{ url('/personal-coaching') }}">Personal Coaching</a></li>
 					<li><a href="{{ url('/blog') }}">Blog</a></li>
 					{{-- <li><a href="{{ url('/contact') }}">Contact</a></li> --}}

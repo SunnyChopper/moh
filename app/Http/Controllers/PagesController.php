@@ -7,6 +7,7 @@ use App\FreeConsultation;
 
 use App\Custom\CourseHelper;
 use App\Custom\BlogPostHelper;
+use App\Custom\PomodoroHelper;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -78,7 +79,21 @@ class PagesController extends Controller
         return view('pages.self-dev-quiz')->with('page_title', $page_title)->with('page_header', $page_header);
     }
 
+    public function tools() {
+        $page_title = "Tools";
+        $page_header = $page_title;
 
+        return view('pages.tools')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function pomodoro() {
+        $page_title = "Pomodoro Tool";
+        $page_header = $page_title;
+
+        $sessions = PomodoroHelper::getNumberOfSessions();
+
+        return view('pages.pomodoro')->with('page_title', $page_title)->with('page_header', $page_header)->with('sessions', $sessions);
+    }
 
     public function submit_free_consultation(Request $data) {
         $name_array = $this->split_name($data->name);

@@ -22,6 +22,8 @@ Route::post('/personal-coaching/enroll', 'MentorsController@enroll');
 Route::get('/self-dev-quiz', 'PagesController@self_dev_quiz');
 Route::post('/consultation/submit', 'PagesController@submit_free_consultation');
 Route::get('/consultation/thank-you', 'PagesController@thank_you_consultation');
+Route::get('/tools', 'PagesController@tools');
+Route::get('/tools/pomodoro', 'PagesController@pomodoro');
 Route::get('/test', 'PagesController@test');
 
 // Admin functions

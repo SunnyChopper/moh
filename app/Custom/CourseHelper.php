@@ -14,6 +14,10 @@ use App\CourseCompletion;
 
 class CourseHelper {
 
+	public static function numberOfCourses() {
+		return Course::where('is_active', 1)->count();
+	}
+
 	public static function viewCourses() {
 		return Course::where('is_active', 1)->get();
 	}

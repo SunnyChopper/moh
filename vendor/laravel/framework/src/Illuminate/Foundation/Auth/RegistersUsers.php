@@ -4,11 +4,19 @@ namespace Illuminate\Foundation\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Auth\Events\Registered;
 
 trait RegistersUsers
 {
     use RedirectsUsers;
+
+    protected function redirectTo() {
+        $url = Session::get('register_redirect');
+        Session::forget('register_redirect');
+        Session::save();
+        return $url;
+    }
 
     /**
      * Show the application registration form.
@@ -17,6 +25,14 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
+        if (isset($_GET['redirect_action'])) {
+            Session::put('register_redirect', $_GET['redirect_action']);
+            Session::save();
+        } else {
+            Session::put('register_redirect', '/members/dashboard');
+            Session::save();
+        }
+
         return view('auth.register')->with('page_header', 'Register');
     }
 
@@ -57,6 +73,6 @@ trait RegistersUsers
      */
     protected function registered(Request $request, $user)
     {
-        //
+        return redirect(url(Session::get('register_redirect')));
     }
 }
