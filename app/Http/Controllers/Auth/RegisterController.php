@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -58,12 +59,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'username' => strtolower($data['username']),
             'email' => strtolower($data['email']),
             'password' => Hash::make($data['password']),
         ]);
+
+        if (Session::has('source')) {
+            $user->source = Session::get('source');
+            $user->save();
+        }
+
+        return $user;
     }
 }

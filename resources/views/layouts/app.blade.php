@@ -13,6 +13,7 @@
 		<meta name="keywords" content="">
 		<!-- meta character set -->
 		<meta charset="UTF-8">
+
 		<!-- Site Title -->
 		@if(isset($page_title))
 		<title>{{ config('app.name') }} - {{ $page_title }}</title>
@@ -45,6 +46,14 @@
 
 	</head>
 	<body>
+		<?php
+
+			// Check to see if session variable needs to be set
+			if (Illuminate\Support\Facades\Session::has('source')) {
+				echo "<p id='source'>" . Illuminate\Support\Facades\Session::get('source') . "</p>";
+			}
+
+		?>
 		@include('layouts.header')
 		@yield('content')
 		@include('layouts.footer')

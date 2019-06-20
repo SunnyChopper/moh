@@ -21,10 +21,10 @@ class StudentController extends Controller
     	$classes = StudentPlannerHelper::getClassesForUser(Auth::id());
     	$tasks = StudentPlannerHelper::getTasksForUser(Auth::id());
 
-    	$page_title = "Your Tasks";
+    	$page_title = "Student Planner";
     	$page_header = $page_title;
 
-    	return view('members.student.dashboard')->with('tasks', $tasks)->with('page_title', $page_title)->with('page_header', $page_header);
+    	return view('members.student.dashboard')->with('tasks', $tasks)->with('classes', $classes)->with('page_title', $page_title)->with('page_header', $page_header);
     }
 
     public function new_class() {
@@ -40,6 +40,7 @@ class StudentController extends Controller
 
     public function create_class(Request $data) {
     	$class = new StudentClass;
+        $class->user_id = Auth::id();
     	$class->title = $data->title;
     	$class->description = $data->description;
     	$class->category = $data->category;
@@ -76,7 +77,7 @@ class StudentController extends Controller
     	$class->is_active = 0;
     	$class->save();
 
-    	return redirect(url('/members/student'));
+    	return response()->json(['success' => 'Successfully deleted class.'], 200);
     }
 
     public function new_task() {
@@ -137,12 +138,20 @@ class StudentController extends Controller
     	return redirect(url('/members/student'));
     }
 
+    public function mark_complete(Request $data) {
+        $task = StudentTask::find($data->task_id);
+        $task->is_active = 2;
+        $task->save();
+
+        return response()->json(['success' => 'Task successfully updated.'], 200);
+    }
+
     public function delete_task(Request $data) {
     	$task = StudentTask::find($data->task_id);
     	$task->is_active = 0;
     	$task->save();
 
-    	return redirect(url('/members/student'));
+    	return response()->json(['success' => 'Task successfully deleted.'], 200);
     }
 
 }

@@ -73,6 +73,9 @@ trait RegistersUsers
      */
     protected function registered(Request $request, $user)
     {
+        if (Session::has('source')) {
+            
+        }
         return redirect(url(Session::get('register_redirect')));
     }
 }
