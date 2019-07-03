@@ -30,6 +30,36 @@
 					@endif
 				</div>
 
+				<h3 class="mb-16 mt-32">Student Planner</h3>
+				<div class="gray-box">
+					<div class="row">
+						@if(count($student_tasks) > 0)
+							<div class="col-12 mb-16">
+								<h4 class="text-center">Upcoming Tasks</h4>
+							</div>
+
+							@foreach($student_tasks as $task)
+								<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-8 mb-8">
+									<div style="background: white; padding: 16px; border-radius: 8px;">
+										<h5>{{ $task->title }}</h5>
+										<p class="mb-0"><small>Due Date: {{ Carbon\Carbon::parse($task->due_date)->format('M jS, Y') }}</small></p>
+									</div>
+								</div>
+							@endforeach
+
+							<div class="col-12 mt-16">
+								<a href="{{ url('/members/student') }}" class="genric-btn primary rounded small centered">Go to Student Planner</a>
+							</div>
+						@else
+						<div class="col-12">
+							<h4 class="mb-2 text-center">No Tasks</h4>
+							<p class="text-center">Hooray! There are no tasks left for you! Click below to create a task!</p>
+							<a href="{{ url('/members/student/tasks/new') }}" class="genric-btn primary centered rounded" style="font-size: 14px;">Create Task</a>
+						</div>
+						@endif
+					</div>
+				</div>
+
 				@if($session_stats["average_cycles"] != 0 || $session_stats["average_seconds"] != 0)
 				<h3 class="mb-16 mt-32">Pomodoro Tool</h3>
 				<div class="gray-box">

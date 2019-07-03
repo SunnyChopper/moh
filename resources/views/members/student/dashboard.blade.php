@@ -50,10 +50,10 @@
 	@if(count($classes) > 0)
 	<div style="background: #EAEAEA;">
 		<div class="container pt-64 pb-64">
-			<div class="row">
+			<div class="row justify-content-center">
 				@if(count($tasks) > 0)
 					<div class="col-12 mb-16">
-						<h3>Your Upcoming Tasks</h3>
+						<h3 class="text-center">Your Upcoming Tasks</h3>
 					</div>
 
 					@foreach($tasks as $task)
@@ -133,6 +133,36 @@
 		</div>
 	</div>
 	@endif
+
+	{{-- <div class="container pt-64 pb-64">
+		<div class="row justify-content-center">
+			<div class="col-lg-6 col-md-7 col-sm-12 col-12">
+				<h3 class="text-center mb-3">Something Not Working?</h3>
+				<p class="text-center mb-32">We test all of the products before we release them, however, technology is never perfect. If something isn't working with the student planner, fill out the form below and our web dev team will be all over it.</p>
+
+
+				<div class="form-group">
+					<label>Name:</label>
+					<input type="text" class="form-control" name="name">
+				</div>
+
+				<div class="form-group">
+					<label>Email:</label>
+					<input type="email" class="form-control" name="email">
+				</div>
+
+				<div class="form-group">
+					<label>Message:</label>
+					<textarea class="form-control" name="message" rows="5"></textarea>
+				</div>
+
+				<div class="form-group mt-32">
+					<input type="submit" class="genric-btn info centered rounded" value="Submit Support Ticket" style="font-size: 15px;">
+				</div>
+
+			</div>
+		</div>
+	</div> --}}
 @endsection
 
 @section('page_js')

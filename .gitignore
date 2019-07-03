@@ -4,6 +4,9 @@
 /storage/*.key
 /vendor
 /storage
+/storage/framework/sessions
+/storage/framework/views
+/storage/logs
 .editorconfig
 .env.example
 .gitattributes

@@ -48,6 +48,7 @@
 					<li class="menu-has-children"><a href="">Tools</a>
 						<ul>
 							<li><a href="{{ url('/members/pomodoro') }}">Pomodoro Tool</a></li>	
+							<li><a href="{{ url('/members/student') }}">Student Planner</a></li>	
 						</ul>
 					</li>
 					<li><a href="{{ url('/members/personal-coaching') }}">Personal Coaching</a></li>
