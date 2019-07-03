@@ -54,7 +54,7 @@
 						<div class="col-12">
 							<h4 class="mb-2 text-center">No Tasks</h4>
 							<p class="text-center">Hooray! There are no tasks left for you! Click below to create a task!</p>
-							<a href="{{ url('/members/student/tasks/new') }}" class="genric-btn primary centered rounded" style="font-size: 14px;">Create Task</a>
+							<a href="{{ url('/members/student') }}" class="genric-btn primary centered rounded" style="font-size: 14px;">Go to Student Planner</a>
 						</div>
 						@endif
 					</div>
