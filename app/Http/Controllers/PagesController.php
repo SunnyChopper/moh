@@ -8,6 +8,7 @@ use App\FreeConsultation;
 use App\Custom\CourseHelper;
 use App\Custom\BlogPostHelper;
 use App\Custom\PomodoroHelper;
+use App\Custom\StripeHelper;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -19,10 +20,9 @@ class PagesController extends Controller
 {
 
     public function test() {
-        // Start by creating a charge
-        $stripe = Stripe::make(env('STRIPE_SECRET'));
-        $plan = $stripe->plans()->find('personal-coaching');
-        return var_dump($plan);
+        $stripe = new StripeHelper();
+        $plans = $stripe->getPlans();
+        dd($plans);
     }
 
     public function index() {
@@ -107,6 +107,15 @@ class PagesController extends Controller
         $page_header = $page_title;
 
         return view('pages.rice-planner')->with('page_title', $page_title)->with('page_header', $page_header);
+    }
+
+    public function focus_cheatsheet() {
+        $page_title = "Ultimate Focus Cheatsheet";
+        $page_header = $page_title;
+
+        $landing_page_footer_text = "Want to know what both Warren Buffett and Bill Gates thought was the most important character trait for success? It was focus. If you do not have the ability to sit down and focus on a task or even focus on a single mission, it won't matter how much effort you try to exert, you will not be able to move the needle. With self-development and practice, you can build your focus muscle and attain laser focus.";
+
+        return view('landing-pages.focus-cheatsheet')->with('page_title', $page_title)->with('page_header', $page_header)->with('landing_page_footer_text', $landing_page_footer_text);
     }
 
     public function submit_free_consultation(Request $data) {

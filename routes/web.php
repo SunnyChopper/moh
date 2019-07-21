@@ -26,6 +26,7 @@ Route::get('/tools', 'PagesController@tools');
 Route::get('/tools/pomodoro', 'PagesController@pomodoro');
 Route::get('/tools/student', 'PagesController@student_planner');
 Route::get('/tools/rice', 'PagesController@rice_planner');
+Route::get('/focus/cheatsheet', 'PagesController@focus_cheatsheet');
 Route::get('/test', 'PagesController@test');
 
 // Admin functions
@@ -83,6 +84,7 @@ Route::get('/admin/links/personal-coaching', 'AdminController@view_personal_coac
 
 // Member functions
 Auth::routes();
+Route::get('/members/subscriptions', 'MembersController@subscriptions');
 Route::get('/members/dashboard', 'MembersController@dashboard');
 Route::get('/members/logout', 'MembersController@logout');
 
@@ -94,6 +96,7 @@ Route::get('/members/courses/{course_id}/forums/new', 'CoursesController@new_for
 Route::post('/members/courses/forums/create', 'CoursesController@create_forum');
 Route::get('/members/courses/{course_id}/forums/{forum_id}', 'CoursesController@view_forum');
 Route::post('/members/courses/forums/comment/create', 'CoursesController@create_comment');
+Route::get('/members/courses/complete/{course_id}/{video_id}', 'CourseCompletionsController@create');
 
 // Personal coaching functions
 Route::get('/members/personal-coaching', 'MentorsController@personal_coaching');

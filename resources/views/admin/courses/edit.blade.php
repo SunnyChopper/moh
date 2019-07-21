@@ -10,6 +10,7 @@
 					<form id="update_course_form" action="/admin/courses/update" method="POST">
 						{{ csrf_field() }}
 						<input type="hidden" name="course_id" value="{{ $course->id }}">
+						<input type="hidden" name="price">
 						<div class="form-group">
 							<h3>Create a New Course</h3>
 							<p>Fields with <span class="red">*</span> are required.</p>
@@ -39,8 +40,13 @@
 
 						<div class="form-group row">
 							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
-								<label>Price<span class="red">*</span>:</label>
-								<input type="number" name="price" class="form-control" value="{{ $course->price }}" required>
+								<label>Select Stripe Plan:</label>
+								<select id="stripe_plan" form="update_course_form" class="form-control" name="plan_id">
+									<option <?php if($course->plan_id == "") { echo "selected" ;}  ?> value="">N/A</option>
+									@foreach($plans as $plan)
+									<option <?php if($course->plan_id == $plan["id"]) { echo "selected" ;} ?> data-price="{{ $plan["amount"] }}" value="{{ $plan["id"] }}">{{ $plan["name"] }} - ${{ sprintf("%.2f", $plan["amount"] / 100) }}<?php if ($plan["interval"] == "month") { echo "/mo"; } ?> <?php if($plan["trial_period_days"] > 0) { echo "(" . $plan["trial_period_days"] . " days trial)"; }?></option>
+									@endforeach
+								</select>
 							</div>
 
 							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -60,4 +66,13 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('page_js')
+	<script type="text/javascript">
+		$("#stripe_plan").on('change', function() {
+			var price = $(this).find(":selected").attr('data-price');
+			$("input[name=price]").val(price);
+		});
+	</script>
 @endsection

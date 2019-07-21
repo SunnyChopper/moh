@@ -13,7 +13,13 @@ use App\MentorDocument;
 use App\FreeConsultation;
 use App\User;
 
+use App\Custom\SubscriptionsHelper;
+
 class MentorHelper {
+
+	public static function isAuthorized($user_id) {
+		
+	}
 	
 	public static function getRecommendationsForUser($user_id) {
 		return MentorRecommendation::where('user_id', $user_id)->where('is_active', 1)->get();

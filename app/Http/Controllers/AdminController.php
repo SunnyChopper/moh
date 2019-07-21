@@ -17,6 +17,7 @@ use App\FreeConsultation;
 
 use App\Custom\UserHelper;
 use App\Custom\AdminHelper;
+use App\Custom\StripeHelper;
 use App\Custom\CourseHelper;
 use App\Custom\MentorHelper;
 
@@ -91,7 +92,10 @@ class AdminController extends Controller
     	$page_title = "New Course";
     	$page_header = $page_title;
 
-    	return view('admin.courses.new')->with('page_title', $page_title)->with('page_header', $page_header);
+        $stripe_helper = new StripeHelper();
+        $plans = $stripe_helper->getPlans();
+
+    	return view('admin.courses.new')->with('page_title', $page_title)->with('page_header', $page_header)->with('plans', $plans);
     }
 
     public function create_course(Request $data) {
@@ -117,7 +121,10 @@ class AdminController extends Controller
     	$page_title = $course->title;
     	$page_header = $page_title;
 
-    	return view('admin.courses.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course);
+        $stripe_helper = new StripeHelper();
+        $plans = $stripe_helper->getPlans();
+
+    	return view('admin.courses.edit')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course)->with('plans', $plans);
     }
 
     public function update_course(Request $data) {
@@ -126,8 +133,9 @@ class AdminController extends Controller
     	$course->description = $data->description;
     	$course->image_url = $data->image_url;
     	$course->youtube_id = $data->youtube_id;
-    	$course->price = $data->price;
+    	$course->price = ($data->price / 100);
     	$course->monthly = $data->monthly;
+        $course->plan_id = $data->plan_id;
     	$course->save();
 
     	return redirect(url('/admin/courses'));

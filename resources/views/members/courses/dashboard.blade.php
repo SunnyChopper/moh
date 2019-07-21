@@ -22,8 +22,10 @@
 
 			<div class="col-lg-5 col-md-5 col-sm-12 col-12 mt-32-mobile">
 				<div class="gray-box">
-					<h3 class="text-center mb-16">Quick Actions</h3>
-					<a href="{{ url('/members/courses' . $course->id . '/forums/new') }}" class="genric-btn primary centered rounded">New Forum</a>
+					<h3 class="text-center mb-16">Course Completion</h3>
+					<div class="progress mt-16" style="height: 40px;">
+						<div class="progress-bar" role="progressbar" style="width: {{ \App\Custom\CourseHelper::getCourseCompletion($course->id, Auth::id()) * 100 }}%;" aria-valuenow="{{ \App\Custom\CourseHelper::getCourseCompletion($course->id, Auth::id()) * 100 }}" aria-valuemin="0" aria-valuemax="100"><span style="color: black;">{{ \App\Custom\CourseHelper::getCourseCompletion($course->id, Auth::id()) * 100 }}%</span></div>
+					</div>
 				</div>
 			</div>
 		</div>

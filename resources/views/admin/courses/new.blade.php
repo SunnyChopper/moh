@@ -51,6 +51,15 @@
 							</div>
 						</div>
 
+						<div class="form-group row">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+								<label>Select Stripe Plan:</label>
+								<select form="create_course_form" class="form-control" name="plan_id">
+									<option value="">N/A</option>
+								</select>
+							</div>
+						</div>
+
 						<div class="form-group">
 							<input type="submit" class="primary-btn" value="Create Course">
 						</div>

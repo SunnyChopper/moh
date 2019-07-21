@@ -7,6 +7,7 @@ use App\Course;
 use App\CourseMembership;
 use App\MentorEnrollment;
 
+use App\Custom\SubscriptionsHelper;
 use App\Custom\StudentPlannerHelper;
 use App\Custom\PomodoroHelper;
 use App\Custom\UserHelper;
@@ -59,6 +60,19 @@ class MembersController extends Controller
 				return redirect(url('/members/courses/' . $course_id . '/dashboard'));
 			}
 		}
+	}
+
+	public function subscriptions() {
+		if ($this->isAuthorized() == false) {
+			return redirect(url('/login?redirect_action=/members/subscriptions'));
+		}
+
+		$page_title = "Your Subscriptions";
+		$page_header = $page_title;
+
+		$subscriptions = SubscriptionsHelper::getSubscriptions(Auth::id());
+
+		return view('members.subscriptions')->with('page_title', $page_title)->with('page_header', $page_header)->with('subscriptions', $subscriptions);
 	}
 
 	public function logout() {
