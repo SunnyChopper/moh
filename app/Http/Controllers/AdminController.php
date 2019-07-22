@@ -104,8 +104,9 @@ class AdminController extends Controller
     	$course->description = $data->description;
     	$course->image_url = $data->image_url;
     	$course->youtube_id = $data->youtube_id;
-    	$course->price = $data->price;
+    	$course->price = ($data->price / 100);
     	$course->monthly = $data->monthly;
+        $course->plan_id = $data->plan_id;
     	$course->save();
 
     	return redirect(url('/admin/courses'));
