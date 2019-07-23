@@ -27,6 +27,7 @@ Route::get('/tools/pomodoro', 'PagesController@pomodoro');
 Route::get('/tools/student', 'PagesController@student_planner');
 Route::get('/tools/rice', 'PagesController@rice_planner');
 Route::get('/focus/cheatsheet', 'PagesController@focus_cheatsheet');
+Route::get('/mastermind', 'PagesController@book_club');
 Route::get('/test', 'PagesController@test');
 
 // Admin functions

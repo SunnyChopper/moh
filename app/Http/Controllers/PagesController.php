@@ -118,6 +118,15 @@ class PagesController extends Controller
         return view('landing-pages.focus-cheatsheet')->with('page_title', $page_title)->with('page_header', $page_header)->with('landing_page_footer_text', $landing_page_footer_text);
     }
 
+    public function book_club() {
+        $page_title = "Mind of Habit Mastermind";
+        $page_header = $page_title;
+
+        $landing_page_footer_text = "We want to help accelerate your self-development growth. We want to make sure you get to state of mind where you're finding a deeper purpose and happiness in what you do. You only get one shot at life so why not become the best version of yourself and tap into your deeper inner purpose and happiness.";
+
+        return view('landing-pages.book-club')->with('page_title', $page_title)->with('page_header', $page_header)->with('landing_page_footer_text', $landing_page_footer_text);
+    }
+
     public function submit_free_consultation(Request $data) {
         $name_array = $this->split_name($data->name);
 
