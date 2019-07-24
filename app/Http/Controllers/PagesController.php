@@ -121,19 +121,23 @@ class PagesController extends Controller
     public function book_club() {
         $page_title = "Mind of Habit Book Club";
         $page_header = $page_title;
+        $page_description = "Finally unlock your inner confidence and purpose with the Mind of Habit Book Club.";
+        $page_image = asset('img/book-club.png');
 
         $landing_page_footer_text = "We want to help accelerate your self-development growth. We want to make sure you get to state of mind where you're finding a deeper purpose and happiness in what you do. You only get one shot at life so why not become the best version of yourself and tap into your deeper inner purpose and happiness.";
 
         $seo_array = array(
+            "description" => $page_description,
             "og:title" => $page_title,
             "og:type" => "website",
             "og:url" => "https://www.mindofhabit.com/mastermind",
-            "og:image" => asset('img/book-club.png'),
+            "og:image" => $page_image,
             "og:image:alt" => "Mind of Habit Book Club",
-            "og:description" => "Finally unlock your inner confidence and purpose with the Mind of Habit Book Club."
+            "og:description" => $page_description,
+            "twitter:card" => "summary_large_image"
         );
 
-        return view('landing-pages.book-club')->with('page_title', $page_title)->with('page_header', $page_header)->with('landing_page_footer_text', $landing_page_footer_text);
+        return view('landing-pages.book-club')->with('page_title', $page_title)->with('page_header', $page_header)->with('landing_page_footer_text', $landing_page_footer_text)->with('seo_array', $seo_array);
     }
 
     public function submit_free_consultation(Request $data) {
