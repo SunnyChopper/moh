@@ -17,8 +17,16 @@
 		<!-- Site Title -->
 		@if(isset($page_title))
 		<title>{{ config('app.name') }} - {{ $page_title }}</title>
+		<meta property="og:title" content="{{ config('app.name') }} - {{ $page_title }}" />
 		@else
 		<title>{{ config('app.name') }}</title>
+		<meta property="og:title" content="{{ config('app.name') }}" />
+		@endif
+
+		@if(isset($seo_array))
+			@foreach($seo_array as $property => $value)
+				<meta property="{{ $property }}" content="{{ $value }}">
+			@endforeach
 		@endif
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
@@ -37,11 +45,11 @@
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131372255-4"></script>
 		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
 
-		  gtag('config', 'UA-131372255-4');
+			gtag('config', 'UA-131372255-4');
 		</script>
 
 		<!-- Facebook Pixel Code -->

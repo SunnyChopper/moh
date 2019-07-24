@@ -124,6 +124,15 @@ class PagesController extends Controller
 
         $landing_page_footer_text = "We want to help accelerate your self-development growth. We want to make sure you get to state of mind where you're finding a deeper purpose and happiness in what you do. You only get one shot at life so why not become the best version of yourself and tap into your deeper inner purpose and happiness.";
 
+        $seo_array = array(
+            "og:title" => $page_title,
+            "og:type" => "website",
+            "og:url" => "https://www.mindofhabit.com/mastermind",
+            "og:image" => URL::asset('img/book-club.png'),
+            "og:image:alt" => "Mind of Habit Book Club",
+            "og:description" => "Finally unlock your inner confidence and purpose with the Mind of Habit Book Club."
+        );
+
         return view('landing-pages.book-club')->with('page_title', $page_title)->with('page_header', $page_header)->with('landing_page_footer_text', $landing_page_footer_text);
     }
 
