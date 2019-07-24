@@ -119,7 +119,7 @@ class PagesController extends Controller
     }
 
     public function book_club() {
-        $page_title = "Mind of Habit Mastermind";
+        $page_title = "Mind of Habit Book Club";
         $page_header = $page_title;
 
         $landing_page_footer_text = "We want to help accelerate your self-development growth. We want to make sure you get to state of mind where you're finding a deeper purpose and happiness in what you do. You only get one shot at life so why not become the best version of yourself and tap into your deeper inner purpose and happiness.";
