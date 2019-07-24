@@ -128,7 +128,7 @@ class PagesController extends Controller
             "og:title" => $page_title,
             "og:type" => "website",
             "og:url" => "https://www.mindofhabit.com/mastermind",
-            "og:image" => URL::asset('img/book-club.png'),
+            "og:image" => asset('img/book-club.png'),
             "og:image:alt" => "Mind of Habit Book Club",
             "og:description" => "Finally unlock your inner confidence and purpose with the Mind of Habit Book Club."
         );
