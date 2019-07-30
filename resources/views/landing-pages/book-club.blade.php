@@ -6,7 +6,7 @@
 	<div class="container pt-64 pb-64 pt-32-mobile pb-32-mobile">
 		<div class="row justify-content-center" style="display: flex;">
 			<div class="col-lg-8 col-md-8 col-sm-12 col-12" style="margin: auto;">
-				<h2 id="title" class="mb-32 text-center" style="line-height: 1.5em !important;">Start to Achieve the Self Mastery You Need to Succeed Within a Week</h2>
+				<h2 id="title" class="mb-32 text-center" style="line-height: 1.5em !important;">Improve Your Self-Discipline Each and Every Week</h2>
 				<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/010418-self-help-books-2-1546625905.png" class="centered regular-image-80">
 			</div>
 		</div>
@@ -35,10 +35,9 @@
 		<div class="row" style="display: flex;">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">
 				<h3 class="mb-3" style="line-height: 1.5em !important;">Do You Feel As If You Know and Read a Lot But Still Don't See Progress?</h3>
-				<p class="black mb-3" style="line-height: 2em !important;">You know quite well that there are tons of self-development books out there. There are whole rows for just motivation and self-help at your local book store. You don't live in a world where there's a shortage of information. You're actually living in a world with an over-supply of information. Your senses and mind feels overloaded. Worse, you tend to never take action from the sheer amount of options at your disposal.</p>
-				<p class="black mb-3" style="line-height: 2em !important;">It's not about learning more, that's called accumulating more knowledege and you've been doing that to no success. At a point, it becomes gaining wisdom. Wisdom is the ability to eliminate the bad choices. Your ability to know what's likely to be the real truth and what's just another gimmick or lie.</p>
-				<p class="black mb-3" style="line-height: 2em !important;">Picture yourself being able to pick up a book, absorbing the information, then using your wisdom to get the action steps. Right after that, you actually switch gears and implement what you've learned and you instantly start to see results.</p>
-				<p class="black mb-3" style="line-height: 2em !important;">That's exactly what the Mind of Habit Book Club will do for you. You will be able to get the golden nuggets and action steps for each book. You'll start to learn and improve faster. You will have tangible results to show for all your knowledge.</p>
+				<p class="black mb-3" style="line-height: 2em !important;">It's a warm, sunny day and you've got another self-development book in your hands. It's one of multiple books you're reading over the summer to improve yourself. So far, you've experienced barely any growth but you're hoping that the next book will crack the code for you. This goes on all summer with no luck.</p>
+				<p class="black mb-3" style="line-height: 2em !important;">Now picture yourself being able to pick up that book, absorbing the information, then using your wisdom to get the action steps. Right after that, you switch gears and implement what you've learned and you instantly start to see results.</p>
+				<p class="black mb-3" style="line-height: 2em !important;">That's exactly who you can be and achieve with the Mind of Habit Book Club will do for you. You will be able to get the golden nuggets and action steps for each book. You'll start to learn and improve faster. You will have tangible results to show for all your knowledge.</p>
 
 				<a href="#bottom" class="mt-16 genric-btn large rounded primary centered" style="font-size: 15px;">I'm Ready to Start</a>
 			</div>
