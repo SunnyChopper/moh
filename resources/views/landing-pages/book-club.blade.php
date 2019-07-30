@@ -6,7 +6,7 @@
 	<div class="container pt-64 pb-64 pt-32-mobile pb-32-mobile">
 		<div class="row justify-content-center" style="display: flex;">
 			<div class="col-lg-8 col-md-8 col-sm-12 col-12" style="margin: auto;">
-				<h2 id="title" class="mb-32 text-center" style="line-height: 1.5em !important;">Finally Unlock Your Inner Confidence and Purpose with the Mind of Habit Book Club</h2>
+				<h2 id="title" class="mb-32 text-center" style="line-height: 1.5em !important;">Start to Achieve the Self Mastery You Need to Succeed Within a Week</h2>
 				<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/010418-self-help-books-2-1546625905.png" class="centered regular-image-80">
 			</div>
 		</div>
@@ -35,21 +35,10 @@
 		<div class="row" style="display: flex;">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">
 				<h3 class="mb-3" style="line-height: 1.5em !important;">Do You Feel As If You Know and Read a Lot But Still Don't See Progress?</h3>
-				<p class="black mb-3" style="line-height: 2em !important;">There are tons of self-development books out there. There are whole rows for just motivation and self-help at your local Barnes & Noble or book store. We don't live in a world where there's a shortage of information. We actually live in a world with an over-supply of information. Our senses are overloaded. Worse, we tend to never take action from the sheer amount of options we have.</p>
-				<p class="black mb-3" style="line-height: 2em !important;">So it's not about learning more, that's called accumulating more knowledege. At a point, it becomes gaining wisdom and wisdom is the ability to eliminate the bad choises. By joining the Mind of Habit Book Club, we'll help you get over that and make sure that every book you read leaves you with a set of actions you can take right away. This will only result in you growing even faster.</p>
-				<p class="black mb-3" style="line-height: 2em !important;">Get a sneak peek of the topics we cover:</p>
-				<ul class="list-group">
-					<li class="list-group-item">Self-Discipline:</li>
-					<li class="list-group-item">Focusing on Tasks</li>
-					<li class="list-group-item">Habit Building</li>
-					<li class="list-group-item">Breaking Bad Habits</li>
-					<li class="list-group-item">Self-Awareness</li>
-					<li class="list-group-item">Finding a Purpose</li>
-					<li class="list-group-item">Overall Happiness</li>
-					<li class="list-group-item">Self-Esteem</li>
-					<li class="list-group-item">Career Fulfillment</li>
-					<li class="list-group-item">...many more</li>
-				</ul>
+				<p class="black mb-3" style="line-height: 2em !important;">You know quite well that there are tons of self-development books out there. There are whole rows for just motivation and self-help at your local book store. You don't live in a world where there's a shortage of information. You're actually living in a world with an over-supply of information. Your senses and mind feels overloaded. Worse, you tend to never take action from the sheer amount of options at your disposal.</p>
+				<p class="black mb-3" style="line-height: 2em !important;">It's not about learning more, that's called accumulating more knowledege and you've been doing that to no success. At a point, it becomes gaining wisdom. Wisdom is the ability to eliminate the bad choices. Your ability to know what's likely to be the real truth and what's just another gimmick or lie.</p>
+				<p class="black mb-3" style="line-height: 2em !important;">Picture yourself being able to pick up a book, absorbing the information, then using your wisdom to get the action steps. Right after that, you actually switch gears and implement what you've learned and you instantly start to see results.</p>
+				<p class="black mb-3" style="line-height: 2em !important;">That's exactly what the Mind of Habit Book Club will do for you. You will be able to get the golden nuggets and action steps for each book. You'll start to learn and improve faster. You will have tangible results to show for all your knowledge.</p>
 
 				<a href="#bottom" class="mt-16 genric-btn large rounded primary centered" style="font-size: 15px;">I'm Ready to Start</a>
 			</div>
@@ -58,8 +47,73 @@
 				<img src="https://image.flaticon.com/icons/svg/824/824984.svg" class="regular-image-80 centered mt-32-mobile">
 			</div>
 		</div>
+	</div>
 
-		<div class="row mt-128">
+	<div style="background: #EAEAEA;">
+		<div class="container pt-64 pb-64">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="text-center mb-2">What Will You Learn?</h2>
+					<p class="text-center" style="font-size: 18px; line-height: 1.75em !important;">The following are the six core topics that you will learn and master. There are many more auxiliary topics that you will learn about, however, without mastering these six core topics, the auxiliary topics fall apart.</p>
+				</div>
+			</div>
+
+			<div class="row mt-32">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-16 mb-16">
+					<div style="background: white; padding: 16px; border: 0px;">
+						<img src="https://image.flaticon.com/icons/svg/148/148966.svg" class="regular-image-20 centered">
+						<h4 class="text-center mb-2 mt-4">Self-Discipline</h4>
+						<p class="text-center mb-0">You will gain the ability to control your emotions and push through the days where you "don't feel like it."</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-16 mb-16">
+					<div style="background: white; padding: 16px; border: 0px;">
+						<img src="https://image.flaticon.com/icons/svg/148/148773.svg" class="regular-image-20 centered">
+						<h4 class="text-center mb-2 mt-4">Laser-Focus</h4>
+						<p class="text-center mb-0">Imagine that you can sit down for just a few hours in the day and get more work done in less time.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-16 mb-16">
+					<div style="background: white; padding: 16px; border: 0px;">
+						<img src="https://image.flaticon.com/icons/svg/1395/1395686.svg" class="regular-image-20 centered">
+						<h4 class="text-center mb-2 mt-4">Habit Formation</h4>
+						<p class="text-center mb-0">Kick out the bad habits and start to replace them with the good habits that will help you succeed.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-16 mb-16">
+					<div style="background: white; padding: 16px; border: 0px;">
+						<img src="https://image.flaticon.com/icons/svg/1467/1467088.svg" class="regular-image-20 centered">
+						<h4 class="text-center mb-2 mt-4">Self Awareness</h4>
+						<p class="text-center mb-0">By knowing your strengths and weaknesses, you'll be able to place yourself in favorable situations.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-16 mb-16">
+					<div style="background: white; padding: 16px; border: 0px;">
+						<img src="https://image.flaticon.com/icons/svg/1276/1276513.svg" class="regular-image-20 centered">
+						<h4 class="text-center mb-2 mt-4">Inner Self-Purpose</h4>
+						<p class="text-center mb-0">Imagine that you can wake up everyday with more energy than usual and feel good about yourself.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-16 mb-16">
+					<div style="background: white; padding: 16px; border: 0px;">
+						<img src="https://image.flaticon.com/icons/svg/727/727643.svg" class="regular-image-20 centered">
+						<h4 class="text-center mb-2 mt-4">Inner Peace</h4>
+						<p class="text-center mb-0">Tap into your true inner self to find inner peace and everlasting happiness so you can enjoy what you do.</p>
+					</div>
+				</div>
+			</div>
+
+			<a href="#bottom" class="mt-16 genric-btn large rounded primary centered" style="font-size: 15px;">I'm Ready to Start</a>
+		</div>
+	</div>
+
+	<div class="container pt-64 pb-64">
+		<div class="row">
 			<div class="col-12">
 				<h2 class="text-center background-line"><span>How Does The Book Club Work?</span></h2>
 			</div>
@@ -202,13 +256,13 @@
 
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
 				<img src="https://image.flaticon.com/icons/svg/321/321769.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">Checklists</h4>
+				<h4 class="text-center mb-2">Step-by-Step Checklists</h4>
 				<p class="text-center">We take the topics presented in the book and create a checklist out of it. This way you can quickly check and see if you're improving.</p>
 			</div>
 
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
 				<img src="https://image.flaticon.com/icons/svg/1908/1908306.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">How-to Guides</h4>
+				<h4 class="text-center mb-2">In-Depth How-to Guides</h4>
 				<p class="text-center">What's the point of learning if you don't take action and gain experience? Use our guides to take action on the topics covered in the book.</p>
 			</div>
 		</div>
@@ -216,13 +270,13 @@
 		<div class="row mt-64">
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
 				<img src="https://image.flaticon.com/icons/svg/1063/1063206.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">Free Software Tools</h4>
+				<h4 class="text-center mb-2">Software Tools</h4>
 				<p class="text-center">Not only are you getting a how-to guide, you will get access to a software tool that will help you implement the ideas covered in the book.</p>
 			</div>
 
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
 				<img src="https://image.flaticon.com/icons/svg/1066/1066371.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">Ongoing Help</h4>
+				<h4 class="text-center mb-2">Ongoing Help and Support</h4>
 				<p class="text-center">We're here for you when you have trouble understanding the concepts in the book. Use the Direct Question to directly send us your question.</p>
 			</div>
 
@@ -238,7 +292,7 @@
 		<div class="container pt-64 pb-64">
 			<div class="row">
 				<div class="col-12">
-					<h3 class="text-center mb-2">Are You Ready to Transform Yourself and Achieve Your Dream-like Goals?</h3>
+					<h2 class="text-center green mb-2">Gain Access to a Wealth of Knowledge - $7/mo</h2>
 					<h5 class="text-center black" style="font-weight: 300;">"If you spend too much time thinking about a thing, you'll never get it done." - Bruce Lee</h5>
 				</div>
 			</div>
