@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\User;
 use App\Course;
 use App\CourseMembership;
 use App\MentorEnrollment;
@@ -11,7 +12,9 @@ use App\Custom\SubscriptionsHelper;
 use App\Custom\StudentPlannerHelper;
 use App\Custom\PomodoroHelper;
 use App\Custom\UserHelper;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MembersController extends Controller
 {
@@ -37,6 +40,32 @@ class MembersController extends Controller
 		}
 
 		return view('members.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('is_enrolled', $is_enrolled)->with('courses', $courses)->with('session_stats', $session_stats)->with('student_tasks', $student_tasks);
+	}
+
+	public function attempt_login(Request $data) {
+		if (User::where('username', strtolower($data->username))->count() > 0) {
+			$user = User::where('username', strtolower($data->username))->first();
+			if (Hash::check($data->password, $user->password) == true) {
+				Auth::login($user);
+				return response()->json(1, 200);
+			} else {
+				return response()->json(0, 200);
+			}
+		} else {
+			return response()->json(-1, 200);
+		}
+	}
+
+	public function attempt_register(Request $data) {
+		$user = new User;
+		$user->email = $data->email;
+		$user->username = $data->username;
+		$user->password = Hash::make($data->password);
+		$user->save();
+
+		Auth::login($user);
+
+		return response()->json($user->id, 200);
 	}
 
 	public function enroll_course($course_id) {

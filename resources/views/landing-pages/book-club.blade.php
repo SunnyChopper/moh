@@ -302,7 +302,7 @@
 						<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">Step 1 of 3</div>
 					</div>
 
-					<h4 class="text-center">Step 1 - Login or Create an Account</h4>
+					<h4 class="text-center" id="step">Step 1 - Login or Create an Account</h4>
 				</div>
 			</div>
 
@@ -325,7 +325,8 @@
 							<input type="password" id="login_password" class="form-control">
 						</div>
 						<div class="card-footer">
-							<button type="button" class="genric-btn medium primary rounded centered" style="font-size: 15px;">Login</button>
+							<p class="text-center" id="login_feedback" style="display: none;"></p>
+							<button type="button" class="genric-btn medium primary rounded centered login_button" style="font-size: 15px;">Login</button>
 						</div>
 					</div>
 
@@ -346,12 +347,14 @@
 						</div>
 						<div class="card-body">
 							<input type="email" id="register_email" class="form-control">
+							<p id="register_email_feedback" class="red mb-0" style="display: none;"><small>Email already taken.</small></p>
 						</div>
 						<div class="card-header">
 							<label class="mb-0"><b>Username:</b></label>
 						</div>
 						<div class="card-body">
 							<input type="text" id="register_username" class="form-control">
+							<p id="register_username_feedback" class="red mb-0" style="display: none;"><small>Username already taken.</small></p>
 						</div>
 						<div class="card-header">
 							<label class="mb-0"><b>Password:</b></label>
@@ -360,10 +363,130 @@
 							<input type="password" id="register_password" class="form-control">
 						</div>
 						<div class="card-footer">
-							<button type="button" class="genric-btn medium primary rounded centered" style="font-size: 15px;">Login</button>
+							<p class="text-center" id="register_feedback" style="display: none;"></p>
+							<button type="button" class="genric-btn medium primary rounded centered register_button" style="font-size: 15px;">Register Account</button>
 						</div>
 					</div>
 
+				</div>
+			</div>
+
+			<div class="row justify-content-center mt-32" id="stepTwo" style="display: none;">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">
+					<div class="form-group row">
+						<div class="col-12">
+							<label>Card Number:</label>
+							<input type="text" class="form-control" id="card_number" required>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-lg-4 col-md-5 col-sm-12 col-12">
+							<label>Expiry Month:</label>
+							<select class="form-control" id="ccExpiryMonth">
+								<option value="01">01 - Jan</option>
+								<option value="02">02 - Feb</option>
+								<option value="03">03 - Mar</option>
+								<option value="04">04 - Apr</option>
+								<option value="05">05 - May</option>
+								<option value="06">06 - Jun</option>
+								<option value="07">07 - Jul</option>
+								<option value="08">08 - Aug</option>
+								<option value="09">09 - Sep</option>
+								<option value="10">10 - Oct</option>
+								<option value="11">11 - Nov</option>
+								<option value="12">12 - Dec</option>
+							</select>
+						</div>
+
+						<div class="col-lg-4 col-md-5 col-sm-12 col-12 mt-16-mobile">
+							<label>Expiry Year:</label>
+							<select class="form-control" id="ccExpiryYear">
+								<option value="2019">2019</option>
+								<option value="2020">2020</option>
+								<option value="2021">2021</option>
+								<option value="2022">2022</option>
+								<option value="2023">2023</option>
+								<option value="2024">2024</option>
+								<option value="2025">2025</option>
+								<option value="2026">2026</option>
+								<option value="2027">2027</option>
+								<option value="2028">2028</option>
+								<option value="2029">2029</option>
+								<option value="2030">2030</option>
+							</select>
+						</div>
+
+						<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-16-mobile">
+							<label>Security Code:</label>
+							<input type="text" class="form-control" id="cvvNumber">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-8">
+							<img src="http://www.pngmart.com/files/3/Major-Credit-Card-Logo-PNG-Image.png" class="regular-image-60 regular-image-100-mobile">
+						</div>
+
+						<div class="col-4">
+							<img src="https://www.websitepulse.com/blog/uploads/SSL-Secure-Connection.png" class="regular-image-80 right-button regular-image-100-mobile">
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">
+					<h4 class="text-center mt-32-mobile">What You Are Getting Today</h4>
+
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+							<ul class="list-group mt-16">
+								<li class="list-group-item">
+									<p class="black mb-0">Detailed Book Summaries</p>
+								</li>
+
+								<li class="list-group-item">
+									<p class="black mb-0">Step-by-Step Checklists</p>
+								</li>
+
+								<li class="list-group-item">
+									<p class="black mb-0">In-Depth How-to Guides</p>
+								</li>
+							</ul>
+						</div>
+
+						<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+							<ul class="list-group mt-16 mt-0-mobile">
+								<li class="list-group-item">
+									<p class="black mb-0">Software Tools</p>
+								</li>
+
+								<li class="list-group-item">
+									<p class="black mb-0">Ongoing Help and Support</p>
+								</li>
+
+								<li class="list-group-item">
+									<p class="black mb-0">24/7 Access to Content</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="row mt-16">
+						<div class="col-6">
+							<h4 class="mb-0">Today's Total:</h4>
+						</div>
+
+						<div class="col-6">
+							<h4 class="mb-0 text-right green">$7.00</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="row mt-32">
+					<div class="col-12">
+						<p id="checkout_feedback" class="text-center" style="display: none"></p>
+						<button type="button" class="genric-btn primary rounded checkout_button" style="font-size: 16px;">Finish and Checkout</button>	
+					</div>
 				</div>
 			</div>
 		</div>
@@ -432,6 +555,251 @@
 
 @section('page_js')
 	<script type="text/javascript">
+		@if(Auth::guest())
+		var is_guest = true;
+		var user_id = 0;
+		var user_email = '';
+		@else
+		var is_guest = false;
+		var user_id = {{ Auth::id() }};
+		var user_email = '{{ Auth::user()->email }}';
+		@endif
+		var _token = '{{ csrf_token() }}';
+
+		/* ------------------- *\
+			Text Bindings
+		\* ------------------- */
+
+		$("#register_email").on('change', function() {
+			$.ajax({
+				url : '/api/email/check',
+				type : 'POST',
+				data : {
+					'_token' : _token,
+					'email' : $("#register_email").val()
+				},
+				success : function(data) {
+					if (data == true) {
+						$("#register_email").css('border', '1px solid red');
+						$("#register_email_feedback").show();
+						$(".register_button").prop('disabled', 'disabled');
+					} else {
+						$("#register_email").css('border', '1px solid green');
+						$("#register_email_feedback").hide();
+						$(".register_button").removeAttr('disabled');
+					}
+				}
+			})
+		});
+
+		$("#register_username").on('change', function() {
+			$.ajax({
+				url : '/api/username/check',
+				type : 'POST',
+				data : {
+					'_token' : _token,
+					'username' : $("#register_username").val()
+				},
+				success : function(data) {
+					if (data == true) {
+						$("#register_username").css('border', '1px solid red');
+						$("#register_username_feedback").show();
+						$(".register_button").prop('disabled', 'disabled');
+					} else {
+						$("#register_username").css('border', '1px solid green');
+						$("#register_username_feedback").hide();
+						$(".register_button").removeAttr('disabled');
+					}
+				}
+			})
+		});
+
+		/* ------------------- *\
+			Button Bindings
+		\* ------------------- */
+
+		$(".login_button").on('click', function() {
+			if ($("#login_username").val() != "" && $("#login_password").val() != "") {
+				var username = $("#login_username").val();
+				var password = $("#login_password").val();
+
+				// Create AJAX request to attempt login
+				$.ajax({
+					url : '/api/users/login',
+					type : 'POST',
+					data : {
+						'_token' : _token,
+						'username' : username,
+						'password' : password
+					},
+					success : function(data) {
+						if (data == 1) {
+							$("#login_feedback").hide();
+
+							// Prepare views
+							$("#step").html("Step 2 - Enter billing information");
+							$(".progress-bar").css('width', '66%');
+							$(".progress-bar").html('Step 2 of 3');
+
+							// Change views
+							$("#stepOne").fadeOut();
+							$("#stepTwo").fadeIn();
+							$("#stepTwo").css('display', 'flex');
+						} else if (data == 0) {
+							$("#login_feedback").html("Incorrect password.");
+							$("#login_feedback").removeClass('green');
+							$("#login_feedback").addClass('red');
+							$("#login_feedback").show();
+						} else {
+							$("#login_feedback").html("No account associated with that ");
+							$("#login_feedback").removeClass('green');
+							$("#login_feedback").addClass('red');
+							$("#login_feedback").show();
+						}
+					}
+				});
+			} else {
+				$("#login_feedback").html("Please fill out all fields.");
+				$("#login_feedback").removeClass('green');
+				$("#login_feedback").addClass('red');
+				$("#login_feedback").show();
+			}
+		});
+
+		$(".register_button").on('click', function() {
+			if ($("#register_email").val() != "" && $("#register_username").val() != "" && $("#register_password").val() != "") {
+				var email = $("#register_email").val();
+				var username = $("#register_username").val();
+				var password = $("#register_password").val();
+
+				$.ajax({
+					url : '/api/users/create',
+					type : 'POST',
+					data : {
+						'_token' : _token,
+						'email' : email,
+						'username' : username,
+						'password' : password
+					}, 
+					success : function(data) {
+						$("#register_feedback").hide();
+
+						// Set global variables
+						user_email = email;
+						user_id = data;
+
+						// Prepare views
+						$("#step").html("Step 2 - Enter billing information");
+						$(".progress-bar").css('width', '66%');
+						$(".progress-bar").html('Step 2 of 3');
+
+						// Change views
+						$("#stepOne").fadeOut();
+						$("#stepTwo").fadeIn();
+						$("#stepTwo").css('display', 'flex');
+					}
+				});
+			} else {
+				$("#register_feedback").html("Please fill out all fields.");
+				$("#register_feedback").removeClass('green');
+				$("#register_feedback").addClass('red');
+				$("#register_feedback").show();
+			}
+		});
+
+		$(".checkout_button").on('click', function() {
+			if ($("#card_number").val() != "" && $("#cvvNumber").val() != "") {
+				var card_number = $("#card_number").val();
+				var card_expiry_month = $("#ccExpiryMonth").val();
+				var card_expiry_year = $("#ccExpiryYear").val();
+				var card_cvv = $("#cvvNumber").val();
+
+				$("#card_number").css('border', '1px solid #ced4da');
+				$("#cvvNumber").css('border', '1px solid #ced4da');
+
+				$("#checkout_feedback").hide();
+
+				$.ajax({
+					url : '/api/book-club/payment',
+					type : 'POST',
+					data : {
+						'_token' : _token,
+						'card_number' : card_number,
+						'ccExpiryMonth' : card_expiry_month,
+						'ccExpiryYear' : card_expiry_year,
+						'cvvNumber' : card_cvv,
+						'email' : user_email,
+						'plan_id' : 'test-course'
+					},
+					success : function(data) {
+						if ('success' in data) {
+							// Get extra data
+							var customer_id = data["data"]["customer_id"];
+							var subscription_id = data["data"]["subscription_id"];
+
+							// Create the actual membership now
+							$.ajax({
+								url : '/api/book-club/enroll',
+								type : 'POST',
+								data : {
+									'_token' : _token,
+									'user_id' : user_id,
+									'customer_id' : customer_id,
+									'subscription_id' : subscription_id
+								},
+								success : function(data) {
+									$("#checkout_feedback").html('Successfully created membership. Redirecting you to your dashboard now...');
+									$("#checkout_feedback").removeClass('red');
+									$("#checkout_feedback").addClass('green');
+									$("#checkout_feedback").show();
+
+									setTimeout(function() { 
+								        window.location.href = '{{ url('/members/dashboard') }}';
+								    }, 2000);
+								}
+							});
+						} else {
+							$("#checkout_feedback").html('Something went wrong while trying to create membership');
+							$("#checkout_feedback").removeClass('green');
+							$("#checkout_feedback").addClass('red');
+							$("#checkout_feedback").show();
+						}
+					}
+				});
+			} else {
+				if ($("#card_number").val() == "") {
+					$("#card_number").css('border', '1px solid red');
+				}
+
+				if ($("#cvvNumber").val() == "") {
+					$("#cvvNumber").css('border', '1px solid red');
+				}
+
+				$("#checkout_feedback").html('Please enter all fields.');
+				$("#checkout_feedback").addClass('red');
+				$("#checkout_feedback").removeClass('green');
+				$("#checkout_feedback").show();
+			}
+		});
+
+		/* ------------------- *\
+			General
+		\* ------------------- */
+
+		$(document).ready(function() {
+			if (is_guest == false) {
+				// Prepare views
+				$("#step").html("Step 2 - Enter billing information");
+				$(".progress-bar").css('width', '66%');
+				$(".progress-bar").html('Step 2 of 3');
+
+				// Change views
+				$("#stepOne").fadeOut();
+				$("#stepTwo").fadeIn();
+				$("#stepTwo").css('display', 'flex');
+			}
+		});
+
 		$(window).on('scroll', function() { 
 			var scrollPos = $(window).scrollTop();
 			if(scrollPos < 20) {

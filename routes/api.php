@@ -57,3 +57,11 @@ Route::get('/consultations/view', function() {
 
 Route::post('/account/create', 'MentorsController@create_trial_account');
 Route::post('/personal-coaching/trial/enroll', 'MentorsController@enroll_trial');
+
+// User functions
+Route::post('/users/login', 'MembersController@attempt_login');
+Route::post('/users/create', 'MembersController@attempt_register');
+
+// Book club functions
+Route::post('/book-club/payment', 'PaymentsController@book_club');
+Route::post('/book-club/enroll', 'BookClubMembershipsController@create');

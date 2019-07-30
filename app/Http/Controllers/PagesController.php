@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+
 use App\Course;
 use App\FreeConsultation;
+use App\BookClubMembership;
 
 use App\Custom\CourseHelper;
 use App\Custom\BlogPostHelper;
@@ -119,6 +122,12 @@ class PagesController extends Controller
     }
 
     public function book_club() {
+        if (!Auth::guest()) {
+            if (BookClubMembership::where('user_id', Auth::id())->where('status', 1)->count() > 0) {
+                return redirect(url('/members/book-club'));
+            }
+        }
+
         $page_title = "Mind of Habit Book Club";
         $page_header = $page_title;
         $page_description = "Finally unlock your inner confidence and purpose with the Mind of Habit Book Club.";

@@ -12,34 +12,44 @@ use Session;
 use Auth;
 
 class StripeHelper {
-	private $amount;
-	public $stripe;
 
-	/* Public functions */
-	public function __construct($amount = 0) {
-		$this->amount = $amount;
-		$this->stripe = Stripe::make(env('STRIPE_SECRET'));
-	}
-
+	/*
+	 *
+	 *	Def: Gets plan details
+	 *	Args: plan_id -> int
+	 * 	Returns: array
+	 *
+	 */
 	public function getPlan($plan_id) {
-		return $this->stripe->plans()->find($plan_id);
+		$stripe = Stripe::make(env('STRIPE_SECRET'));
+		return $stripe->plans()->find($plan_id);
 	}
 
+	/*
+	 *
+	 *	Def: Gets all plans
+	 *	Args: none
+	 * 	Returns: array
+	 *
+	 */
 	public function getPlans() {
-		return $this->stripe->plans()->all()["data"];
+		$stripe = Stripe::make(env('STRIPE_SECRET'));
+		return $stripe->plans()->all()["data"];
 	}
 
+	/*
+	 *
+	 *	Def: Create single charge for customer
+	 *	Args: data{card_number, ccExpiryMonth, ccExpiryYear, cvvNumber, email, amount, description} -> array
+	 * 	Returns: string
+	 *
+	 */
 	public static function checkout($data) {
-		// Get amount from either
-		if ($this->amount == 0) {
-			$amount = $data["amount"];
-		} else {
-			$amount = $this->amount;
-		}
+		$stripe = Stripe::make(env('STRIPE_SECRET'));
 
 		try {
 			// Create the token
-			$token = $this->stripe->tokens()->create([
+			$token = $stripe->tokens()->create([
 				'card' => [
 					'number'    => $data["card_number"],
 					'exp_month' => $data["ccExpiryMonth"],
@@ -56,12 +66,12 @@ class StripeHelper {
 			// Check to see if customer already exists
 			if (Auth::guest()) {
 				// Create a customer
-				$customer = $this->stripe->customers()->create([
+				$customer = $stripe->customers()->create([
 					"email" => $data["email"]
 				]);
 
 				// Create a card for customer
-				$card = $this->stripe->cards()->create($customer["id"], $token["id"]);
+				$card = $stripe->cards()->create($customer["id"], $token["id"]);
 			} elseif (Auth::user()->customer_id == "" || Auth::user()->customer_id == NULL) {
 				// Create a customer
 				$customer = $this->stripe->customers()->create([
@@ -69,7 +79,7 @@ class StripeHelper {
 				]);
 
 				// Create a card for customer
-				$card = $this->stripe->cards()->create($customer["id"], $token["id"]);
+				$card = $stripe->cards()->create($customer["id"], $token["id"]);
 
 				// Store customer ID and card ID
 				$user = User::find(Auth::id());
@@ -77,14 +87,14 @@ class StripeHelper {
 				$user->card_id = $card["id"];
 				$user->save();
 			} else {
-				$customer = $this->stripe->customers()->find(Auth::user()->customer_id);
+				$customer = $stripe->customers()->find(Auth::user()->customer_id);
 			}
 
 			// Create the charge
-			$charge = $this->stripe->charges()->create([
+			$charge = $stripe->charges()->create([
 				'customer' => $customer["id"],
 				'currency' => 'USD',
-				'amount'   => $amount,
+				'amount'   => $data["amount"],
 				'description' => $data["description"]
 			]);
 
@@ -102,12 +112,21 @@ class StripeHelper {
 		}
 	}
 
+	/*
+	 *
+	 *	Def: Subscribe user to subscription
+	 *	Args: data{card_number, ccExpiryMonth, ccExpiryYear, cvvNumber, email, plan_id} -> array
+	 *	Returns: array
+	 *
+	 */
 	public static function subscribe($data) {
+		$stripe = Stripe::make(env('STRIPE_SECRET'));
+
 		try {
 			// Check to see if customer already exists
 			if (Auth::guest()) {
 				// Create the token
-				$token = $this->stripe->tokens()->create([
+				$token = $stripe->tokens()->create([
 					'card' => [
 						'number'    => $data["card_number"],
 						'exp_month' => $data["ccExpiryMonth"],
@@ -122,15 +141,15 @@ class StripeHelper {
 				}
 
 				// Create a customer
-				$customer = $this->stripe->customers()->create([
+				$customer = $stripe->customers()->create([
 					"email" => $data["email"]
 				]);
 
 				// Create a card for customer
-				$card = $this->stripe->cards()->create($customer["id"], $token["id"]);
+				$card = $stripe->cards()->create($customer["id"], $token["id"]);
 			} elseif (Auth::user()->customer_id == "" || Auth::user()->customer_id == NULL) {
 				// Create the token
-				$token = $this->stripe->tokens()->create([
+				$token = $stripe->tokens()->create([
 					'card' => [
 						'number'    => $data["card_number"],
 						'exp_month' => $data["ccExpiryMonth"],
@@ -145,12 +164,12 @@ class StripeHelper {
 				}
 
 				// Create a customer
-				$customer = $this->stripe->customers()->create([
+				$customer = $stripe->customers()->create([
 					"email" => $data["email"]
 				]);
 
 				// Create a card for customer
-				$card = $this->stripe->cards()->create($customer["id"], $token["id"]);
+				$card = $stripe->cards()->create($customer["id"], $token["id"]);
 
 				// Store customer ID and card ID
 				$user = User::find(Auth::id());
@@ -158,11 +177,14 @@ class StripeHelper {
 				$user->card_id = $card["id"];
 				$user->save();
 			} else {
-				$customer = $this->stripe->customers()->find(Auth::user()->customer_id);
+				$customer = $stripe->customers()->find(Auth::user()->customer_id);
+				$card = array(
+					"id" => Auth::user()->card_id
+				);
 			}
 
 			// Subscribe
-			$subscription = $this->stripe->subscriptions()->create($customer["id"], [
+			$subscription = $stripe->subscriptions()->create($customer["id"], [
 				'plan' => $data["plan_id"]
 			]);
 

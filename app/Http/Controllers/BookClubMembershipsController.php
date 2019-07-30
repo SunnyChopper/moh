@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+
 use App\BookClubMembership;
 
 use Illuminate\Http\Request;
@@ -14,6 +16,7 @@ class BookClubMembershipsController extends Controller
     	$membership->user_id = $data->user_id;
     	$membership->customer_id = $data->customer_id;
     	$membership->subscription_id = $data->subscription_id;
+        $membership->next_payment_date = Carbon::now()->addMonth();
     	$membership->save();
 
     	return response()->json(['success' => 'Successfully created membership.'], 200);
@@ -33,6 +36,10 @@ class BookClubMembershipsController extends Controller
     	if (isset($data->status)) {
     		$membership->status = $data->status;
     	}
+
+        if (isset($data->next_payment_date)) {
+            $membership->next_payment_date = $data->next_payment_date;
+        }
 
     	$membership->save();
 

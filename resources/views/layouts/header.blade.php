@@ -54,7 +54,11 @@
 					<li><a href="{{ url('/members/personal-coaching') }}">Personal Coaching</a></li>
 					<li><a href="{{ url('/blog') }}">Blog</a></li>
 					{{-- <li><a href="{{ url('/contact') }}">Contact</a></li> --}}
+					@if(Auth::user()->first_name != "")
 					<li class="menu-has-children"><a href="">{{ Auth::user()->first_name }}</a>
+					@else
+					<li class="menu-has-children"><a href="">Members</a>
+					@endif
 						<ul>
 							<li><a href="{{ url('/members/subscriptions') }}">Subscriptions</a></li>
 							<li><a href="{{ url('/members/logout') }}">Logout</a></li>
@@ -77,11 +81,19 @@
 					</li>
 					<li><a href="{{ url('/admin/posts') }}">Blog</a></li>
 					{{-- <li><a href="{{ url('/tools') }}">Tools</a></li> --}}
+					@if(Auth::user()->first_name != "")
 					<li class="menu-has-children"><a href="">{{ Auth::user()->first_name }}</a>
 						<ul>
-							<li><a href="{{ url('/members/logout') }}">Logout</a></li>
+							<li><a href="{{ url('/admin/logout') }}">Logout</a></li>
 						</ul>
 					</li>
+					@else
+					<li class="menu-has-children"><a href="">Members</a>
+						<ul>
+							<li><a href="{{ url('/admin/logout') }}">Logout</a></li>
+						</ul>
+					</li>
+					@endif
 				</ul>
 				@endif
 			</nav>		    		
