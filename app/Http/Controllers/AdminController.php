@@ -2,28 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Carbon\Carbon;
 
 use App\User;
 use App\Course;
-use App\CourseModule;
-use App\CourseVideo;
 use App\MentorTask;
 use App\MentorVideo;
+use App\CourseVideo;
+use App\CourseModule;
 use App\MentorDocument;
 use App\MentorEnrollment;
-use App\MentorRecommendation;
 use App\FreeConsultation;
+use App\BookClubMembership;
+use App\MentorRecommendation;
+
 
 use App\Custom\UserHelper;
 use App\Custom\AdminHelper;
 use App\Custom\StripeHelper;
 use App\Custom\CourseHelper;
 use App\Custom\MentorHelper;
+use App\Custom\BookClubHelper;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -62,6 +66,21 @@ class AdminController extends Controller
     	$page_header = $page_title;
 
     	return view('admin.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('users_joined_chart', $users_joined_chart);
+    }
+
+    public function admin_dashboard_book_club() {
+        if (AdminHelper::isAuthorized() == false) {
+            return redirect(url('/admin'));
+        }
+
+        $page_title = "Admin Dashboard";
+        $page_header = $page_title;
+
+        $new_users_chart = BookClubHelper::getNewBookClubMembersChart();
+        $members = BookClubMembership::active()->get();
+        $current_book = BookClubHelper::getCurrentBook();
+
+        return view('admin.book-club.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('new_users_chart', $new_users_chart)->with('members', $members)->with('current_book', $current_book);
     }
 
     public function logout() {

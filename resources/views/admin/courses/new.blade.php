@@ -9,7 +9,6 @@
 				<div class="gray-box">
 					<form id="create_course_form" action="/admin/courses/create" method="POST">
 						{{ csrf_field() }}
-						<input type="hidden" name="price" value="0">
 						<div class="form-group">
 							<h3>Create a New Course</h3>
 							<p>Fields with <span class="red">*</span> are required.</p>
@@ -38,14 +37,19 @@
 						</div>
 
 						<div class="form-group row">
-							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12" id="price_input">
+								<label>Price:</label>
+								<input type="number" class="form-control" name="price" min="0.50" step="0.01">
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12" id="stripe_plan_selection" style="display: none;">
 								<label>Select Stripe Plan:</label>
-									<select id="stripe_plan" form="create_course_form" class="form-control" name="plan_id">
-										<option value="">N/A</option>
-										@foreach($plans as $plan)
-										<option data-price="{{ $plan["amount"] }}" value="{{ $plan["id"] }}">{{ $plan["name"] }} - ${{ sprintf("%.2f", $plan["amount"] / 100) }}<?php if ($plan["interval"] == "month") { echo "/mo"; } ?> <?php if($plan["trial_period_days"] > 0) { echo "(" . $plan["trial_period_days"] . " days trial)"; }?></option>
-										@endforeach
-									</select>
+								<select id="stripe_plan" form="create_course_form" class="form-control" name="plan_id">
+									<option value="">N/A</option>
+									@foreach($plans as $plan)
+									<option data-price="{{ $plan["amount"] }}" value="{{ $plan["id"] }}">{{ $plan["name"] }} - ${{ sprintf("%.2f", $plan["amount"] / 100) }}<?php if ($plan["interval"] == "month") { echo "/mo"; } ?> <?php if($plan["trial_period_days"] > 0) { echo "(" . $plan["trial_period_days"] . " days trial)"; }?></option>
+									@endforeach
+								</select>
 							</div>
 
 							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -72,6 +76,25 @@
 		$("#stripe_plan").on('change', function() {
 			var price = $(this).find(":selected").attr('data-price');
 			$("input[name=price]").val(price);
+		});
+
+		$("select[name=monthly]").on('change', function() {
+			displayStripe();
+		});
+
+		function displayStripe() {
+			if ($("select[name=monthly]").val() == "0") {
+				$("input[name=price]").val('');
+				$("#price_input").show();
+				$("#stripe_plan_selection").hide();
+			} else {
+				$("#price_input").hide();
+				$("#stripe_plan_selection").show();
+			}
+		}
+
+		$(document).ready(function() {
+			displayStripe();
 		});
 	</script>
 @endsection

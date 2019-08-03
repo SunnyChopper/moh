@@ -10,6 +10,18 @@ use Illuminate\Http\Request;
 
 class BookClubMembershipsController extends Controller
 {
+
+    /* --------------------- *\
+        Get Functions
+    \* --------------------- */
+
+    public function get_members() {
+        return response()->json(BookClubMembership::where('status', 1)->get()->toArray(), 200);
+    }
+
+    /* --------------------- *\
+        CRUD Functions
+    \* --------------------- */
     
     public function create(Request $data) {
     	$membership = new BookClubMembership;

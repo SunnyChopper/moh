@@ -27,7 +27,7 @@ Route::get('/tools/pomodoro', 'PagesController@pomodoro');
 Route::get('/tools/student', 'PagesController@student_planner');
 Route::get('/tools/rice', 'PagesController@rice_planner');
 Route::get('/focus/cheatsheet', 'PagesController@focus_cheatsheet');
-Route::get('/mastermind', 'PagesController@book_club');
+Route::get('/book-club', 'PagesController@book_club');
 Route::get('/test', 'PagesController@test');
 
 // Admin functions
@@ -41,7 +41,7 @@ Route::get('/admin/courses', 'AdminController@view_all_courses');
 Route::get('/admin/courses/new', 'AdminController@new_course');
 Route::post('/admin/courses/create', 'AdminController@create_course');
 Route::get('/admin/courses/edit/{course_id}', 'AdminController@edit_course');
-Route::post('/admin/courses/update', 'AdminController@update_course');
+Route::post('/admin/courses/update', 'CoursesController@update');
 Route::get('/admin/courses/{course_id}/modules', 'AdminController@view_course_modules');
 Route::post('/admin/courses/delete', 'AdminController@delete_course');
 Route::get('/admin/courses/{course_id}/modules/new', 'AdminController@new_course_module');
@@ -110,6 +110,14 @@ Route::get('/members/pomodoro', 'PomodoroController@view_sessions');
 Route::get('/members/pomodoro/session', 'PomodoroController@new_session');
 Route::post('/members/pomodoro/session/create', 'PomodoroController@create_session');
 
+// Book club functions
+Route::get('/members/book-club', 'MembersController@client_dashboard_book_club');
+Route::get('/members/book-club/{book_id}/dashboard', 'BookClubController@book_dashboard');
+Route::get('/admin/book-club', 'AdminController@admin_dashboard_book_club');
+Route::get('/admin/book-club/{book_id}/dashboard', 'BookClubController@admin_dashboard_book');
+
+// Book voting functions
+Route::get('/admin/book-club/votes', 'BookPollsController@admin_dashboard');
 
 // Student planner functions
 Route::get('/members/student', 'StudentController@dashboard');

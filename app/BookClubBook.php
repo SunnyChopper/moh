@@ -21,7 +21,7 @@ class BookClubBook extends Model
     }
 
     public function scopeCurrent($query) {
-    	return $query->whereDate('start_date', '>', Carbon::now())->whereDate('end_date', '<=', Carbon::now());
+    	return $query->whereDate('start_date', '<=', Carbon::today())->whereDate('end_date' , '>', Carbon::today());
     }
 
 }

@@ -113,6 +113,7 @@ class CoursesController extends Controller
     	$course->title = $data->title;
     	$course->description = $data->description;
     	$course->price = $data->price;
+        $course->plan_id = $data->plan_id;
     	$course->monthly = $data->monthly;
 
     	if (isset($data->image_url)) {
@@ -140,6 +141,7 @@ class CoursesController extends Controller
     	$course->title = $data->title;
     	$course->description = $data->description;
     	$course->price = $data->price;
+        $course->plan_id = $data->plan_id;
     	$course->monthly = $data->monthly;
 
     	if (isset($data->image_url)) {
@@ -152,7 +154,7 @@ class CoursesController extends Controller
 
     	$course->save();
 
-    	return true;
+    	return redirect(url('/admin/courses'));
     }
 
     public function delete(Request $data) {

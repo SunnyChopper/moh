@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use App\Course;
+use App\BookVote;
+use App\BookPoll;
+use App\BookClubBook;
 use App\CourseMembership;
 use App\MentorEnrollment;
+use App\BookClubMembership;
 
 use App\Custom\SubscriptionsHelper;
 use App\Custom\StudentPlannerHelper;
+use App\Custom\BookClubHelper;
 use App\Custom\PomodoroHelper;
 use App\Custom\UserHelper;
 
@@ -89,6 +94,30 @@ class MembersController extends Controller
 				return redirect(url('/members/courses/' . $course_id . '/dashboard'));
 			}
 		}
+	}
+
+	public function client_dashboard_book_club() {
+		if ($this->isAuthorized() == false) {
+			return redirect(url('/login?redirect_action=/members/book-club'));
+		}
+
+		if (BookClubHelper::isUserAuthorized(Auth::id()) == false) {
+			return redirect(url('/book-club'));
+		}
+
+		if (BookClubHelper::checkStripeMembership(Auth::id()) == false) {
+			return redirect(url('/members/subscriptions/expired'));
+		}
+
+		$page_title = "Book Club Dashboard";
+		$page_header = $page_title;
+
+		$active_book = BookClubBook::current()->first();
+		$books = BookClubBook::active()->get();
+		$active_poll = BookPoll::current()->first();
+		$user_vote = BookVote::where('user_id', Auth::id())->where('poll_id', $active_poll->id)->first();
+
+		return view('members.book-club.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('active_book', $active_book)->with('books', $books)->with('active_poll', $active_poll)->with('user_vote', $user_vote);
 	}
 
 	public function subscriptions() {

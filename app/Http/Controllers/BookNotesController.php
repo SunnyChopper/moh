@@ -23,10 +23,10 @@ class BookNotesController extends Controller
     }
 
     public function update(Request $data) {
-    	$note = BookNote::find($data->note_id);
+    	$note = BookNote::where('book_id', $data->book_id)->first();
 
     	if (isset($data->html)) {
-    		$link->html = $data->html;
+    		$note->html = $data->html;
     	}
 
     	$note->save();

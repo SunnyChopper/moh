@@ -1,3 +1,15 @@
+.selection_box {
+	padding: 24px;
+	border: 2px solid #E0E0E0;
+	transition: 0.25s all;
+}
+
+.selection_box:hover {
+	border: 2px solid #f7631b;
+	background-color: #E0E0E0;
+	cursor: pointer;
+}
+
 .gray-box {
 	padding: 24px;
 	background-color: #EAEAEA;

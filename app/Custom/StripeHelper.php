@@ -15,12 +15,32 @@ class StripeHelper {
 
 	/*
 	 *
+	 *	Def: Gets status of subscription
+	 *	Args: plan_id -> int
+	 * 	Returns: array
+	 *
+	 */
+	public static function checkSubscription($customer_id, $subscription_id) {
+		$stripe = Stripe::make(env('STRIPE_SECRET'));
+		$subscription = $stripe->subscriptions()->find($customer_id, $subscription_id);
+
+		if ($subscription["status"] == "trialing" || $subscription["status"] == "active") {
+			return 1;
+		} elseif ($subscription["status"] == "past_due" || $subscription["status"] == "unpaid") {
+			return 0;
+		} else {
+			return -1;
+		}
+	}
+
+	/*
+	 *
 	 *	Def: Gets plan details
 	 *	Args: plan_id -> int
 	 * 	Returns: array
 	 *
 	 */
-	public function getPlan($plan_id) {
+	public static function getPlan($plan_id) {
 		$stripe = Stripe::make(env('STRIPE_SECRET'));
 		return $stripe->plans()->find($plan_id);
 	}
@@ -32,7 +52,7 @@ class StripeHelper {
 	 * 	Returns: array
 	 *
 	 */
-	public function getPlans() {
+	public static function getPlans() {
 		$stripe = Stripe::make(env('STRIPE_SECRET'));
 		return $stripe->plans()->all()["data"];
 	}

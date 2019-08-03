@@ -294,6 +294,7 @@
 	}
 }
 
+/* ------------------------ *\
 	Padding
 \* ------------------------ */
 
@@ -524,6 +525,13 @@
 	width: 100% !important;
 }
 
+@media only screen and (max-width: 575px) {
+	.mobile-full-width {
+		display: block;
+		width: 100% !important;
+	}
+}
+
 /* ------------------------ *\
 	Positioning
 \* ------------------------ */
@@ -606,6 +614,22 @@
 	Custom Text
 \* -------------------------- */
 
+.ultra-light-font {
+	font-weight: 100;
+}
+
+.light-font {
+	font-weight: 300;
+}
+
+.heavy-font {
+	font-weight: 700;
+}
+
+.ultra-heavy-font {
+	font-weight: 900;
+}
+
 .background-line {
  	position: relative;
 	z-index: 0;
@@ -630,6 +654,22 @@
 }
 
 @media only screen and (max-width: 575px) {
+	.mobile-ultra-light-font {
+		font-weight: 100;
+	}
+
+	.mobile-light-font {
+		font-weight: 300;
+	}
+
+	.mobile-heavy-font {
+		font-weight: 700;
+	}
+
+	.mobile-ultra-heavy-font {
+		font-weight: 900;
+	}
+
 	.mobile-background-line {
 	 	position: relative;
 		z-index: 0;
@@ -657,6 +697,33 @@
 /* -------------------------- *\
 	Custom Images
 \* -------------------------- */
+
+.image-height-32 {
+	height: 32px;
+	width: auto;
+}
+
+.image-height-64 {
+	height: 64px;
+	width: auto;
+}
+
+.image-height-128 {
+	height: 128px;
+	width: auto;
+}
+
+.image-height-196 {
+	height: 196px;
+	width: auto;
+}
+
+.image-height-256 {
+	height: 256px;
+	width: auto;
+}
+
+
 
 .regular-image-100 {
 	width: 100%;

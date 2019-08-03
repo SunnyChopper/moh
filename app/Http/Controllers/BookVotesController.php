@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\BookVote;
+use App\BookPoll;
 
 use Illuminate\Http\Request;
 
 class BookVotesController extends Controller
 {
     
+    /* ------------------------ *\
+        CRUD Functions
+    \* ------------------------ */
+
     public function create(Request $data) {
     	$vote = new BookVote;
     	$vote->poll_id = $data->poll_id;
@@ -16,7 +21,7 @@ class BookVotesController extends Controller
     	$vote->vote = $data->vote;
     	$vote->save();
 
-    	return response()->json(['success' => 'Successfully created your vote.'], 200);
+    	return response()->json(true, 200);
     }
 
     public function read(Request $data) {

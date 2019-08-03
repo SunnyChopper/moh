@@ -63,5 +63,18 @@ Route::post('/users/login', 'MembersController@attempt_login');
 Route::post('/users/create', 'MembersController@attempt_register');
 
 // Book club functions
+Route::get('/book-club/members', 'BookClubMembershipsController@get_members');
 Route::post('/book-club/payment', 'PaymentsController@book_club');
 Route::post('/book-club/enroll', 'BookClubMembershipsController@create');
+
+// Book club book functions
+Route::get('/book-club/book/notes', 'BookClubController@get_notes');
+Route::post('/book-club/book/notes/update', 'BookNotesController@update');
+
+// Book club polls
+Route::get('/book-club/polls', 'BookPollsController@get_polls');
+Route::post('/book-club/polls/create', 'BookPollsController@create');
+Route::post('/book-club/polls/update', 'BookPollsController@update');
+Route::post('/book-club/polls/delete', 'BookPollsController@delete');
+Route::get('/book-club/polls/results', 'BookPollsController@get_results');
+Route::post('/book-club/polls/submit', 'BookVotesController@create');
