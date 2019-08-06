@@ -16,7 +16,9 @@
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
 				<div class="gray-box">
 					<h4 class="text-center mb-3">Quick Actions</h4>
+					@if($current_book != null)
 					<a href="{{ url('/admin/book-club/' . $current_book->id . '/dashboard') }}" class="genric-btn info rounded full-width mt-2" style="font-size: 14px;">Go to Current Book Dashboard</a>
+					@endif
 					<a href="{{ url('/admin/book-club/votes') }}" class="genric-btn primary rounded full-width mt-2" style="font-size: 14px;">View Voting Results</a>
 					<a href="{{ url('/admin/book-club/questions') }}" class="genric-btn primary rounded full-width mt-2" style="font-size: 14px;">View Open Questions</a>
 				</div>
