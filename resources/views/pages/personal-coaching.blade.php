@@ -115,7 +115,7 @@
 	<div class="container pt-64 pb-64">
         <div class="row">
             <div class="col-12">
-                <h2 class="mb-32 text-center">Become the Master of Yourself, Not the Other Way Around</h2>
+                <h1 class="mb-32 text-center light-font" style='line-height: 1.5em !important;'>Constantly Solve More in Less Time and Reveal Your Confidence and Focus to the World</h1>
             </div>
         </div>
 
@@ -130,35 +130,22 @@
                         <h3 class="text-center mt-16">Hurry! This link expires in...</h3>
                         <h5 class="text-center mt-8" id="timer"></h5>
                     @endif
-                @else
-                <h4 class="text-center mt-32">Price: <span class="red"><strike>$497/month</strike></span> <span class="green">$67/month</span></h4>
                 @endif
-
-                @if($special_link == true)
-                    <a href="#pc-form" class="genric-btn primary centered rounded large mt-32" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
-                @else
-                    <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">Start Your 7-Day Free Trial <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
-                @endif
+                <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">Start Your Application <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
+                
 			</div>
         </div>
 
         <div class="row justify-content-center mt-32">
             <div class="col-lg-9 col-md-10 col-sm-12 col-12">
-                <h4 class="mb-16">Conquer the Self and You Can Achieve Anything You Want</h4>
-                <p>You're probably thinking, "achieve anything you want", yeah right. Well, let me ask you this, why do you think you haven't already achieved your goals?</p>
-                <p>It's because you have not mastered the Self.</p>
-                <p>Want to know how I know this? Here's why. If you had mastered the Self, you would have no trouble always making the best decision for yourself. So instead of scrolling through Facebook or Instagram, you'd be working on your dreams. That's just one thing you could do if you had mastered the Self.</p>
-                <p>Now there are many other benefits of mastering the Self and you'll be able to apply your mastered Self to anything you've ever wanted to accomplish. Now "achieving anything you want" doesn't seem so far-fetched.</p>
-                <p>Even one of the wisest, Aristotle, is quoted saying, "Knowing yourself is the beginning of all wisdom."</p>
-                <p>The Ancient Greeks may not have the technology that we do, but they definitely understood how the human works. They have plenty of stories to tell us. For example, the minotaur, a being of half-human and half-bull, is said to be trapped in a gigantic labyrinth underneath a palace, never to escape because of its anger.</p>
-                <p>This story symbolizes how there are two "sides" of your mind, the more ancient animal-like brain (the bull) and the more logical brain (the human). Just how the minotaur is not able to control his rage, your two minds are always fighting each other. Neuroscience has proved this. So learning how to bring harmony between the two will allow you to tap into deeper potential.</p>
-                <p>This deeper potential is the edge you need in our hyper-competitive world. If you're ready to reach this stage in life and master the Self just like how Aristotle wanted you to, click that button below right now. Become the master of yourself.</p>
+                <h3 class="mb-16 text-center" style="line-height: 1.5em !important">You Are More Than Capable of Attaining Laser Focus, Strong Confidence, and a Lifelong Purpose</h3>
+                <p class="black">If you've tried a self-development course in the past and didn't find it to work, you're not alone. They rarely ever work. But this does not mean that you are incapable of improving.</p>
+                <p class="black">You're more than capable of improving and you know it deep down yourself. These past courses were extreme over-simplifications of what you need to know. They give you a lot of fluff. They give you a lot of theory. That's not the case here.</p>
+                <p class="black">You can ask our 300,000+ followers if we ever talk about fluff or useless theory, they'll say no. You're only going to get the good stuff. But we do have to warn you, unlike many other courses, we do not sugarcoat anything. If you are the one to find truths offensive, you can close this page out. We are not going to hold back.</p>
+                <p class="black">If you believe you're ready to start, click below to apply for a spot. We do not let everyone in. We do this because we only want to work with the most dedicated and most willing. It's like we have a lot of gasoline, but without a spark, it does nothing. You are that spark. The more dedicated and willing you are, the bigger that spark is going to be.</p>
+                <p class="black">So are you ready to start taking real action that leads to real results? If so, click below to apply for a spot.</p>
                 
-                @if($special_link == true)
-                    <a href="#pc-form" class="genric-btn primary centered rounded large mt-32" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
-                @else
-                    <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">Start Your 7-Day Free Trial <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
-                @endif
+                <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">Start Your Application <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
             </div>
 		</div>
 	</div>
@@ -211,11 +198,7 @@
                 </div>
             </div>
 
-            @if($special_link == true)
-                <a href="#pc-form" class="genric-btn primary centered rounded large mt-32" style="font-size: 18px;">I'm Ready to Master the Self <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
-            @else
-                <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">Start Your 7-Day Free Trial <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
-            @endif
+            <a href="#pc-form" class="genric-btn primary centered rounded large mt-16" style="font-size: 18px;">Start Your Application <i class=" ml-2 fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
@@ -235,18 +218,18 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <h3>What You Will Get</h3>
                 <hr />
-                <h5>1. Appointments</h5>
-                <p>Schedule an appointment with your mentor and get direct 1-on-1 access on how to solve your specific problems. Other sites like coach.me will charge you up to $125 per call, but with us, this comes included in the personal coaching package.</p>
-                <h5>2. Recommendations</h5>
-                <p>The learning doesn't stop once you're done with your appointment. Your mentor can recommend you articles, movies, books, courses, and much more. Your recommendations are custom-tailored to your specific situation. There's no artificial intelligent robot that's recommending you resources, it's a real human being that cares about you and your success.</p>
-                <h5>3. Personalized Videos</h5>
-                <p>Think of this as your personal teacher who just became a YouTuber. Instead of watching some generic video that's meant for a broader audience, get a video from your mentor that answers your specific questions.</p>
-                <h5>4. Shared Documents</h5>
-                <p>Get access to documents and spreadsheets that are custom-tailored to help you succeed. You no longer have to go get some generic spreadsheet from the internet when your mentor can create something that is meant to be shared with just you.</p>
-                <h5>5. Direct Messaging</h5>
-                <p>Having a direct communication line with your mentor is extremely valuable. Booking appointments to talk to your mentor can have you wait, however, by being able to text your mentor, you can ask as many questions as you want and expect to get an answer faster than you would by waiting for an appointment.</p>
-                <h5>6. Assigned Tasks</h5>
-                <p>Every mentor wants to see their mentee succeed and one of the ways to help you succeed is by holding you accountable and making sure that you're on the right path. By having your mentor assign you tasks, you get actionable items that you can execute to see immediate feedback on how fast you're improving.</p>
+                <h5 class="mb-2">1. Appointments</h5>
+                <p class="mb-4">Schedule an appointment with your mentor and get direct 1-on-1 access on how to solve your specific problems. Other sites like coach.me will charge you up to $125 per call, but with us, this comes included in the personal coaching package.</p>
+                <h5 class="mb-2">2. Recommendations</h5>
+                <p class="mb-4">The learning doesn't stop once you're done with your appointment. Your mentor can recommend you articles, movies, books, courses, and much more. Your recommendations are custom-tailored to your specific situation. There's no artificial intelligent robot that's recommending you resources, it's a real human being that cares about you and your success.</p>
+                <h5 class="mb-2">3. Personalized Videos</h5>
+                <p class="mb-4">Think of this as your personal teacher who just became a YouTuber. Instead of watching some generic video that's meant for a broader audience, get a video from your mentor that answers your specific questions.</p>
+                <h5 class="mb-2">4. Shared Documents</h5>
+                <p class="mb-4">Get access to documents and spreadsheets that are custom-tailored to help you succeed. You no longer have to go get some generic spreadsheet from the internet when your mentor can create something that is meant to be shared with just you.</p>
+                <h5 class="mb-2">5. Direct Messaging</h5>
+                <p class="mb-4">Having a direct communication line with your mentor is extremely valuable. Booking appointments to talk to your mentor can have you wait, however, by being able to text your mentor, you can ask as many questions as you want and expect to get an answer faster than you would by waiting for an appointment.</p>
+                <h5 class="mb-2">6. Assigned Tasks</h5>
+                <p class="mb-0">Every mentor wants to see their mentee succeed and one of the ways to help you succeed is by holding you accountable and making sure that you're on the right path. By having your mentor assign you tasks, you get actionable items that you can execute to see immediate feedback on how fast you're improving.</p>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-32-mobile">

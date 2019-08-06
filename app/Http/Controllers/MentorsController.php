@@ -112,11 +112,11 @@ class MentorsController extends Controller
 			$enrollment = new MentorEnrollment;
 			$enrollment->user_id = $data->user_id;
 			$user = User::find(intval($data->user_id));
-			$user->customer_id = $response[0];
-			$user->card_id = $response[2];
+			$user->customer_id = $response["customer_id"];
+			$user->card_id = $response["card_id"];
 			$user->save();
-			$enrollment->customer_id = $response[0];
-			$enrollment->subscription_id = $response[1];
+			$enrollment->customer_id = $response["customer_id"];
+			$enrollment->subscription_id = $response["subscription_id"];
 			$enrollment->next_payment_date = Carbon::today()->addDays(7);
 			$enrollment->trial = 1;
 
