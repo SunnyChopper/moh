@@ -23,7 +23,7 @@
 				@if(Auth::guest())
 				<ul class="nav-menu">
 					<li><a href="{{ url('/') }}">Home</a></li>
-					<li><a href="{{ url('/book-club') }}">Book Club</a></li>
+					{{-- <li><a href="{{ url('/book-club') }}">Book Club</a></li> --}}
 					@if(\App\Custom\CourseHelper::numberOfCourses() > 0)
 					<li><a href="{{ url('/courses') }}">Courses</a></li>
 					@endif
@@ -70,7 +70,7 @@
 				@elseif(App\Custom\AdminHelper::isAuthorized() == true)
 				<ul class="nav-menu">
 					<li><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
-					<li><a href="{{ url('/admin/book-club') }}">Book Club</a></li>
+					{{-- <li><a href="{{ url('/admin/book-club') }}">Book Club</a></li> --}}
 					<li><a href="{{ url('/admin/courses') }}">Courses</a></li>
 					<li class="menu-has-children"><a href="{{ url('/admin/personal-coaching') }}">Personal Coaching</a>
 						<ul>
