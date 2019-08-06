@@ -32,7 +32,7 @@
 							<li><a href="{{ url('/tools/pomodoro') }}">Pomodoro Tool</a></li>
 						</ul>
 					</li>
-					<li><a href="{{ url('/personal-coaching') }}">Personal Coaching</a></li>
+					{{-- <li><a href="{{ url('/personal-coaching') }}">Personal Coaching</a></li> --}}
 					<li><a href="{{ url('/blog') }}">Blog</a></li>
 					{{-- <li><a href="{{ url('/contact') }}">Contact</a></li> --}}
 					<li class="menu-has-children"><a href="">Members</a>
