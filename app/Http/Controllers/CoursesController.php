@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+
 use App\Custom\CourseHelper;
+use App\Custom\StripeHelper;
+
 use App\Course;
 use App\CourseModule;
 use App\CourseForum;
 use App\CourseVideo;
+use App\CourseMembership;
 use App\CourseForumComment;
 
 class CoursesController extends Controller
@@ -108,6 +113,69 @@ class CoursesController extends Controller
         return redirect()->back();
     }
 
+    public function enroll(Request $data) {
+        // Check if monthly or one-time
+        $course = Course::find($data->course_id);
+        if ($course->monthly == 1) {
+            $stripe_data = array(
+                'card_number' => $data->card_number,
+                'ccExpiryMonth' => $data->ccExpiryMonth,
+                'ccExpiryYear' => $data->ccExpiryYear,
+                'cvvNumber' => $data->cvvNumber,
+                'email' => $data->email,
+                'plan_id' => $course->plan_id
+            );
+
+            $response = StripeHelper::checkout($stripe_data);
+            if (array_key_exists("subscription_id", $response)) {
+                // Successful, store the data
+                $membership = new CourseMembership;
+                $membership->user_id = $data->user_id;
+                $membership->customer_id = $response["customer_id"];
+                $membership->subscription_id = $response["subscription_id"];
+                $membership->course_id = $data->course_id;
+
+                // Calculate next payment date
+                $subscription = StripeHelper::getPlan($course->plan_id);
+                $trial_days = $subscription["items"]["data"]["plan"]["trial_period_days"];
+                $now = Carbon::now();
+                $add_trial_days = $now->addDays($trial_days);
+                $add_month = $now->addMonth();
+                $membership->next_payment_date = $now->toDateString();
+                $membership->save();
+
+                return response()->json(true, 200);
+            } else {
+                return response()->json($response, 200);
+            }
+        } else {
+            $stripe_data = array(
+                'card_number' => $data->card_number,
+                'ccExpiryMonth' => $data->ccExpiryMonth,
+                'ccExpiryYear' => $data->ccExpiryYear,
+                'cvvNumber' => $data->cvvNumber,
+                'email' => $data->email,
+                'amount' => $course->price,
+                'description' => 'Mind of Habit' 
+            );
+
+            $response = StripeHelper::checkout($stripe_data);
+            if (array_key_exists("charge_id", $response)) {
+                // Successful, store the data
+                $membership = new CourseMembership;
+                $membership->user_id = $data->user_id;
+                $membership->customer_id = $response["customer_id"];
+                $membership->charge_id = $response["charge_id"];
+                $membership->course_id = $data->course_id;
+                $membership->save();
+
+                return response()->json(true, 200);
+            } else {
+                return response()->json($response, 200);
+            }
+        }
+    }
+
     public function create(Request $data) {
     	$course = new Course;
     	$course->title = $data->title;
@@ -133,7 +201,10 @@ class CoursesController extends Controller
     	$course = Course::find($course_id);
     	$page_title = $course->title;
     	$page_header = $page_title;
-    	return view('pages.view-course')->with('course', $course)->with('page_title', $page_title)->with('page_header', $page_header);
+
+        $course_modules = CourseModule::where('course_id', $course->id)->get();
+
+    	return view('pages.view-course')->with('course', $course)->with('page_title', $page_title)->with('page_header', $page_header)->with('modules', $modules);
     }
 
     public function update(Request $data) {

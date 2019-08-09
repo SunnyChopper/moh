@@ -58,6 +58,9 @@ Route::get('/consultations/view', function() {
 Route::post('/account/create', 'MentorsController@create_trial_account');
 Route::post('/personal-coaching/trial/enroll', 'MentorsController@enroll_trial');
 
+// Course functions
+Route::post('/courses/enroll', 'CoursesController@enroll');
+
 // User functions
 Route::post('/users/login', 'MembersController@attempt_login');
 Route::post('/users/create', 'MembersController@attempt_register');

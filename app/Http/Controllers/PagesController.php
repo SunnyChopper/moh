@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Auth;
 
 use App\Course;
+use App\CourseModule;
+use App\CourseMembership;
 use App\FreeConsultation;
 use App\BookClubMembership;
 
@@ -46,12 +48,21 @@ class PagesController extends Controller
     }
 
     public function view_course($course_id) {
+        // Check to see if already enrolled
+        if (Auth::guest() == false) {
+            if (CourseMembership::where('user_id', Auth::id())->where('course_id', $course_id)->count() > 0) {
+                return redirect(url('/members/courses/' . $course_id . '/dashboard'));
+            }
+        }
+
     	$course = Course::find($course_id);
 
     	$page_title = $course->title;
     	$page_header = $page_title;
 
-    	return view('pages.view-course')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course);
+        $course_modules = CourseModule::where('course_id', $course->id)->get();
+
+    	return view('pages.view-course')->with('page_title', $page_title)->with('page_header', $page_header)->with('course', $course)->with('modules', $course_modules);
     }
 
     public function personal_coaching() {

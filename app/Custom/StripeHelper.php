@@ -16,7 +16,8 @@ class StripeHelper {
 	/*
 	 *
 	 *	Def: Gets status of subscription
-	 *	Args: plan_id -> int
+	 *	Args: 	customer_id -> int
+	 *			subscription_id -> int
 	 * 	Returns: array
 	 *
 	 */
@@ -36,7 +37,7 @@ class StripeHelper {
 	/*
 	 *
 	 *	Def: Gets plan details
-	 *	Args: plan_id -> int
+	 *	Args: plan_id -> string
 	 * 	Returns: array
 	 *
 	 */
@@ -94,7 +95,7 @@ class StripeHelper {
 				$card = $stripe->cards()->create($customer["id"], $token["id"]);
 			} elseif (Auth::user()->customer_id == "" || Auth::user()->customer_id == NULL) {
 				// Create a customer
-				$customer = $this->stripe->customers()->create([
+				$customer = $stripe->customers()->create([
 					"email" => $data["email"]
 				]);
 
@@ -119,7 +120,10 @@ class StripeHelper {
 			]);
 
 			if($charge['status'] == 'succeeded') {
-				return $customer["id"];
+				return array(
+					"customer_id" => $customer["id"], 
+					"charge_id" => $charge["id"]
+				);
 			} else {
 				return "error";
 			}

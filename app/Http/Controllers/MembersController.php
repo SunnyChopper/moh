@@ -66,6 +66,15 @@ class MembersController extends Controller
 		$user->email = $data->email;
 		$user->username = $data->username;
 		$user->password = Hash::make($data->password);
+
+		if (isset($data->first_name)) {
+			$user->first_name = $data->first_name;
+		}
+
+		if (isset($data->last_name)) {
+			$user->first_name = $data->last_name;
+		}
+
 		$user->save();
 
 		Auth::login($user);
