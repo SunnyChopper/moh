@@ -21,6 +21,18 @@ class PaymentsController extends Controller
 
 		$return_data = StripeHelper::subscribe($stripe_data);
 
+		if ($return_data == "Your card has insufficient funds.") {
+			return response()->json(['error' => 'Error while creating subscription.', 'data' => 'Insufficient funds on your card.'], 200);
+		} else if ($return_data == "Your card was declined.") {
+			return response()->json(['error' => 'Error while creating subscription.', 'data' => 'Your card was declined.'], 200);
+		} else if ($return_data == "Your card has expired.") {
+			return response()->json(['error' => 'Error while creating subscription.', 'data' => 'Your card has expired.'], 200);
+		} else if ($return_data == "Your card number is incorrect.") {
+			return response()->json(['error' => 'Error while creating subscription.', 'data' => 'Your card number is incorrect.'], 200);
+		} else if ($return_data == "Your card's security code is incorrect.") {
+			return response()->json(['error' => 'Error while creating subscription.', 'data' => "Your card's security code is incorrect."], 200);
+		}
+
 		return response()->json(['success' => 'Successfully subscribed.', 'data' => $return_data], 200);
 	}
 

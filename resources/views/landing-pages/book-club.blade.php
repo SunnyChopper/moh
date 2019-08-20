@@ -6,7 +6,7 @@
 	<div class="container pt-64 pb-64 pt-32-mobile pb-32-mobile">
 		<div class="row justify-content-center" style="display: flex;">
 			<div class="col-lg-8 col-md-8 col-sm-12 col-12" style="margin: auto;">
-				<h2 id="title" class="mb-32 text-center" style="line-height: 1.5em !important;">Improve Your Self-Discipline Each and Every Week</h2>
+				<h1 id="title" class="mb-32 text-center light-font" style="line-height: 1.5em !important;">Get More Work Done in Less Time Each and Every Week</h1>
 				<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/010418-self-help-books-2-1546625905.png" class="centered regular-image-80">
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 		<div class="container pt-64 pb-64">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="text-center mb-2">What Will You Learn?</h2>
+					<h2 class="text-center mb-2">What Will You Learn and How Will You Improve?</h2>
 					<p class="text-center" style="font-size: 18px; line-height: 1.75em !important;">The following are the six core topics that you will learn and master. There are many more auxiliary topics that you will learn about, however, without mastering these six core topics, the auxiliary topics fall apart.</p>
 				</div>
 			</div>
@@ -114,7 +114,7 @@
 	<div class="container pt-64 pb-64">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="text-center background-line"><span>How Does The Book Club Work?</span></h2>
+				<h2 class="text-center background-line"><span>How Does The Book Club Work to Improve Your Self-Mastery?</span></h2>
 			</div>
 		</div>
 
@@ -180,6 +180,8 @@
 				</div>
 			</div>
 		</div>
+
+		<a href="#bottom" class="mt-16 genric-btn large rounded primary centered" style="font-size: 15px;">I'm Ready to Start</a>
 	</div>
 
 	<div style="background: #EAEAEA;">
@@ -242,7 +244,7 @@
 	<div class="container pt-64 pb-64">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="text-center">Everything You Will Get Today</h2>
+				<h2 class="text-center">What You Will Unlock Right After You Register</h2>
 			</div>
 		</div>
 
@@ -291,12 +293,14 @@
 		<div class="container pt-64 pb-64">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="text-center green mb-2">Gain Access to a Wealth of Knowledge - $7/mo</h2>
-					<h5 class="text-center black" style="font-weight: 300;">"If you spend too much time thinking about a thing, you'll never get it done." - Bruce Lee</h5>
+					<h2 class="text-center mb-1">Unlock Access to a Wealth of Knowledge</h2>
+					<h5 class="text-center black mb-3" style="font-weight: 300;">"If you spend too much time thinking about a thing, you'll never get it done." - Bruce Lee</h5>
+					<h3 class="text-center light-font mb-3">Price: <span class="green">$7/<small>mo</small></span></h3>
+					
 				</div>
 			</div>
 
-			<div class="row justify-content-center mt-32">
+			<div class="row justify-content-center mt-16">
 				<div class="col-lg-7 col-md-8 col-sm-12 col-12">
 					<div class="progress mb-3" style="height: 40px; border: 2px solid #D0D0D0">
 						<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">Step 1 of 3</div>
@@ -564,7 +568,21 @@
 		var user_id = {{ Auth::id() }};
 		var user_email = '{{ Auth::user()->email }}';
 		@endif
+		var email_taken = false;
+		var username_taken = false;
 		var _token = '{{ csrf_token() }}';
+
+		/* ------------------- *\
+			Helper Functions
+		\* ------------------- */
+
+		function checkRegisterFields() {
+			if (username_taken == true || email_taken == true) {
+				$(".register_button").prop('disabled', 'disabled');
+			} else {
+				$(".register_button").removeAttr('disabled');
+			}
+		}
 
 		/* ------------------- *\
 			Text Bindings
@@ -582,11 +600,13 @@
 					if (data == true) {
 						$("#register_email").css('border', '1px solid red');
 						$("#register_email_feedback").show();
-						$(".register_button").prop('disabled', 'disabled');
+						email_taken = true;
+						checkRegisterFields();
 					} else {
 						$("#register_email").css('border', '1px solid green');
 						$("#register_email_feedback").hide();
-						$(".register_button").removeAttr('disabled');
+						email_taken = false;
+						checkRegisterFields();
 					}
 				}
 			})
@@ -604,11 +624,13 @@
 					if (data == true) {
 						$("#register_username").css('border', '1px solid red');
 						$("#register_username_feedback").show();
-						$(".register_button").prop('disabled', 'disabled');
+						username_taken = true;
+						checkRegisterFields();
 					} else {
 						$("#register_username").css('border', '1px solid green');
 						$("#register_username_feedback").hide();
-						$(".register_button").removeAttr('disabled');
+						username_taken = false;
+						checkRegisterFields();
 					}
 				}
 			})
@@ -759,7 +781,7 @@
 								}
 							});
 						} else {
-							$("#checkout_feedback").html('Something went wrong while trying to create membership');
+							$("#checkout_feedback").html(data["data"]);
 							$("#checkout_feedback").removeClass('green');
 							$("#checkout_feedback").addClass('red');
 							$("#checkout_feedback").show();
