@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col-12">
 					<h2 class="text-center mb-16" style="line-height: 1.5em !important;">Over 300,000 People Trust Us</h2>
-					<p class="text-center black mb-0" style="font-size: 20px; font-weight: 200; line-height: 2em !important;">Everyday, over 300,000 followers get self-development advice and content from Mind of Habit. We wouldn't have those many followers if we didn't know what we're talking about.</p>
+					<p class="text-center black mb-0" style="font-size: 20px; font-weight: 200; line-height: 2em !important;">Everyday, over 300,000 followers get self-development advice and content from Mind of Habit. We wouldn't have that many followers if we didn't know what we're talking about.</p>
 				</div>
 			</div>
 		</div>
@@ -34,12 +34,18 @@
 	<div class="container pt-64 pb-64">
 		<div class="row" style="display: flex;">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">
-				<h3 class="mb-3" style="line-height: 1.5em !important;">Do You Feel As If You Know and Read a Lot But Still Don't See Progress?</h3>
+				<h3 class="mb-3" style="line-height: 1.5em !important;">Do You Feel As If You Read a Lot of Books But Still Don't See Progress?</h3>
 				<p class="black mb-3" style="line-height: 2em !important;">It's a warm, sunny day and you've got another self-development book in your hands. It's one of multiple books you're reading over the summer to improve yourself. So far, you've experienced barely any growth but you're hoping that the next book will crack the code for you. This goes on all summer with no luck.</p>
-				<p class="black mb-3" style="line-height: 2em !important;">Now picture yourself being able to pick up that book, absorbing the information, then using your wisdom to get the action steps. Right after that, you switch gears and implement what you've learned and you instantly start to see results.</p>
-				<p class="black mb-3" style="line-height: 2em !important;">That's exactly who you can be and achieve with the Mind of Habit Book Club will do for you. You will be able to get the golden nuggets and action steps for each book. You'll start to learn and improve faster. You will have tangible results to show for all your knowledge.</p>
+				<p class="black mb-3" style="line-height: 2em !important;">Now picture yourself being able to pick up that book, absorb the information, then allowing your wisdom to find the action steps. Right after, you are able to switch gears and implement what you've learned and instantly start to see results.</p>
+				<p class="black mb-3" style="line-height: 2em !important;">That's exactly who you can be and achieve with the Mind of Habit Book Club. You will be able to:</p>
+				<ul class="black" style="list-style-type: disc; line-height: 2em !important; padding-left: 2em;">
+					<li>get the golden nuggets and action steps for each book</li>
+					<li>learn and improve faster</li>
+					<li>have tangible results to show for all your knowledge</li>
+					<li>increase your confidence to break limiting beliefs</li>
+				</ul>
 
-				<a href="#bottom" class="mt-16 genric-btn large rounded primary centered" style="font-size: 15px;">I'm Ready to Start</a>
+				<a href="#bottom" class="mt-32 genric-btn large rounded primary centered" style="font-size: 15px;">I'm Ready to Start</a>
 			</div>
 
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">
@@ -70,7 +76,7 @@
 					<div style="background: white; padding: 16px; border: 0px;">
 						<img src="https://image.flaticon.com/icons/svg/148/148773.svg" class="regular-image-20 centered">
 						<h4 class="text-center mb-2 mt-4">Laser-Focus</h4>
-						<p class="text-center mb-0">Imagine that you can sit down for just a few hours in the day and get more work done in less time.</p>
+						<p class="text-center mb-0">Imagine being able to sit down for just a few hours each day and get more work done than you could before.</p>
 					</div>
 				</div>
 
@@ -78,7 +84,7 @@
 					<div style="background: white; padding: 16px; border: 0px;">
 						<img src="https://image.flaticon.com/icons/svg/1395/1395686.svg" class="regular-image-20 centered">
 						<h4 class="text-center mb-2 mt-4">Habit Formation</h4>
-						<p class="text-center mb-0">Kick out the bad habits and start to replace them with the good habits that will help you succeed.</p>
+						<p class="text-center mb-0">Understand how habits work and how they're formed so you can cut out your bad habits in an intelligent manner.</p>
 					</div>
 				</div>
 
@@ -94,7 +100,7 @@
 					<div style="background: white; padding: 16px; border: 0px;">
 						<img src="https://image.flaticon.com/icons/svg/1276/1276513.svg" class="regular-image-20 centered">
 						<h4 class="text-center mb-2 mt-4">Inner Self-Purpose</h4>
-						<p class="text-center mb-0">Imagine that you can wake up everyday with more energy than usual and feel good about yourself.</p>
+						<p class="text-center mb-0">Imagine waking up everyday with consistently more energy than usual and feel good about what you do.</p>
 					</div>
 				</div>
 
@@ -114,7 +120,7 @@
 	<div class="container pt-64 pb-64">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="text-center background-line"><span>How Does The Book Club Work to Improve Your Self-Mastery?</span></h2>
+				<h2 class="text-center background-line"><span>How Does The Book Club Work to Help You Master Yourself?</span></h2>
 			</div>
 		</div>
 
@@ -124,7 +130,7 @@
 					<div class="image-box-image set-bg" data-setbg="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/BuKKyFq/videoblocks-flat-style-animation-of-a-hand-casting-vote-in-the-ballot-box_ha6aboftx_thumbnail-full02.png"></div>
 					<div class="image-box-info">
 						<h4 class="text-center mb-2">1. Select Book as a Community</h4>
-						<p class="text-center mb-0">Every week, the community will get to vote out of four book choices from Monday to Thursday. The book that gets the majority of the vote will be covered the following week. Your vote will matter.</p>
+						<p class="text-center mb-0">Every week, the community will get to vote out of four book choices from Monday to Thursday. The book that gets the majority of the votes will be covered the following week. Your vote will matter.</p>
 					</div>
 				</div>
 			</div>
@@ -165,7 +171,7 @@
 					<div class="image-box-image set-bg" data-setbg="http://www.creationstudygroup.org/wp-content/uploads/2018/10/group_discussions.png"></div>
 					<div class="image-box-info">
 						<h4 class="text-center mb-2">5. Discussion of Book</h4>
-						<p class="text-center mb-0">Starting Saturday until Friday, you can ask the community and us questions and we can discuss about the topics in the book to help you understand and how to apply them to your life.</p>
+						<p class="text-center mb-0">Starting Saturday until Friday, you can ask the community questions. We can discuss the topics in the book to help you understand how to apply them to your specific situations.</p>
 					</div>
 				</div>
 			</div>
@@ -175,7 +181,7 @@
 					<div class="image-box-image set-bg" data-setbg="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-cinema-clapperboard-filmmaking-and-video-production-device-concept-available-in-4k-fullhd-and-hd-video-flat-design-2d-animation-footage-with-alpha-luma-matte_biwx_lb2l_thumbnail-full02.png"></div>
 					<div class="image-box-info">
 						<h4 class="text-center mb-2">6. Summary Video</h4>
-						<p class="text-center mb-0">Near the end of the week for the book, we will create a summary video which you can watch in the future to get quickly get all the main points and how to use the software and downloadable content.</p>
+						<p class="text-center mb-0">Near the end of the week, we will create a video summary which you can watch to quickly get all the main points and how to use the software and downloadable content.</p>
 					</div>
 				</div>
 			</div>
