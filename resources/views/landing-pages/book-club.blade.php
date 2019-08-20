@@ -13,7 +13,7 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">	
 
-				<h3 id="subtitle" class="mt-32 text-center" style="line-height: 1.5em !important;">Watch the Video Above to See How Society Has Lied to All of Us</h3>
+				{{-- <h3 id="subtitle" class="mt-32 text-center" style="line-height: 1.5em !important;">Watch the Video Above to See How Society Has Lied to All of Us</h3> --}}
 
 				<a href="#bottom" class="mt-16 genric-btn large rounded primary centered" style="font-size: 15px;">I'm Ready to Grow</a>
 			</div>
