@@ -7,13 +7,15 @@
 		<div class="row justify-content-center" style="display: flex;">
 			<div class="col-lg-8 col-md-8 col-sm-12 col-12" style="margin: auto;">
 				<h1 id="title" class="mb-32 text-center light-font" style="line-height: 1.5em !important;">Get More Work Done in Less Time Each and Every Week</h1>
-				<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/010418-self-help-books-2-1546625905.png" class="centered regular-image-80">
+				<div class="videoWrapper">
+					<iframe width="560" height="349" src="https://www.youtube.com/embed/eD3kN7-chq0?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+				</div>
 			</div>
 		</div>
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">	
 
-				{{-- <h3 id="subtitle" class="mt-32 text-center" style="line-height: 1.5em !important;">Watch the Video Above to See How Society Has Lied to All of Us</h3> --}}
+				<h3 id="subtitle" class="mt-32 text-center" style="line-height: 1.5em !important;">Watch the Video Above to See How Society Has Lied to All of Us</h3>
 
 				<a href="#bottom" class="mt-16 genric-btn large rounded primary centered" style="font-size: 15px;">I'm Ready to Grow</a>
 			</div>
@@ -513,7 +515,7 @@
 			</div>
 			<div class="row">
 				<div class="col-12">
-					<a href="#bottom" class="btn btn-primary full-width centered">Join the Mastermind</a>
+					<a href="#bottom" class="btn btn-primary full-width centered">Join the Book Club</a>
 				</div>
 			</div>
 		</div>
@@ -576,6 +578,7 @@
 		@endif
 		var email_taken = false;
 		var username_taken = false;
+		var checkout_processing = false;
 		var _token = '{{ csrf_token() }}';
 
 		/* ------------------- *\
@@ -736,77 +739,81 @@
 		});
 
 		$(".checkout_button").on('click', function() {
-			if ($("#card_number").val() != "" && $("#cvvNumber").val() != "") {
-				var card_number = $("#card_number").val();
-				var card_expiry_month = $("#ccExpiryMonth").val();
-				var card_expiry_year = $("#ccExpiryYear").val();
-				var card_cvv = $("#cvvNumber").val();
+			if (checkout_processing != true) {
+				checkout_processing = true;
+				if ($("#card_number").val() != "" && $("#cvvNumber").val() != "") {
+					var card_number = $("#card_number").val();
+					var card_expiry_month = $("#ccExpiryMonth").val();
+					var card_expiry_year = $("#ccExpiryYear").val();
+					var card_cvv = $("#cvvNumber").val();
 
-				$("#card_number").css('border', '1px solid #ced4da');
-				$("#cvvNumber").css('border', '1px solid #ced4da');
+					$("#card_number").css('border', '1px solid #ced4da');
+					$("#cvvNumber").css('border', '1px solid #ced4da');
 
-				$("#checkout_feedback").hide();
+					$("#checkout_feedback").hide();
 
-				$.ajax({
-					url : '/api/book-club/payment',
-					type : 'POST',
-					data : {
-						'_token' : _token,
-						'card_number' : card_number,
-						'ccExpiryMonth' : card_expiry_month,
-						'ccExpiryYear' : card_expiry_year,
-						'cvvNumber' : card_cvv,
-						'email' : user_email,
-						'plan_id' : 'test-course'
-					},
-					success : function(data) {
-						if ('success' in data) {
-							// Get extra data
-							var customer_id = data["data"]["customer_id"];
-							var subscription_id = data["data"]["subscription_id"];
+					$.ajax({
+						url : '/api/book-club/payment',
+						type : 'POST',
+						data : {
+							'_token' : _token,
+							'card_number' : card_number,
+							'ccExpiryMonth' : card_expiry_month,
+							'ccExpiryYear' : card_expiry_year,
+							'cvvNumber' : card_cvv,
+							'email' : user_email,
+							'plan_id' : 'test-course'
+						},
+						success : function(data) {
+							if ('success' in data) {
+								// Get extra data
+								var customer_id = data["data"]["customer_id"];
+								var subscription_id = data["data"]["subscription_id"];
 
-							// Create the actual membership now
-							$.ajax({
-								url : '/api/book-club/enroll',
-								type : 'POST',
-								data : {
-									'_token' : _token,
-									'user_id' : user_id,
-									'customer_id' : customer_id,
-									'subscription_id' : subscription_id
-								},
-								success : function(data) {
-									$("#checkout_feedback").html('Successfully created membership. Redirecting you to your dashboard now...');
-									$("#checkout_feedback").removeClass('red');
-									$("#checkout_feedback").addClass('green');
-									$("#checkout_feedback").show();
+								// Create the actual membership now
+								$.ajax({
+									url : '/api/book-club/enroll',
+									type : 'POST',
+									data : {
+										'_token' : _token,
+										'user_id' : user_id,
+										'customer_id' : customer_id,
+										'subscription_id' : subscription_id
+									},
+									success : function(data) {
+										$("#checkout_feedback").html('Successfully created membership. Redirecting you to your dashboard now...');
+										$("#checkout_feedback").removeClass('red');
+										$("#checkout_feedback").addClass('green');
+										$("#checkout_feedback").show();
 
-									setTimeout(function() { 
-								        window.location.href = '{{ url('/members/dashboard') }}';
-								    }, 2000);
-								}
-							});
-						} else {
-							$("#checkout_feedback").html(data["data"]);
-							$("#checkout_feedback").removeClass('green');
-							$("#checkout_feedback").addClass('red');
-							$("#checkout_feedback").show();
+										setTimeout(function() { 
+									        window.location.href = '{{ url('/members/dashboard') }}';
+									    }, 2000);
+									}
+								});
+							} else {
+								checkout_processing = false;
+								$("#checkout_feedback").html(data["data"]);
+								$("#checkout_feedback").removeClass('green');
+								$("#checkout_feedback").addClass('red');
+								$("#checkout_feedback").show();
+							}
 						}
+					});
+				} else {
+					if ($("#card_number").val() == "") {
+						$("#card_number").css('border', '1px solid red');
 					}
-				});
-			} else {
-				if ($("#card_number").val() == "") {
-					$("#card_number").css('border', '1px solid red');
-				}
 
-				if ($("#cvvNumber").val() == "") {
-					$("#cvvNumber").css('border', '1px solid red');
-				}
+					if ($("#cvvNumber").val() == "") {
+						$("#cvvNumber").css('border', '1px solid red');
+					}
 
-				$("#checkout_feedback").html('Please enter all fields.');
-				$("#checkout_feedback").addClass('red');
-				$("#checkout_feedback").removeClass('green');
-				$("#checkout_feedback").show();
+					$("#checkout_feedback").html('Please enter all fields.');
+					$("#checkout_feedback").addClass('red');
+					$("#checkout_feedback").removeClass('green');
+					$("#checkout_feedback").show();
+				}
 			}
 		});
 
