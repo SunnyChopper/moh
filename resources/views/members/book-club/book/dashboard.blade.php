@@ -9,11 +9,13 @@
 				<h3 class="light-font mb-2">Description of {{ $book->title }}</h3>
 				<p class="black mb-4">{{ $book->description }}</p>
 				<h3 class="light-font">Notes for {{ $book->title }}</h3>
+				@if($notes != null)
 				<div class="row mt-16">
 					<div class="col-12">
 						{!! $notes->html !!}
 					</div>
 				</div>
+				@endif
 			</div>
 
 			<div class='col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile'>
