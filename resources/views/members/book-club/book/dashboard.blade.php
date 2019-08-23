@@ -10,7 +10,7 @@
 				<p class="black mb-4">{{ $book->description }}</p>
 				<h3 class="light-font">Notes for {{ $book->title }}</h3>
 				@if($notes != null)
-				<div class="row mt-16">
+				<div class="row mt-8">
 					<div class="col-12">
 						{!! $notes->html !!}
 					</div>
@@ -24,6 +24,19 @@
 					<button type='button' class='genric-btn full-width info rounded mb-2 mt-2 view_downloads_button' style='font-size: 15px;'>View Downloadables</button>
 					<a href='{{ url('/members/book-club/' . $book->id . '/forums') }}' class='genric-btn full-width info rounded mb-2 mt-2' style='font-size: 15px;'>View Forums</a>
 				</div>
+
+				@if(count($links) > 0)
+				<h4 class="text-center mt-4">Book Links</h4>
+				<ul class="list-group mt-8">
+					@foreach($links as $link)
+					<a href="{{ $link->url }}">
+						<li class="list-group-item">
+							<h6 class="text-center light-font mb-0">{{ $link->title }}</h6>
+						</li>
+					</a>
+					@endforeach
+				</ul>
+				@endif
 			</div>
 		</div>
 	</div>

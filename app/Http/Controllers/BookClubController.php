@@ -7,6 +7,7 @@ use Auth;
 use App\BookClubBook;
 use App\BookVote;
 use App\BookNote;
+use App\BookLink;
 
 use App\Custom\AdminHelper;
 use App\Custom\BookClubHelper;
@@ -45,11 +46,12 @@ class BookClubController extends Controller
 
     	$book = BookClubBook::find($book_id);
     	$notes = BookNote::where('book_id', $book->id)->first();
+        $links = BookLink::where('book_id', $book->id)->get();
 
     	$page_title = $book->title;
     	$page_header = $page_title;
 
-    	return view('members.book-club.book.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('book', $book)->with('notes', $notes);
+    	return view('members.book-club.book.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('book', $book)->with('notes', $notes)->with('links', $links);
     }
 
 	/* --------------------- *\

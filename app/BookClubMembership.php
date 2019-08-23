@@ -12,7 +12,7 @@ class BookClubMembership extends Model
     public $primaryKey = "id";
 
     public function user() {
-    	return $this->belongsTo('App\User', 'user_id');
+    	return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
     public function scopeActive($query) {

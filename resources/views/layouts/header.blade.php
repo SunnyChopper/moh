@@ -70,7 +70,7 @@
 				@elseif(App\Custom\AdminHelper::isAuthorized() == true)
 				<ul class="nav-menu">
 					<li><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
-					{{-- <li><a href="{{ url('/admin/book-club') }}">Book Club</a></li> --}}
+					<li><a href="{{ url('/admin/book-club') }}">Book Club</a></li>
 					<li><a href="{{ url('/admin/courses') }}">Courses</a></li>
 					<li><a href="{{ url('/admin/personal-coaching') }}">Personal Coaching</a></li>
 					<li class="menu-has-children"><a href="">Links</a>

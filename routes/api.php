@@ -81,3 +81,6 @@ Route::post('/book-club/polls/update', 'BookPollsController@update');
 Route::post('/book-club/polls/delete', 'BookPollsController@delete');
 Route::get('/book-club/polls/results', 'BookPollsController@get_results');
 Route::post('/book-club/polls/submit', 'BookVotesController@create');
+
+// Book club link functions
+Route::post('/book-club/links/create', 'BookLinksController@create');

@@ -16,6 +16,7 @@ use App\Custom\SubscriptionsHelper;
 use App\Custom\StudentPlannerHelper;
 use App\Custom\BookClubHelper;
 use App\Custom\PomodoroHelper;
+use App\Custom\MailHelper;
 use App\Custom\UserHelper;
 
 use Illuminate\Http\Request;

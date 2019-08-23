@@ -3,6 +3,7 @@
 @section('content')
 	@include('layouts.banner')
 	@include('admin.book-club.modals.update-notes')
+	@include('admin.book-club.modals.create-link')
 
 	<div class='container pt-64 pb-64'>
 		<div class='row justify-content-center'>
@@ -67,6 +68,37 @@
 			selector: '#book_notes',
 			plugins: "code",
 			height : '400px'
+		});
+
+		$(".new_links_button").on('click', function() {
+			$("#create_link_modal").modal();
+		});
+
+		$(".create_link").on('click', function() {
+			if ($("#create_link_title").val() != "" && $("#create_link_url").val() != "") {
+				$("#create_link_error").hide();
+				$.ajax({
+					url : '/api/book-club/links/create',
+					type : 'POST',
+					data : {
+						'_token' : _token,
+						'book_id' : $("#create_link_book_id").val(),
+						'title' : $("#create_link_title").val(),
+						'url' : $("#create_link_url").val()
+					},
+					success : function(data) {
+						if ('success' in data) {
+							$("#create_link_modal").modal('hide');
+						} else {
+							$("#create_link_error").html('Error while creating link...');
+							$("#create_link_error").show();
+						}
+					}
+				});
+			} else {
+				$("#create_link_error").html('Please fill out all fields.');
+				$("#create_link_error").show();
+			}
 		});
 
 		$(".update_notes_button").on('click', function() {
