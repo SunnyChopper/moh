@@ -30,6 +30,7 @@
 					<li class="menu-has-children"><a href="{{ url('/tools') }}">Tools</a>
 						<ul>
 							<li><a href="{{ url('/tools/pomodoro') }}">Pomodoro Tool</a></li>
+							<li><a href="{{ url('/tools/student') }}">Student Planner Tool</a></li>
 						</ul>
 					</li>
 					{{-- <li><a href="{{ url('/personal-coaching') }}">Personal Coaching</a></li> --}}
@@ -72,7 +73,12 @@
 					<li><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
 					<li><a href="{{ url('/admin/book-club') }}">Book Club</a></li>
 					<li><a href="{{ url('/admin/courses') }}">Courses</a></li>
-					<li><a href="{{ url('/admin/personal-coaching') }}">Personal Coaching</a></li>
+					<li class="menu-has-children">
+						<a href="{{ url('/admin/personal-coaching') }}">Personal Coaching</a>
+						<ul>
+							<li><a href="{{ url('/admin/personal-coaching/applications') }}">Applications</a></li>
+						</ul>
+					</li>
 					<li class="menu-has-children"><a href="">Links</a>
 						<ul>
 							<li><a href="{{ url('/admin/links/personal-coaching') }}">Personal Coaching Link</a></li>

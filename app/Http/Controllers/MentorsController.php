@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Carbon\Carbon;
+use App\MentorApplication;
 use App\MentorRecommendation;
 use App\MentorMessage;
 use App\MentorAppointment;
@@ -12,6 +13,7 @@ use App\MentorDocument;
 use App\MentorTask;
 use App\MentorEnrollment;
 use App\User;
+use App\Custom\AdminHelper;
 use App\Custom\MentorHelper;
 use App\Custom\StripeHelper;
 use Illuminate\Http\Request;
@@ -152,6 +154,48 @@ class MentorsController extends Controller
 		$page_header = $page_title;
 
 		return view('members.mentors.dashboard')->with('page_title', $page_title)->with('page_header', $page_header)->with('member', $member)->with('documents', $documents)->with('recommendations', $recommendations)->with('tasks', $tasks)->with('videos', $videos)->with('appointments', $appointments);
+	}
+
+	public function submit_application(Request $data) {
+		$app = new MentorApplication;
+		$app->first_name = $data->first_name;
+		$app->last_name = $data->last_name;
+		$app->email = $data->email;
+		$app->phone = $data->phone;
+		$app->timezone = $data->timezone;
+		$app->call_time = $data->call_time;
+		$app->years = $data->years;
+		$app->determination_score = $data->determination_score;
+		$app->strengths = $data->strengths;
+		$app->weaknesses = $data->weaknesses;
+		$app->why = $data->why;
+		$app->purpose = $data->purpose;
+		$app->save();
+
+		return response()->json(true, 200);
+	}
+
+	public function admin_view_applications() {
+		if (AdminHelper::isAuthorized() == false) {
+			return redirect(url('/admin'));
+		}
+
+		$page_title = "View Personal Coaching Applications";
+		$page_header = "Applications";
+
+		return view('admin.personal-coaching.applications.view')->with('page_title', $page_title)->with('page_header', $page_header);
+	}
+
+	public function get_applications() {
+		return response()->json(MentorApplication::active()->get()->toArray(), 200);
+	}
+
+	public function update_application(Request $data) {
+		$application = MentorApplication::find($data->application_id);
+		$application->status = $data->status;
+		$application->save();
+
+		return response()->json(true, 200);
 	}
 
 	public function edit_task($task_id) {

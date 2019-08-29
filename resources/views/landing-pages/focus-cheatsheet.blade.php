@@ -6,11 +6,13 @@
 	<div class="container pt-64 pb-64 pt-32-mobile pb-32-mobile">
 		<div class="row" style="display: flex;">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">
+				<h4 class="mt-0-mobile mb-16-mobile mobile-text-center light-font d-md-none" style="line-height: 1.5em !important;">How You Can Immediately Start to Work On Your Focus to Get More Work Done Using Science and Psychology</h4>
 				<img src="https://www.theintrepidcatalyst.com/wp-content/uploads/2019/01/digital-354.png" class="regular-image-100">
 			</div>
 
 			<div class="col-12 mt-16-mobile d-md-none">
-				<div class="gray-box">
+
+				<div class="gray-box mt-16-mobile">
 					<div class="row">
 						<div class="col-12">
 							<h5 class="text-center">Get Your Ultimate Focus Checklist</h5>
@@ -18,14 +20,6 @@
 					</div>
 
 					<div class="row mt-16" style="display: flex;">
-						<div class="col-lg-3 col-md-3 col-sm-6 col-sm-12 col-12" style="margin: auto;">
-							<input type="text" class="form-control" placeholder="First Name" name="first_name" required>
-						</div>
-
-						<div class="col-lg-3 col-md-3 col-sm-6 col-sm-12 col-12" style="margin: auto;">
-							<input type="text" class="form-control mt-16-mobile" placeholder="Last Name" name="last_name" required>
-						</div>
-
 						<div class="col-lg-3 col-md-3 col-sm-6 col-sm-12 col-12" style="margin: auto;">
 							<input type="email" class="form-control mt-16-mobile" placeholder="Email" name="email" required>
 						</div>
@@ -38,7 +32,7 @@
 			</div>
 
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12 d-none d-md-block" style="margin: auto;">
-				<h3 class="mb-2 mt-32-mobile mobile-text-center">Use Science and Psychology to Maximize Your Focus and Get More Done in Less Time</h3>
+				<h3 class="mb-2 mt-32-mobile mobile-text-center light-font" style="line-height: 1.5em !important;">How You Can Immediately Start to Work On Your Focus to Get More Work Done Using Science and Psychology</h3>
 
 				<p class="black mobile-text-center">Being able to focus on a single task without distractions is important if you're trying to get more work done in less time, however, we often find ourselves not being able to focus. This can get frustrating especially if you're someone who has big dreams and goals.</p>
 
@@ -51,30 +45,20 @@
 			</div>
 		</div>
 
-		<div class="row mt-32 mt-0-mobile d-none d-md-block">
-			<div class="col-12">
+		<div class="row justify-content-center mt-32 mt-0-mobile d-none d-md-block">
+			<div class="col-lg-8 col-md-9 col-sm-10 col-12">
 				<div class="gray-box">
-					<div class="row">
-						<div class="col-12">
-							<h4 class="text-center">Get Your Ultimate Focus Checklist</h4>
-						</div>
-					</div>
+					<h4 class="text-center">Get Your Ultimate Focus Checklist</h4>
 
 					<div class="row mt-16" style="display: flex;">
-						<div class="col-lg-3 col-md-3 col-sm-6 col-sm-12 col-12" style="margin: auto;">
-							<input type="text" class="form-control" placeholder="First Name" name="first_name" required>
+
+						<div class="col-lg-9 col-md-3 col-sm-6 col-sm-12 col-12" style="margin: auto;">
+							<input type="email" class="form-control mt-16-mobile mb-8" placeholder="Email" name="email" required>
+							<span><input type="checkbox" checked="true"> Get more valuable content to master your self</span>
 						</div>
 
 						<div class="col-lg-3 col-md-3 col-sm-6 col-sm-12 col-12" style="margin: auto;">
-							<input type="text" class="form-control mt-16-mobile" placeholder="Last Name" name="last_name" required>
-						</div>
-
-						<div class="col-lg-3 col-md-3 col-sm-6 col-sm-12 col-12" style="margin: auto;">
-							<input type="email" class="form-control mt-16-mobile" placeholder="Email" name="email" required>
-						</div>
-
-						<div class="col-lg-3 col-md-3 col-sm-6 col-sm-12 col-12" style="margin: auto;">
-							<input type="submit" class="btn btn-primary full-width centered mt-16-mobile" value="Download Now">
+							<input type="submit" class="btn btn-primary full-width centered mt-16-mobile" style="height: inherit;" value="Download Now">
 						</div>
 					</div>
 				</div>
@@ -99,7 +83,7 @@
 		<div class="container pt-16 pb-16">
 			<div class="row">
 				<div class="col-12">
-					<h3 class="mb-2 mt-16-mobile mobile-text-center">Use Science and Psychology to Maximize Your Focus and Get More Done in Less Time</h3>
+					<h4 class="mb-2 mt-16-mobile mobile-text-center">How You Can Immediately Start to Work On Your Focus to Get More Work Done Using Science and Psychology</h4>
 
 					<p class="black mobile-text-center">Being able to focus on a single task without distractions is important if you're trying to get more work done in less time, however, we often find ourselves not being able to focus. This can get frustrating especially if you're someone who has big dreams and goals.</p>
 

@@ -82,6 +82,11 @@ Route::post('/admin/personal-coaching/videos/delete', 'AdminController@delete_vi
 Route::get('/admin/personal-coaching/consultations', 'AdminController@view_free_consultations');
 Route::post('/admin/personal-coaching/consultations/update', 'AdminController@update_free_consultation');
 Route::get('/admin/links/personal-coaching', 'AdminController@view_personal_coaching_link');
+Route::get('/admin/personal-coaching/applications', 'MentorsController@admin_view_applications');
+
+// Premium content functions
+Route::get('/admin/premium', 'PremiumContentController@view_premium_content');
+Route::get('/admin/premium/new', 'PremiumContentController@new_premium_content');
 
 // Member functions
 Auth::routes();

@@ -48,11 +48,11 @@
 			@else
 				<div class="col-lg-8 offset-lg-2 col-lg-offset-2 col-md-10 offset-md-1 col-md-offset-1 col-sm-12 col-12">
 					<div class="gray-box">
-						<h3 class="text-center">No Premium Content</h3>
-						<p class="text-center">Click on the button below to get started on the first premium content.</p>
+						<h3 class="text-center mb-1">No Premium Content</h3>
+						<p class="text-center mb-2">Click on the button below to get started on the first premium content.</p>
 						<div class="row">
 							<div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12 col-12">
-								<a href="/admin/premium/new" class="site-btn-small center-button">Create New</a>
+								<a href="{{ url('/admin/premium/new') }}" class="btn btn-primary btn-sm centered">Create New Premium Content</a>
 							</div>
 						</div>
 					</div>

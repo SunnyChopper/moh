@@ -56,7 +56,12 @@ Route::get('/consultations/view', function() {
 });
 
 Route::post('/account/create', 'MentorsController@create_trial_account');
+
+// Personal coaching functions
 Route::post('/personal-coaching/trial/enroll', 'MentorsController@enroll_trial');
+Route::post('/personal-coaching/application/submit', 'MentorsController@submit_application');
+Route::get('/personal-coaching/applications', 'MentorsController@get_applications');
+Route::post('/personal-coaching/applications/update', 'MentorsController@update_application');
 
 // Course functions
 Route::post('/courses/enroll', 'CoursesController@enroll');

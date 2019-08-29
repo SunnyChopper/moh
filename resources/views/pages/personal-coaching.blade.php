@@ -4,118 +4,26 @@
 	@include('layouts.banner')
 
 	<style type="text/css">
-		.custom-social-proof {
-			position: fixed;
-			bottom: 20px;
-			left: 20px;
-			z-index: 9999999999999 !important;
-			font-family: 'Open Sans', sans-serif;
-		}
-
-    	.custom-social-proof > .custom-notification {
-	        width: 320px;
-	        border: 0;
-	        text-align: left;
-	        z-index: 99999;
-	        box-sizing: border-box;
-	        font-weight: 400;
-	        border-radius: 6px;
-	        box-shadow: 2px 2px 10px 2px hsla(0, 4%, 4%, 0.2);
-	        background-color: #fff;
-	        position: relative;
-	        cursor: pointer;
-	    }
-
-        .custom-social-proof > .custom-notification > .custom-notification-container {
-            display: flex !important;
-            align-items: center;
-            height: 80px;
+        #title {
+            font-size: 36px;
         }
 
-        .custom-social-proof > .custom-notification > .custom-notification-container > .custom-notification-image-wrapper > img {
-            max-height: 75px;
-            width: 90px;
-            overflow: hidden;
-            border-radius: 6px 0 0 6px;
-            object-fit: cover;
-        
-        }
-        
-        .custom-social-proof > .custom-notification > .custom-notification-container > .custom-notification-content-wrapper {
-            margin: 0;
-            height: 100%;
-            color: gray;
-            padding-left: 20px;
-            padding-right: 20px;
-            border-radius: 0 6px 6px 0;
-            flex: 1;
-            display: flex !important;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-
-        .custom-social-proof > .custom-notification > .custom-notification-container > .custom-notification-content-wrapper >.custom-notification-content {
-            font-family: inherit !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            font-size: 14px;
-            line-height: 16px;
-                    
-        }
-
-        .custom-social-proof > .custom-notification > .custom-notification-container > .custom-notification-content-wrapper >.custom-notification-content > small {
-            margin-top: 3px !important;
-	        display: block !important;
-	        font-size: 12px !important;
-	        opacity: .8;
-        }
-
-        .custom-close {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            height: 12px;
-            width: 12px;
-            cursor: pointer;
-            transition: .2s ease-in-out;
-            transform: rotate(45deg);
-            opacity: 0;
-            &::before {
-                content: "";
-                display: block;
-                width: 100%;
-                height: 2px;
-                background-color: gray;
-                position: absolute;
-                left: 0;
-                top: 5px;
+        @media (max-width: 767px) {
+            .about-content {
+                margin-top: 30px;
+                padding-bottom: 30px;
             }
-            &::after {
-                content: "";
-                display: block;
-                height: 100%;
-                width: 2px;
-                background-color: gray;
-                position: absolute;
-                left: 5px;
-                top: 0;
+
+            #title {
+                font-size: 20px;
             }
         }
-
-        &:hover {
-            .custom-close {
-                opacity: 1;
-            }
-        }
-    }
-}
 	</style>
 
-	<div class="container pt-64 pb-64">
+	<div class="container pt-64 pb-64 pt-32-mobile">
         <div class="row">
             <div class="col-12">
-                <h1 class="mb-32 text-center light-font" style='line-height: 1.5em !important;'>Constantly Solve More in Less Time and Reveal Your Confidence and Focus to the World</h1>
+                <h1 class="mb-32 text-center light-font" id="title" style='line-height: 1.5em !important;'>Constantly Solve More in Less Time and Reveal Your Confidence and Focus to the World</h1>
             </div>
         </div>
 
@@ -138,7 +46,7 @@
 
         <div class="row justify-content-center mt-32">
             <div class="col-lg-9 col-md-10 col-sm-12 col-12">
-                <h3 class="mb-16 text-center" style="line-height: 1.5em !important">You Are More Than Capable of Attaining Laser Focus, Strong Confidence, and a Lifelong Purpose</h3>
+                <h4 class="mb-16 text-center" style="line-height: 1.5em !important; font-size: 22px;">Did You Know That You Are Capable of Unlocking Laser Focus, Sporting an Unshakable Confidence, and Having a Deeper Lifelong Purpose</h4>
                 <p class="black">If you've tried a self-development course in the past and didn't find it to work, you're not alone. They rarely ever work. But this does not mean that you are incapable of improving.</p>
                 <p class="black">You're more than capable of improving and you know it deep down yourself. These past courses were extreme over-simplifications of what you need to know. They give you a lot of fluff. They give you a lot of theory. That's not the case here.</p>
                 <p class="black">You can ask our 300,000+ followers if we ever talk about fluff or useless theory, they'll say no. You're only going to get the good stuff. But we do have to warn you, unlike many other courses, we do not sugarcoat anything. If you are the one to find truths offensive, you can close this page out. We are not going to hold back.</p>
@@ -154,7 +62,7 @@
         <div class="container pt-64 pb-64">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center mb-64">What You Will Get</h2>
+                    <h2 class="text-center mb-64">What You Will Unlock with Personal Coaching</h2>
                 </div>
             </div>
 
@@ -216,7 +124,7 @@
     <div class="container pt-64 pb-64">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                <h3>What You Will Get</h3>
+                <h3 style="line-height: 1.5em !important;">Apply Today to Gain Access to These Powerful Tools</h3>
                 <hr />
                 <h5 class="mb-2">1. Appointments</h5>
                 <p class="mb-4">Schedule an appointment with your mentor and get direct 1-on-1 access on how to solve your specific problems. Other sites like coach.me will charge you up to $125 per call, but with us, this comes included in the personal coaching package.</p>
@@ -234,190 +142,108 @@
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-32-mobile">
                 <div class="gray-box" id="pc-form">
-                    <form id="enroll_personal_coaching_form" action="/personal-coaching/enroll" method="POST">
-                        {{ csrf_field() }}
-                        @if($special_link == true)
-                            @if($expired_link == false)
-                                <input type="hidden" value="1" name="special_link">
-                            @endif
-                        @else
-                            <input type="hidden" value="0" name="special_link">
-                        @endif
+                    <h3 class="text-center light-font">Personal Mentorship Application</h3>
+                    <p class="text-center light-font"><small>Fields with <span class="red">*</span> are required.</small></p>
 
-                        <h3 class="text-center mb-32">Master Your Self</h3>
-                        @if(Auth::guest())
-                            <h5>Step 1: Create a Mind of Habit account</h5>
-                            @if($special_link == true)
-                                @if($expired_link == false)
-                                    <p class="mb-0">If you already have a Mind of Habit account, click <a href="{{ url('/login?redirect_action=/personal-coaching?exl=' . $_GET['exl']) }}">here</a> to login.</p>
-                                @endif
-                            @else
-                                <p class="mb-0">If you already have a Mind of Habit account, click <a href="{{ url('/login?redirect_action=/personal-coaching') }}">here</a> to login.</p>
-                            @endif
-                            
-                            <hr />
-
-                            <div class="form-group row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <label>First Name:</label>
-                                    <input type="text" name="first_name" class="form-control" required>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-8-mobile">
-                                    <label>Last Name:</label>
-                                    <input type="text" name="last_name" class="form-control" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Username:</label>
-                                <input type="text" name="username" class="form-control" id="username" required>
-                                <p class="red mb-0 mt-2" id="username_taken" style="display: none;">Username is taken.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Email:</label>
-                                <input type="email" name="email" class="form-control" id="email" required>
-                                <p class="red mb-0 mt-2" id="email_taken" style="display: none;">Email is taken.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Password:</label>
-                                <input type="password" name="password" class="form-control" required>
-                            </div>
-
-                            <h5 class="mt-32">Step 2: Payment Info</h5>
-                            <hr />
-
-                            <div class="form-group">
-                                <label>Card Number:</label>
-                                <input type="text" name="card_number" class="form-control" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Security Code (CVV):</label>
-                                <input type="num" name="cvvNumber" class="form-control" min="0" max="999" step="1" required>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                    <label>Expiry Month:</label>
-                                    <select form="enroll_personal_coaching_form" class="form-control" name="ccExpiryMonth">
-                                        <option value="01">01 - January</option>
-                                        <option value="02">02 - February</option>
-                                        <option value="03">03 - March</option>
-                                        <option value="04">04 - April</option>
-                                        <option value="05">05 - May</option>
-                                        <option value="06">06 - June</option>
-                                        <option value="07">07 - July</option>
-                                        <option value="08">08 - August</option>
-                                        <option value="09">09 - September</option>
-                                        <option value="10">10 - October</option>
-                                        <option value="11">11 - November</option>
-                                        <option value="12">12 - December</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-8-mobile">
-                                    <label>Expiry Year:</label>
-                                    <select form="enroll_personal_coaching_form" class="form-control" name="ccExpiryYear">
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                        <option value="2026">2026</option>
-                                        <option value="2027">2027</option>
-                                        <option value="2028">2028</option>
-                                        <option value="2029">2029</option>
-                                        <option value="2030">2030</option>
-                                    </select>
-                                </div>
-                            </div>
-                        @else
-
-                            <h5 class="green">Step 1: Create a Mind of Habit account</h5>
-                            <hr />
-                            <p>Logged in as <strong>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</strong></p>
-
-                            <h5 class="mt-32">Step 2: Payment Info</h5>
-                            <hr />
-
-                            <div class="form-group">
-                                <label>Card Number:</label>
-                                <input type="text" name="card_number" class="form-control" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Security Code (CVV):</label>
-                                <input type="num" name="cvvNumber" class="form-control" min="0" max="999" step="1" required>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                    <label>Expiry Month:</label>
-                                    <select form="enroll_personal_coaching_form" class="form-control" name="ccExpiryMonth">
-                                        <option value="01">01 - January</option>
-                                        <option value="02">02 - February</option>
-                                        <option value="03">03 - March</option>
-                                        <option value="04">04 - April</option>
-                                        <option value="05">05 - May</option>
-                                        <option value="06">06 - June</option>
-                                        <option value="07">07 - July</option>
-                                        <option value="08">08 - August</option>
-                                        <option value="09">09 - September</option>
-                                        <option value="10">10 - October</option>
-                                        <option value="11">11 - November</option>
-                                        <option value="12">12 - December</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                                    <label>Expiry Year:</label>
-                                    <select form="enroll_personal_coaching_form" class="form-control" name="ccExpiryYear">
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                        <option value="2026">2026</option>
-                                        <option value="2027">2027</option>
-                                        <option value="2028">2028</option>
-                                        <option value="2029">2029</option>
-                                        <option value="2030">2030</option>
-                                    </select>
-                                </div>
-                            </div>
-                        @endif
-
-                        <hr />
-
-                        <div class="form-group row">
-                            <div class="col-6">
-                                <h5>Today's Total:</h5>
-                            </div>
-
-                            <div class="col-6">
-                                <h5 style="float: right;">
-                                    @if($special_link == true)
-                                        @if($expired_link == false)
-                                            <span class="green">$50.00</span>
-                                        @endif
-                                    @else
-                                        $67.00
-                                    @endif
-                                </h5>
-                            </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <label class="mb-2">First name <span class="red">*</span></label>
+                            <input type="text" id="app_first_name" class="form-control">
                         </div>
 
-                        <div class="form-group mt-32">
-                            <input type="submit" id="submit_button" class="genric-btn large rounded primary centered" value="Let's Get Started" style="font-size: 18px;">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-16-mobile">
+                            <label class="mb-2">Last name</label>
+                            <input type="text" id="app_last_name" class="form-control">
                         </div>
-                    </form>
+                    </div>
+
+                    <div class="form-group row mt-16">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <label class="mb-2">Email <span class="red">*</span></label>
+                            <input type="email" id="app_email" class="form-control">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-16-mobile">
+                            <label class="mb-2">Phone <span class="red">*</span></label>
+                            <input type="text" id="app_phone" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-16">
+                        <div class="col-12">
+                            <label class="mb-2">When would you like us to call about your application? <span class="red">*</span></label>
+                            <input type="time" id="app_call_time" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-16">
+                        <div class="col-12">
+                            <label class="mb-2">How long have you been working on yourself? <span class="red">*</span></label>
+                            <select class="form-control" id="app_years">
+                                <option value="0">0 - 1 years</option>
+                                <option value="1">1 - 2 years</option>
+                                <option value="2">2 - 3 years</option>
+                                <option value="3">3 - 4 years</option>
+                                <option value="4">4 - 5 years</option>
+                                <option value="5">5 - 6 years</option>
+                                <option value="6">6 - 7 years</option>
+                                <option value="7">7 - 8 years</option>
+                                <option value="8">8 - 9 years</option>
+                                <option value="9">9 - 10 years</option>
+                                <option value="10">10+ years</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-16">
+                        <div class="col-12">
+                            <label class="mb-2">How badly do you want to improve yourself? <span class="red">*</span></label>
+                            <select class="form-control" id="app_determination_score">
+                                <option value="1">Just exploring self-development</option>
+                                <option value="2">Not serious but interested</option>
+                                <option value="3">Somewhat serious about improving</option>
+                                <option value="4">I work hard to improve myself daily</option>
+                                <option value="5">Obsessed with improving myself</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-16">
+                        <div class="col-12">
+                            <label class="mb-2">What are your strengths? <span class="red">*</span></label>
+                            <textarea id="app_strengths" class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-16">
+                        <div class="col-12">
+                            <label class="mb-2">What are your weaknesses? <span class="red">*</span></label>
+                            <textarea id="app_weaknesses" class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-16">
+                        <div class="col-12">
+                            <label class="mb-2">We have limited spots. Why should we pick you? <span class="red">*</span></label>
+                            <textarea id="app_why" class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-16">
+                        <div class="col-12">
+                            <label class="mb-2">Why are you trying to improve yourself? <span class="red">*</span></label>
+                            <textarea id="app_purpose" class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <p id="submission_error" class="text-center red" style="display: none;">Please fill out all fields.</p>
+                    <p id="submission_success" class="text-center green" style="display: none;">Successfully submitted your application. We will call you soon!</p>
+
+                    <div class="form-group row mt-16">
+                        <div class="col-12">
+                            <button class="genric-btn primary rounded centered submit" style="font-size: 18px;">Submit Application</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -443,6 +269,20 @@
 
 @section('page_js')
 	<script type="text/javascript">
+        var _token = '{{ csrf_token() }}';
+        var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        var first_name = $("#app_first_name").val();
+        var last_name = $("#app_last_name").val();
+        var email = $("#app_email").val();
+        var phone = $("#app_phone").val();
+        var call_time = $("#app_call_time").val();
+        var years = $("#app_years").val();
+        var determination_score = $("#app_determination_score").val();
+        var strengths = $("#app_strengths").val();
+        var weaknesses = $("#app_weaknesses").val();
+        var why = $("#app_why").val();
+        var purpose = $("#app_purpose").val();
+
         $(document).ready(function() {
             @if($special_link == true)
                 @if($expired_link == false)
@@ -467,10 +307,81 @@
             @endif
         });
 
-		setInterval(function() { $(".custom-social-proof").stop().slideToggle('slow'); }, 8000);
-     		$(".custom-close").click(function() {
-    		$(".custom-social-proof").stop().slideToggle('slow');
-    	});
+        function updateVariables() {
+            first_name = $("#app_first_name").val();
+            email = $("#app_email").val();
+            phone = $("#app_phone").val();
+            call_time = $("#app_call_time").val();
+            years = $("#app_years").val();
+            determination_score = $("#app_determination_score").val();
+            strengths = $("#app_strengths").val();
+            weaknesses = $("#app_weaknesses").val();
+            why = $("#app_why").val();
+            purpose = $("#app_purpose").val();
+        }
+
+        function validateApplication() {
+            updateVariables();
+
+            if (first_name != "" && email != "" && phone != "" && call_time != "" && years != "" && determination_score != "" && strengths != "" && weaknesses != "" && why != "" && purpose != "") {
+                $("#submission_error").hide();
+                return true;
+            } else {
+                $('#submission_error').html('Please fill out all required fields.');
+                $("#submission_error").show();
+                return false;
+            }
+        }
+
+        function disableSubmitButton() {
+            $(".submit").prop('disabled', true);
+            $(".submit").removeClass('primary');
+            $(".submit").addClass('disabled');
+        }
+
+        function enableSubmitButton() {
+            $(".submit").prop('disabled', false);
+            $(".submit").addClass('primary');
+            $(".submit").removeClass('disabled');
+        }
+
+        $(".submit").on('click', function() {
+            disableSubmitButton();
+            if (validateApplication() == true) {
+                updateVariables();
+
+                $.ajax({
+                    url : '/api/personal-coaching/application/submit',
+                    type : 'POST',
+                    data : {
+                        '_token' : _token,
+                        'first_name' : first_name,
+                        'last_name' : last_name,
+                        'email' : email,
+                        'phone' : phone,
+                        'timezone' : timezone,
+                        'call_time' : call_time,
+                        'years' : years,
+                        'determination_score' : determination_score,
+                        'strengths' : strengths,
+                        'weaknesses' : weaknesses,
+                        'why' : why,
+                        'purpose' : purpose
+                    },
+                    success : function(data) {
+                        if (data == true) {
+                            $('#submission_success').show();
+                        } else {
+                            $('#submission_error').html('Something went wrong while submitting your application...');
+                            enableSubmitButton();
+                        }
+                    }
+                });
+            } else {
+                enableSubmitButton();
+            }
+            
+        });
 
         $(document).ready(function() {
             $("#username").on('change', function() {
