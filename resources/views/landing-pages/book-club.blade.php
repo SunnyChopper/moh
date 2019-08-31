@@ -8,7 +8,7 @@
 			<div class="col-lg-8 col-md-8 col-sm-12 col-12" style="margin: auto;">
 				<h1 id="title" class="mb-32 text-center light-font" style="line-height: 1.5em !important;">Get More Work Done in Less Time Each and Every Week</h1>
 				<div class="videoWrapper">
-					<iframe width="560" height="349" src="https://www.youtube.com/embed/eD3kN7-chq0?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+					<iframe width="560" height="349" src="https://www.youtube.com/embed/M7kc7ak096c?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
