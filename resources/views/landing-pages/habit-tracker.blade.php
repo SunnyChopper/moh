@@ -52,7 +52,7 @@
 		</div>
 	</div>
 
-	<div style="background: #EAEAEA;">
+	<div style="background: hsl(0, 0%, 95%);">
 		<div class="container pt-64 pb-64">
 			<div class="row">
 				<div class="col-12">
@@ -67,7 +67,7 @@
 						<img src="https://image.flaticon.com/icons/svg/148/148773.svg" class="regular-image-20 centered">
 						
 						<h4 class="text-center mb-2 mt-4">Cue</h4>
-						<p class="text-center mb-0"></p>
+						<p class="text-center mb-0">Identify what causes your bad habits to start? Knowing this will give you a better shot at getting rid of the bad habit.</p>
 					</div>
 				</div>
 
@@ -75,7 +75,7 @@
 					<div style="background: white; padding: 16px; border: 0px;">
 						<img src="https://image.flaticon.com/icons/svg/148/148966.svg" class="regular-image-20 centered">
 						<h4 class="text-center mb-2 mt-4">Action</h4>
-						<p class="text-center mb-0"></p>
+						<p class="text-center mb-0">List out all of the actions you consider as bad habits. Let's figure out how to replace those bad actions with good ones.</p>
 					</div>
 				</div>
 
@@ -83,7 +83,7 @@
 					<div style="background: white; padding: 16px; border: 0px;">
 						<img src="https://image.flaticon.com/icons/svg/744/744922.svg" class="regular-image-20 centered">
 						<h4 class="text-center mb-2 mt-4">Reward</h4>
-						<p class="text-center mb-0"></p>
+						<p class="text-center mb-0">None of this works if you don't reward your brain. Our app will help you come up with rewards based on what you like.</p>
 					</div>
 				</div>
 			</div>
@@ -95,37 +95,37 @@
 	<div class="container pt-64 pb-64">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="text-center background-line"><span>How Does The Book Club Work to Help You Master Yourself?</span></h2>
+				<h2 class="text-center background-line"><span>How Does the Habit Tracker App Work?</span></h2>
 			</div>
 		</div>
 
 		<div class="row mt-64">
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
 				<div class="image-box-edge">
-					<div class="image-box-image set-bg" data-setbg="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/BuKKyFq/videoblocks-flat-style-animation-of-a-hand-casting-vote-in-the-ballot-box_ha6aboftx_thumbnail-full02.png"></div>
+					<div class="image-box-image set-bg" data-setbg="https://media.giphy.com/media/xUOxfjsW9fWPqEWouI/giphy.gif"></div>
 					<div class="image-box-info">
-						<h4 class="text-center mb-2">1. Select Book as a Community</h4>
-						<p class="text-center mb-0">Every week, the community will get to vote out of four book choices from Monday to Thursday. The book that gets the majority of the votes will be covered the following week. Your vote will matter.</p>
+						<h4 class="text-center mb-2">1. Take Personality Quiz</h4>
+						<p class="text-center mb-0">Everyone is unique, so we can't give the same roadmap to everyone. To have a more rewarding experience, take the short personality quiz when you first register.</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
 				<div class="image-box-edge">
-					<div class="image-box-image set-bg" data-setbg="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/08aea422-eab9-428b-82c9-9c04e411bb8c/dan29lu-b10f5353-d8c9-4317-8c04-eadaf2597ccd.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA4YWVhNDIyLWVhYjktNDI4Yi04MmM5LTljMDRlNDExYmI4Y1wvZGFuMjlsdS1iMTBmNTM1My1kOGM5LTQzMTctOGMwNC1lYWRhZjI1OTdjY2QuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.SfCXwrS4GNoZ5P3v2kP1ZAcRADuAkLUh5_r1yV8P5Hk"></div>
+					<div class="image-box-image set-bg" data-setbg="https://cdn.dribbble.com/users/391028/screenshots/1519184/gif_3.gif"></div>
 					<div class="image-box-info">
-						<h4 class="text-center mb-2">2. We Prepare and Read</h4>
-						<p class="text-center mb-0">Before releasing the book to you, we read the book ourselves. We create a summary for quick referencing in the future. We also create cheatsheets, guides, and software to help you take action.</p>
+						<h4 class="text-center mb-2">2. List Bad Habits</h4>
+						<p class="text-center mb-0">The first step to solving any problem is to know that the problem even exists. Our app will help you identify bad habits that you may not even be aware you have.</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
 				<div class="image-box-edge">
-					<div class="image-box-image set-bg" data-setbg="https://www.creativefabrica.com/wp-content/uploads/2019/06/Flat-design-email-marketing-content-by-DEEMKA-STUDIO-580x348.jpg"></div>
+					<div class="image-box-image set-bg" data-setbg="https://cdn.dribbble.com/users/1788187/screenshots/5223798/pre.gif"></div>
 					<div class="image-box-info">
-						<h4 class="text-center mb-2">3. Get Notified</h4>
-						<p class="text-center mb-0">On Friday of each week, we will send out an email about which book the community chose and send non-affiliate links to Amazon so you can order the book for yourself and the upcoming week.</p>
+						<h4 class="text-center mb-2">3. Identify Cues</h4>
+						<p class="text-center mb-0">For each bad habit, let's figure out what "triggers" it. For example, a potential cue could be that you get thirsty. From here, we can replace the bad habit.</p>
 					</div>
 				</div>
 			</div>
@@ -133,30 +133,31 @@
 		<div class="row mt-32">
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
 				<div class="image-box-edge">
-					<div class="image-box-image set-bg" data-setbg="https://www.coursehero.com/blog/wp-content/uploads/2018/05/unlock_white.png"></div>
+					<div class="image-box-image set-bg" data-setbg="https://cdn.dribbble.com/users/576057/screenshots/3749382/ccccccc.dkengineers_dribbble.gif"></div>
 					<div class="image-box-info">
-						<h4 class="text-center mb-2">4. Access to Dashboard</h4>
-						<p class="text-center mb-0">On Saturday of each week, a new dashboard will be automatically created for the new book. You will get access to our summary, checklists, guides, and any software tools.</p>
+						<h4 class="text-center mb-2">4. Take Action</h4>
+						<p class="text-center mb-0">Figure out how you can replace your bad actions with good ones. Our app will help you figure out which actions you can take to replace bad habits.</p>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
+				<div class="image-box-edge">
+					<div class="image-box-image set-bg" data-setbg="https://i.pinimg.com/originals/9e/35/12/9e3512f7e3ea4aedc62c766d7eae0b58.gif"></div>
+					<div class="image-box-info">
+						<h4 class="text-center mb-2">5. Create Rewards</h4>
+						<p class="text-center mb-0">If you don't reward your brain for taking good action, your bad habits are going to come back. The app will help you find rewards for your actions.</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
 				<div class="image-box-edge">
-					<div class="image-box-image set-bg" data-setbg="http://www.creationstudygroup.org/wp-content/uploads/2018/10/group_discussions.png"></div>
+					<div class="image-box-image set-bg" data-setbg="https://blog.advids.co/wp-content/uploads//2017/09/Google-Analytics11.gif"></div>
 					<div class="image-box-info">
-						<h4 class="text-center mb-2">5. Discussion of Book</h4>
-						<p class="text-center mb-0">Starting Saturday until Friday, you can ask the community questions. We can discuss the topics in the book to help you understand how to apply them to your specific situations.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
-				<div class="image-box-edge">
-					<div class="image-box-image set-bg" data-setbg="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-cinema-clapperboard-filmmaking-and-video-production-device-concept-available-in-4k-fullhd-and-hd-video-flat-design-2d-animation-footage-with-alpha-luma-matte_biwx_lb2l_thumbnail-full02.png"></div>
-					<div class="image-box-info">
-						<h4 class="text-center mb-2">6. Summary Video</h4>
-						<p class="text-center mb-0">Near the end of the week, we will create a video summary which you can watch to quickly get all the main points and how to use the software and downloadable content.</p>
+						<h4 class="text-center mb-2">6. See Improvement</h4>
+						<p class="text-center mb-0">With graphs, visually see how your habits are changing and how you are improving. We will also give you suggestions and content based on how you are doing.</p>
 					</div>
 				</div>
 			</div>
@@ -165,7 +166,7 @@
 		<a href="#bottom" class="mt-16 genric-btn large rounded primary centered" style="font-size: 15px;">I'm Ready to Start</a>
 	</div>
 
-	<div style="background: #EAEAEA;">
+	<div style="background: #EAEAEA; display: none;">
 		<div class="container pt-64 pb-64">
 			<div class="row">
 				<div class="col-12">
@@ -222,76 +223,80 @@
 		</div>
 	</div>
 
-	<div class="container pt-64 pb-64">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="text-center">What You Will Unlock Right After You Register</h2>
-			</div>
-		</div>
-
-		<div class="row mt-64">
-			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
-				<img src="https://image.flaticon.com/icons/svg/1969/1969542.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">Detailed Book Summaries</h4>
-				<p class="text-center">Use our detailed book summaries to understand the topics in the book at a deeper level. We come up with more examples to help you learn.</p>
+	<div style="background: hsl(0, 0%, 95%); display: none;">
+		<div class="container pt-64 pb-64">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="text-center">What Do You Get for Beta Testing</h2>
+				</div>
 			</div>
 
-			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
-				<img src="https://image.flaticon.com/icons/svg/321/321769.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">Step-by-Step Checklists</h4>
-				<p class="text-center">We take the topics presented in the book and create a checklist out of it. This way you can quickly check and see if you're improving.</p>
+			<div class="row mt-64">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+					<img src="https://image.flaticon.com/icons/svg/1095/1095956.svg" class="regular-image-40 centered mb-32">
+					<h4 class="text-center mb-2">6 Months Free</h4>
+					<p class="text-center">When we fully launch this app, we'll give you six months free to the premium service.</p>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
+					<img src="https://image.flaticon.com/icons/svg/201/201571.svg" class="regular-image-40 centered mb-32">
+					<h4 class="text-center mb-2">Access to Book Club</h4>
+					<p class="text-center">To show our appreciation for our testers, we'll give access to the book club for free.</p>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
+					<img src="https://image.flaticon.com/icons/svg/1908/1908306.svg" class="regular-image-40 centered mb-32">
+					<h4 class="text-center mb-2">Improve Your Habits</h4>
+					<p class="text-center">By testing </p>
+				</div>
 			</div>
 
-			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
-				<img src="https://image.flaticon.com/icons/svg/1908/1908306.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">In-Depth How-to Guides</h4>
-				<p class="text-center">What's the point of learning if you don't take action and gain experience? Use our guides to take action on the topics covered in the book.</p>
-			</div>
-		</div>
+			<div class="row mt-64">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+					<img src="https://image.flaticon.com/icons/svg/1063/1063206.svg" class="regular-image-40 centered mb-32">
+					<h4 class="text-center mb-2">Software Tools</h4>
+					<p class="text-center">Not only are you getting a how-to guide, you will get access to a software tool that will help you implement the ideas covered in the book.</p>
+				</div>
 
-		<div class="row mt-64">
-			<div class="col-lg-4 col-md-4 col-sm-12 col-12">
-				<img src="https://image.flaticon.com/icons/svg/1063/1063206.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">Software Tools</h4>
-				<p class="text-center">Not only are you getting a how-to guide, you will get access to a software tool that will help you implement the ideas covered in the book.</p>
-			</div>
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
+					<img src="https://image.flaticon.com/icons/svg/1066/1066371.svg" class="regular-image-40 centered mb-32">
+					<h4 class="text-center mb-2">Ongoing Help and Support</h4>
+					<p class="text-center">We're here for you when you have trouble understanding the concepts in the book. Use the Direct Question to directly send us your question.</p>
+				</div>
 
-			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
-				<img src="https://image.flaticon.com/icons/svg/1066/1066371.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">Ongoing Help and Support</h4>
-				<p class="text-center">We're here for you when you have trouble understanding the concepts in the book. Use the Direct Question to directly send us your question.</p>
-			</div>
-
-			<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
-				<img src="https://image.flaticon.com/icons/svg/881/881914.svg" class="regular-image-40 centered mb-32">
-				<h4 class="text-center mb-2">24/7 Access to Content</h4>
-				<p class="text-center">Not only do you get up-to-date knowledge and action steps, you can access all the past books' checklists, guides, tools, and ask questions.</p>
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-64-mobile">
+					<img src="https://image.flaticon.com/icons/svg/881/881914.svg" class="regular-image-40 centered mb-32">
+					<h4 class="text-center mb-2">24/7 Access to Content</h4>
+					<p class="text-center">Not only do you get up-to-date knowledge and action steps, you can access all the past books' checklists, guides, tools, and ask questions.</p>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="bottom" style="background: #EAEAEA;">
+	<div style="background: hsl(0, 0%, 95%);">
 		<div class="container pt-64 pb-64">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="text-center mb-1">Unlock Access to a Wealth of Knowledge</h2>
-					<h5 class="text-center black mb-3" style="font-weight: 300;">"If you spend too much time thinking about a thing, you'll never get it done." - Bruce Lee</h5>
-					<h3 class="text-center light-font mb-3">Price: <span class="green">$7/<small>mo</small></span></h3>
+					<h2 class="text-center mb-1">Get Rid of Your Bad Habits and Start Winning</h2>
+					<h5 class="text-center black mb-3" style="font-weight: 300;">"Chains of habit are too light to be felt until they are too heavy to be broken." - Warren Buffett</h5>
 					
 				</div>
 			</div>
 
 			<div class="row justify-content-center mt-16">
-				<div class="col-lg-7 col-md-8 col-sm-12 col-12">
-					<div class="progress mb-3" style="height: 40px; border: 2px solid #D0D0D0">
-						<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">Step 1 of 3</div>
-					</div>
+				<div class="col-lg-8 col-md-8 col-sm-12 col-12">
+					<div class="p-32" style="background: white; border-radius: 8px; border-bottom: 4px solid hsl(0, 0%, 90%);">
+						<h3 class="text-center light-font">Get Invitation Code for Beta Access</h3>
 
-					<h4 class="text-center" id="step">Step 1 - Login or Create an Account</h4>
+						<p class="light-font mt-32 mb-1 black">Email:</p>
+						<input type="text" class="form-control mb-16">
+						<p id="submit_error" class="text-center red" style="display: none;">Please fill out required field.</p>
+						<button type="button" class="centered genric-btn rounded primary submit_button" style="font-size: 16px;">Get Invitation Code</button>
+					</div>
 				</div>
 			</div>
 
-			<div class="row justify-content-center mt-32" id="stepOne" style="display: flex;">
+			<div class="row justify-content-center mt-32" id="stepOne" style="display: none;">
 				<div class="col-lg-5 col-md-5 col-sm-12 col-12">
 					<h4 class="text-center mb-8">Login</h4>
 					<p class="text-center centered" style="width: 75%;">If you already have an account, simply login.</p>
