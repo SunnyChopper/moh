@@ -160,6 +160,28 @@ class PagesController extends Controller
         return view('landing-pages.book-club')->with('page_title', $page_title)->with('page_header', $page_header)->with('landing_page_footer_text', $landing_page_footer_text)->with('seo_array', $seo_array);
     }
 
+    public function habit_tracker() {
+        $page_title = "Habit Tracker App";
+        $page_header = $page_title;
+        $page_description = "Get rid of those bad habits that you've been meaning to for a while now. Build the good habits you need to succeed.";
+        $page_image = asset('img/habit-tracker.png');
+
+        $landing_page_footer_text = "Start to get rid of those annoying bad habits you've been meaning to. We'll help you with each step in the process of systematically breaking down a bad habit. We'll make it darn easy to get rid of a bad habit. After your bad habits are destroyed, we'll help you create good ones. We will also walk you through a system to help you generate good habits.";
+
+        $seo_array = array(
+            "description" => $page_description,
+            "og:title" => $page_title,
+            "og:type" => "website",
+            "og:url" => "https://www.mindofhabit.com/habit-tracker",
+            "og:image" => $page_image,
+            "og:image:alt" => "Mind of Habit Habit Tracker App",
+            "og:description" => $page_description,
+            "twitter:card" => "summary_large_image"
+        );
+
+        return view('landing-pages.habit-tracker')->with('page_title', $page_title)->with('page_header', $page_header)->with('landing_page_footer_text', $landing_page_footer_text)->with('seo_array', $seo_array);
+    }
+
     public function submit_free_consultation(Request $data) {
         $name_array = $this->split_name($data->name);
 

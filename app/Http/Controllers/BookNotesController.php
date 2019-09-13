@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 class BookNotesController extends Controller
 {
     
+    /* --------------------- *\
+        CRUD Functions
+    \* --------------------- */
+    
 	public function create(Request $data) {
     	$note = new BookNote;
     	$note->book_id = $data->book_id;

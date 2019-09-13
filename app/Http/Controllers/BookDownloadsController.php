@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class BookDownloadsController extends Controller
 {
+
+    /* --------------------- *\
+        CRUD Functions
+    \* --------------------- */
     
     public function create(Request $data) {
     	$download = new BookDownload;

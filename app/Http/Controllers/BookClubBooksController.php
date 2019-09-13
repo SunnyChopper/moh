@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class BookClubBooksController extends Controller
 {
+
+	/* --------------------- *\
+        CRUD Functions
+    \* --------------------- */
     
 	public function create(Request $data) {
 		$book = new BookClubBook;

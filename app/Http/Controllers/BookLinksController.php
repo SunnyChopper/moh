@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class BookLinksController extends Controller
 {
+
+    /* --------------------- *\
+        CRUD Functions
+    \* --------------------- */
     
 	public function create(Request $data) {
     	$link = new BookLink;
