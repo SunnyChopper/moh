@@ -277,7 +277,7 @@
 		</div>
 	</div>
 
-	<div style="background: hsl(0, 0%, 95%);">
+	<div id="bottom" style="background: hsl(0, 0%, 95%);">
 		<div class="container pt-64 pb-64">
 			<div class="row">
 				<div class="col-12">
@@ -307,11 +307,6 @@
 	<div class="d-block d-sm-none" id="mobile-bottom" style="position: fixed; bottom: -3.5em; background: white; width: 100%; display: none; z-index: 999;">
 		<div class="container pt-8 pb-8">
 			<div class="row">
-				<div class="col-12">
-					<h6 class="light-font">Get Access to the Habit Tracker App Beta</h6>
-					<p class="light-font">
-				</div>
-
 				<div class="col-12">
 					<a href="#bottom" class="btn btn-primary full-width centered">Join the Habit Tracker Beta</a>
 				</div>
