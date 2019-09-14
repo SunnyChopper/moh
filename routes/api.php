@@ -89,3 +89,7 @@ Route::post('/book-club/polls/submit', 'BookVotesController@create');
 
 // Book club link functions
 Route::post('/book-club/links/create', 'BookLinksController@create');
+
+// Lead functions
+Route::get('/leads/email/check', 'LeadsController@email_check');
+Route::post('/leads/submit', 'LeadsController@create');

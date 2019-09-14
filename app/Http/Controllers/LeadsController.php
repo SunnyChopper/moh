@@ -8,6 +8,21 @@ use Illuminate\Http\Request;
 
 class LeadsController extends Controller
 {
+
+	/* --------------------- *\
+        Helper Functions
+    \* --------------------- */
+
+    public function email_check() {
+    	$landing_page_name = $_GET['landing_page_name'];
+    	$email = $_GET['email'];
+
+    	if (Lead::where('email', strtolower($email))->where('landing_page_name', $landing_page_name)->where('is_active', 1)->count() > 0) {
+    		return response()->json(false, 200);
+    	} else {
+    		return response()->json(true, 200);
+    	}
+    }
     
 	/* --------------------- *\
         CRUD Functions
