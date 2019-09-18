@@ -15,7 +15,7 @@
 									<img class="regular-image-100 rounded-image" src="{{ $post->featured_image_url }}">
 								</div>
 								<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-									<h4>{{ $post->title }}</h4>
+									<h4 class="mt-16-mobile">{{ $post->title }}</h4>
 									<p class="mb-2"><small>Created on {{ $post->created_at->format('M d Y') }}</small></p>
 									<p>{{ strip_tags(substr($post->body, 0, 256)) }}</p>
 								</div>
