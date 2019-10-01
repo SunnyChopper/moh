@@ -16,8 +16,8 @@
 
 		<!-- Site Title -->
 		@if(isset($page_title))
-		<title>{{ config('app.name') }} - {{ $page_title }}</title>
-		<meta property="og:title" content="{{ config('app.name') }} - {{ $page_title }}" />
+		<title>{{ $page_title }}</title>
+		<meta property="og:title" content="{{ $page_title }}" />
 		@else
 		<title>{{ config('app.name') }}</title>
 		<meta property="og:title" content="{{ config('app.name') }}" />
