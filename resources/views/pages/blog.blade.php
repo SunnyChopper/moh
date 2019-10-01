@@ -17,7 +17,7 @@
 								<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 									<h4 class="mt-16-mobile">{{ $post->title }}</h4>
 									<p class="mb-2"><small>Created on {{ $post->created_at->format('M d Y') }}</small></p>
-									<p class="mb-0">{{ strip_tags(substr($post->body, 0, 256)) }}</p>
+									<p class="mb-0">{{ substr(strip_tags($post->body), 0, 256)) }}</p>
 								</div>
 							</div>
 						</a>

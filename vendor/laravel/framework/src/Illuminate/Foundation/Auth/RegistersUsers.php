@@ -12,10 +12,11 @@ trait RegistersUsers
     use RedirectsUsers;
 
     protected function redirectTo() {
-        $url = Session::get('register_redirect');
-        Session::forget('register_redirect');
-        Session::save();
-        return $url;
+        if (Session::has('redirect_action')) {
+            return Session::get('redirect_action');
+        }
+
+        return url('/members/dashboard');
     }
 
     /**
