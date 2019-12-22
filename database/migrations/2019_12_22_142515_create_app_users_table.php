@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHabitLogsTable extends Migration
+class CreateAppUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateHabitLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('habit_logs', function (Blueprint $table) {
+        Schema::create('app_users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('habit_id');
-            $table->integer('user_id');
-            $table->datetime('record_date');
+            $table->integer('points')->default(0);
+            $table->string('first_name', 64);
+            $table->string('last_name', 64)->nullable();
+            $table->string('email', 128);
+            $table->string('password', 256);
+            $table->string('profile_image', 128)->nullable();
             $table->integer('is_active')->default(1);
             $table->timestamps();
         });
@@ -30,6 +33,6 @@ class CreateHabitLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habit_logs');
+        Schema::dropIfExists('app_users');
     }
 }

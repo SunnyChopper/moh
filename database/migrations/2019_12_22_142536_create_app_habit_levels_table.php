@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRewardsTable extends Migration
+class CreateAppHabitLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateRewardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rewards', function (Blueprint $table) {
+        Schema::create('app_habit_levels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->string('title', 128);
-            $table->text('description');
-            $table->string('category', 128);
-            $table->integer('points');
-            $table->integer('duration');
+            $table->foreign('user_id')->references('id')->on('app_users')->onDelete('cascade');
+            $table->integer('habit_id');
+            $table->foreign('habit_id')->references('id')->on('app_habits')->onDelete('cascade');
+            $table->integer('order');
+            $table->string('title', 64);
+            $table->text('description')->nullable();
             $table->integer('is_active')->default(1);
             $table->timestamps();
         });
@@ -33,6 +34,6 @@ class CreateRewardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rewards');
+        Schema::dropIfExists('app_habit_levels');
     }
 }

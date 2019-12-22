@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHaUsersTable extends Migration
+class CreateAppRewardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateHaUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('ha_users', function (Blueprint $table) {
+        Schema::create('app_rewards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username', 128);
-            $table->string('email', 256);
-            $table->string('password', 256);
-            $table->string('profile_image_url', 256);
-            $table->integer('reward_points')->default(0);
-            $table->integer('backend_auth')->default(0);
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('app_users')->onDelete('cascade');
+            $table->string('title', 64);
+            $table->text('description')->nullable();
+            $table->integer('points');
             $table->integer('is_active')->default(1);
             $table->timestamps();
         });
@@ -33,6 +32,6 @@ class CreateHaUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ha_users');
+        Schema::dropIfExists('app_rewards');
     }
 }
