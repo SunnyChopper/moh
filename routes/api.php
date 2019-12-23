@@ -93,3 +93,45 @@ Route::post('/book-club/links/create', 'BookLinksController@create');
 // Lead functions
 Route::get('/leads/email/check', 'LeadsController@email_check');
 Route::post('/leads/submit', 'LeadsController@create');
+
+Route::prefix('users')->group(function() {
+	Route::post('create', 'AppUsersController@create');
+	Route::post('login', 'AppUsersController@login');
+	Route::post('update', 'AppUsersController@update');
+	Route::post('delete', 'AppUsersController@delete');
+});
+
+Route::prefix('habits')->group(function() {
+	Route::post('create', 'AppHabitsController@create');
+	Route::get('read', 'AppHabitsController@read');
+	Route::post('update', 'AppHabitsController@update');
+	Route::post('delete', 'AppHabitsController@delete');
+	Route::get('get-for-user', 'AppHabitsController@getForUser');
+	Route::post('mark-complete', 'AppHabitsController@markComplete');
+});
+
+Route::prefix('habit-levels')->group(function() {
+	Route::post('create', 'AppHabitLevelsController@create');
+	Route::get('read', 'AppHabitLevelsController@read');
+	Route::post('update', 'AppHabitLevelsController@update');
+	Route::post('delete', 'AppHabitLevelsController@delete');
+	Route::get('get-for-user', 'AppHabitLevelsController@getForUser');
+	Route::get('get-for-habit', 'AppHabitLevelsController@getForHabit');
+});
+
+Route::prefix('habit-logs')->group(function() {
+	Route::post('create', 'AppHabitLogsController@create');
+	Route::post('delete', 'AppHabitLogsController@delete');
+	Route::get('get-for-user', 'AppHabitLogsController@getForUser');
+	Route::get('get-for-habit', 'AppHabitLogsController@getForHabit');
+	Route::get('get-for-level', 'AppHabitLogsController@getForLevel');
+});
+
+Route::prefix('rewards')->group(function() {
+	Route::post('create', 'AppRewardsController@create');
+	Route::get('read', 'AppRewardsController@read');
+	Route::post('redeem', 'AppRewardsController@redeem');
+	Route::post('update', 'AppRewardsController@update');
+	Route::post('delete', 'AppRewardsController@delete');
+	Route::get('get-for-user', 'AppRewardsController@getForUser');
+});
