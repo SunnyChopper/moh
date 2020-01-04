@@ -15,7 +15,7 @@ class CreateAppHabitsTable extends Migration
     {
         Schema::create('app_habits', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('app_users')->onDelete('cascade');
             $table->integer('points');
             $table->string('title', 64);

@@ -15,11 +15,11 @@ class CreateAppHabitLogsTable extends Migration
     {
         Schema::create('app_habit_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('app_users')->onDelete('cascade');
-            $table->bigInteger('habit_id');
+            $table->bigInteger('habit_id')->unsigned();
             $table->foreign('habit_id')->references('id')->on('app_habits')->onDelete('cascade');
-            $table->bigInteger('level_id');
+            $table->bigInteger('level_id')->unsigned();
             $table->foreign('level_id')->references('id')->on('app_habit_levels')->onDelete('cascade');
             $table->integer('is_active')->default(1);
             $table->timestamps();
