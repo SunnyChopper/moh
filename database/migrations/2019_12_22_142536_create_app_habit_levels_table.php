@@ -15,9 +15,9 @@ class CreateAppHabitLevelsTable extends Migration
     {
         Schema::create('app_habit_levels', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
+            $table->bigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('app_users')->onDelete('cascade');
-            $table->integer('habit_id');
+            $table->bigInteger('habit_id');
             $table->foreign('habit_id')->references('id')->on('app_habits')->onDelete('cascade');
             $table->integer('order');
             $table->string('title', 64);

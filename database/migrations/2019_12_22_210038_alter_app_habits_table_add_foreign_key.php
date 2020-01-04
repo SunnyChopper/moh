@@ -14,7 +14,7 @@ class AlterAppHabitsTableAddForeignKey extends Migration
     public function up()
     {
         Schema::table('app_habits', function(Blueprint $table) {
-            $table->integer('current_level')->nullable();
+            $table->bigInteger('current_level')->nullable();
             $table->foreign('current_level')->references('id')->on('app_habit_levels')->onDelete('cascade');
         });
     }
