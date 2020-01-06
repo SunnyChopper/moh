@@ -11,6 +11,9 @@ class AppUsersController extends Controller
 {
     
 	public function create(Request $data) {
+		$data = $data->getContent();
+		$data = json_decode($data, true);
+		
 		if (AppUser::where('email', strtolower($data->email))->active()->count() > 0) {
 			return response()->json([
 				'success' => false,
