@@ -11,26 +11,22 @@ class AppUsersController extends Controller
 {
     
 	public function create(Request $data) {
-		return response()->json([
-			$data["postVariables"]["first_name"]
-		], 200);
-
-		if (AppUser::where('email', strtolower($data->email))->active()->count() > 0) {
+		if (AppUser::where('email', strtolower($data["postVariables"]["email"]))->active()->count() > 0) {
 			return response()->json([
 				'success' => false,
 				'error' => 'Email is already in use.'
 			], 200);
 		} else {
 			$user = new AppUser;
-			$user->first_name = $data->first_name;
-			$user->last_name = $data->last_name;
-			$user->email = strtolower($data->email);
-			$user->password = Hash::make($data->password);
+			$user->first_name = $data["postVariables"]["first_name"];
+			$user->last_name = $data["postVariables"]["last_name"];
+			$user->email = strtolower($data["postVariables"]["email"]);
+			$user->password = Hash::make($data["postVariables"]["password"]);
 			$user->save();
 
 			return response()->json([
 				'success' => true,
-				'user_id' => $user->id
+				'user' => $user->toArray()
 			], 200);
 		}
 	}
