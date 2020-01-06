@@ -34,7 +34,7 @@ class AppUsersController extends Controller
 	public function login(Request $data) {
 		if (AppUser::where('email', strtolower($data->email))->active()->count() > 0) {
 			$user = AppUser::where('email', strtolower($data->email))->active()->first();
-			if (Hash::check($user->password, $data->password) == true) {
+			if (Hash::check($data->password, $user->password) == true) {
 				return response()->json([
 					'success' => true,
 					'user' => $user
