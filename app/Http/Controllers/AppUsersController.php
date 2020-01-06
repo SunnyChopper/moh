@@ -37,7 +37,7 @@ class AppUsersController extends Controller
 			if (Hash::check($user->password, $data->password) == true) {
 				return response()->json([
 					'success' => true,
-					'user_id' => $user->id
+					'user' => $user
  				], 200);
 			} else {
 				return response()->json([
