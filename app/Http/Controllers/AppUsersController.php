@@ -12,7 +12,7 @@ class AppUsersController extends Controller
     
 	public function create(Request $data) {
 		return response()->json([
-			$data->postVariables->first_name
+			$data["postVariables"]["first_name"];
 		], 200);
 
 		if (AppUser::where('email', strtolower($data->email))->active()->count() > 0) {
