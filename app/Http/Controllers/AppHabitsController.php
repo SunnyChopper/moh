@@ -20,7 +20,7 @@ class AppHabitsController extends Controller
 
 		return response()->json([
 			'success' => true,
-			'habit_id' => $habit->id
+			'habit' => $habit
 		], 200);
 	}
 
@@ -67,10 +67,19 @@ class AppHabitsController extends Controller
 	}
 
 	public function getForUser() {
+		$count = AppHabit::where('user_id', $_GET['user_id'])->active()->count();
+		$habits = AppHabit::where('user_id', $_GET['user_id'])->active()->get()->toArray();
+
+		$habitIDs = array();
+		foreach ($habits as $habit) {
+			array_push($habitIDs, $habit["id"]);
+		}
+
 		return response()->json([
 			'success' => true,
-			'count' => AppHabit::where('user_id', $_GET['user_id'])->active()->count(),
-			'habits' => AppHabit::where('user_id', $_GET['user_id'])->active()->get()->toArray()
+			'count' => $count,
+			'habits' => $habits,
+			'habitIDs' => $habitIDs
 		], 200);
 	}
 
