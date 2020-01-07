@@ -15,9 +15,12 @@ class AppHabitLevelsController extends Controller
 		$level = new AppHabitLevel;
 		$level->user_id = $data["user_id"];
 		$level->habit_id = $data["habit_id"];
-		$level->order = $data["order"];
 		$level->title = $data["title"];
 		$level->description = $data["description"];
+
+		$levels = AppHabitLevel::where('user_id', $data["user_id"])->where('habit_id', $data["habit_id"])->active()->count();
+		$level->order = $levels + 1;
+
 		$level->save();
 
 		return response()->json([
