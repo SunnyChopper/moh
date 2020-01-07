@@ -11,8 +11,8 @@ class AppHabitsController extends Controller
     
 	public function create(Request $data) {
 		$habit = new AppHabit;
-		$habit->user_id = $data->user_id;
-		$habit->points = $data["points"];
+		$habit->user_id = $data["postVariables"]["user_id"];
+		$habit->points = $data["postVariables"]["points"];
 		$habit->title = $data["postVariables"]["title"];
 		$habit->description = $data["postVariables"]["description"];
 		$habit->why = $data["postVariables"]["why"];
