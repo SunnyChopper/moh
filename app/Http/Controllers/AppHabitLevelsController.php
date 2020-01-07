@@ -98,7 +98,7 @@ class AppHabitLevelsController extends Controller
 
 		foreach($levels as $level) {
 			array_push($level_ids, $level["id"]);
-			$return_levels[$level["id"]] = $level["id"];
+			$return_levels[$level["id"]] = $level;
 		}
 
 		return response()->json([
