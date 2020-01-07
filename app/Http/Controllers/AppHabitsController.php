@@ -58,6 +58,8 @@ class AppHabitsController extends Controller
 			$habit->why = $data["why"];
 		}
 
+		$habit->save();
+
 		return response()->json([
 			'success' => true,
 			'habit' => $habit->toArray()
