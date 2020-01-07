@@ -10,12 +10,14 @@ class AppHabitLevelsController extends Controller
 {
     
 	public function create(Request $data) {
+		$data = $data["postVariables"];
+
 		$level = new AppHabitLevel;
-		$level->user_id = $data->user_id;
-		$level->habit_id = $data->habit_id;
-		$level->order = $data->order;
-		$level->title = $data->title;
-		$level->description = $data->description;
+		$level->user_id = $data["user_id"];
+		$level->habit_id = $data["habit_id"];
+		$level->order = $data["order"];
+		$level->title = $data["title"];
+		$level->description = $data["description"];
 		$level->save();
 
 		return response()->json([
@@ -65,18 +67,42 @@ class AppHabitLevelsController extends Controller
 	}
 
 	public function getForUser() {
+		$count = AppHabitLevel::where('user_id', $_GET['user_id'])->active()->count();
+		$levels = AppHabitLevel::where('user_id', $_GET['user_id'])->active()->get()->toArray();
+
+		$level_ids = array();
+		$return_levels = array();
+
+		foreach($levels as $level) {
+			array_push($level_ids, $level["id"]);
+			$return_levels[$level["id"]] = $level["id"];
+		}
+
 		return response()->json([
 			'success' => true,
-			'count' => AppHabitLevel::where('user_id', $_GET['user_id'])->active()->count(),
-			'levels' => AppHabitLevel::where('user_id', $_GET['user_id'])->active()->get()->toArray()
+			'count' => $count,
+			'levels' => $return_levels,
+			'level_ids' => $level_ids
 		], 200);
 	}
 
 	public function getForHabit() {
+		$count = AppHabitLevel::where('habit_id', $_GET['habit_id'])->active()->count();
+		$levels = AppHabitLevel::where('habit_id', $_GET['habit_id'])->active()->get()->toArray();
+
+		$level_ids = array();
+		$return_levels = array();
+
+		foreach($levels as $level) {
+			array_push($level_ids, $level["id"]);
+			$return_levels[$level["id"]] = $level["id"];
+		}
+
 		return response()->json([
 			'success' => true,
-			'count' => AppHabitLevel::where('habit_id', $_GET['habit_id'])->active()->count(),
-			'levels' => AppHabitLevel::where('habit_id', $_GET['habit_id'])->active()->get()->toArray()
+			'count' => $count,
+			'levels' => $return_levels,
+			'level_ids' => $level_ids
 		], 200);
 	}
 
