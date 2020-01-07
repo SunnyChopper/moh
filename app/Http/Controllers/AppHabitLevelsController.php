@@ -26,7 +26,7 @@ class AppHabitLevelsController extends Controller
 
 		$habit = AppHabit::find($data["habit_id"]);
 		if ($habit->current_level == null) {
-			$habit->current_level = $level->id;
+			$habit->current_level = $level->order;
 		}
 		$habit->save();
 
