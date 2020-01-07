@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AppHabitLevel;
+use App\AppHabit;
 
 use Illuminate\Http\Request;
 
