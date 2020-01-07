@@ -23,6 +23,12 @@ class AppHabitLevelsController extends Controller
 
 		$level->save();
 
+		$habit = AppHabit::find($data["habit_id"]);
+		if ($habit->current_level == null) {
+			$habit->current_level = $level->id;
+		}
+		$habit->save();
+
 		return response()->json([
 			'success' => true,
 			'level_id' => $level->id
