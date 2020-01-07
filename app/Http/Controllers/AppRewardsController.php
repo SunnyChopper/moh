@@ -11,16 +11,18 @@ class AppRewardsController extends Controller
 {
     
 	public function create(Request $data) {
+		$data = $data["postVariables"];
+
 		$reward = new AppReward;
-		$reward->user_id = $data->user_id;
-		$reward->title = $data->title;
-		$reward->description = $data->description;
-		$reward->points = $data->points;
+		$reward->user_id = $data["user_id"];
+		$reward->title = $data["title"];
+		$reward->description = $data["description"];
+		$reward->points = $data["points"];
 		$reward->save();
 
 		return response()->json([
 			'success' => true,
-			'reward_id' => $reward->id
+			'reward_id' => $reward->toArray()
 		], 200);
 	}
 
@@ -32,18 +34,20 @@ class AppRewardsController extends Controller
 	}
 
 	public function update(Request $data) {
-		$reward = AppReward::find($data->reward_id);
+		$data = $data["postVariables"];
 
-		if (isset($data->title)) {
-			$reward->title = $data->title;
+		$reward = AppReward::find($data["reward_id"]);
+
+		if (isset($data["title"])) {
+			$reward->title = $data["title"];
 		}
 
-		if (isset($data->description)) {
-			$reward->description = $data->description;
+		if (isset($data["description"])) {
+			$reward->description = $data["description"];
 		}
 
-		if (isset($data->points)) {
-			$reward->points = $data->points;
+		if (isset($data["points"])) {
+			$reward->points = $data["points"];
 		}
 
 		$reward->save();
@@ -55,7 +59,9 @@ class AppRewardsController extends Controller
 	}
 
 	public function delete(Request $data) {
-		$reward = AppReward::find($data->reward_id);
+		$data = $data["postVariables"];
+
+		$reward = AppReward::find($data["reward_id"]);
 		$reward->is_active = 0;
 		$reward->save();
 
@@ -65,8 +71,10 @@ class AppRewardsController extends Controller
 	}
 
 	public function redeem(Request $data) {
-		$user = AppUser::find($data->user_id);
-		$reward = AppReward::find($data->reward_id);
+		$data = $data["postVariables"];
+
+		$user = AppUser::find($data["user_id"]);
+		$reward = AppReward::find($data["reward_id"]);
 
 		if ($user->points > $reward->points) {
 			$user->points = $user->points - $reward->points;

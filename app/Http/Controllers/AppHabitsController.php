@@ -10,12 +10,14 @@ class AppHabitsController extends Controller
 {
     
 	public function create(Request $data) {
+		$data = $data["postVariables"];
+
 		$habit = new AppHabit;
-		$habit->user_id = $data["postVariables"]["user_id"];
-		$habit->points = $data["postVariables"]["points"];
-		$habit->title = $data["postVariables"]["title"];
-		$habit->description = $data["postVariables"]["description"];
-		$habit->why = $data["postVariables"]["why"];
+		$habit->user_id = $data["user_id"];
+		$habit->points = $data["points"];
+		$habit->title = $data["title"];
+		$habit->description = $data["description"];
+		$habit->why = $data["why"];
 		$habit->save();
 
 		return response()->json([
@@ -32,23 +34,29 @@ class AppHabitsController extends Controller
 	}
 
 	public function update(Request $data) {
-		$habit = AppHabit::find($data->habit_id);
+		$data = $data["postVariables"];
 
-		if (isset($data->current_level)) {
-			$habit->current_level = $data->current_level;
+		$habit = AppHabit::find($data["habit_id"]);
+
+		if (isset($data["current_level"])) {
+			$habit->current_level = $data["current_level"];
 		}
 
-		if (isset($data->points)) {
-			$habit->points = $data->points;
+		if (isset($data["points"])) {
+			$habit->points = $data["points"];
 		}
 
-		if (isset($data->title)) {
-			$habit->title = $data->title;
+		if (isset($data["title"])) {
+			$habit->title = $data["title"];
 		}
 
-		if (isset($data->description))
-		$habit->description = $data->description;
-		$habit->why = $data->why;
+		if (isset($data["description"])) {
+			$habit->description = $data["description"];
+		}
+
+		if (isset($data["why"])) {
+			$habit->why = $data["why"];
+		}
 
 		return response()->json([
 			'success' => true,
@@ -57,7 +65,9 @@ class AppHabitsController extends Controller
 	}
 
 	public function delete(Request $data) {
-		$habit = AppHabit::find($data->habit_id);
+		$data = $data["postVariables"];
+
+		$habit = AppHabit::find($data["habit_id"]);
 		$habit->is_active = 0;
 		$habit->save();
 
