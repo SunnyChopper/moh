@@ -32,7 +32,7 @@ class AppHabitLevelsController extends Controller
 
 		return response()->json([
 			'success' => true,
-			'level_id' => $level->id
+			'level' => $level->toArray()
 		], 200);
 	}
 
@@ -44,10 +44,12 @@ class AppHabitLevelsController extends Controller
 	}
 
 	public function update(Request $data) {
-		$level = AppHabitLevel::find($data->level_id);
+		$data = $data["postVariables"];
 
-		if (isset($data->order)) {
-			$level->order = $data->order;
+		$level = AppHabitLevel::find($data["level_id"]);
+
+		if (isset($data["order"])) {
+			$level->order = $data["order"];
 		}
 		
 		if (isset($data->title)) {
