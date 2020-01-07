@@ -11,11 +11,11 @@ class AppHabitsController extends Controller
     
 	public function create(Request $data) {
 		$habit = new AppHabit;
-		$habit->user_id = $data->user_id;
-		$habit->points = $data->points;
-		$habit->title = $data->title;
-		$habit->description = $data->description;
-		$habit->why = $data->why;
+		$habit->user_id = $data["postVariables"]["user_id"];
+		$habit->points = $data["postVariables"]["points"];
+		$habit->title = $data["postVariables"]["title"];
+		$habit->description = $data["postVariables"]["description"];
+		$habit->why = $data["postVariables"]["why"];
 		$habit->save();
 
 		return response()->json([
@@ -70,16 +70,19 @@ class AppHabitsController extends Controller
 		$count = AppHabit::where('user_id', $_GET['user_id'])->active()->count();
 		$habits = AppHabit::where('user_id', $_GET['user_id'])->active()->get()->toArray();
 
+		$returnHabits = array();
 		$habitIDs = array();
+
 		foreach ($habits as $habit) {
 			array_push($habitIDs, $habit["id"]);
+			$returnHabits[$habit["id"]] = $habit;
 		}
 
 		return response()->json([
 			'success' => true,
 			'count' => $count,
-			'habits' => $habits,
-			'habitIDs' => $habitIDs
+			'habits' => $return_habits,
+			'habit_ids' => $habitIDs
 		], 200);
 	}
 

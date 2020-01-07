@@ -85,10 +85,22 @@ class AppRewardsController extends Controller
 	}
 
 	public function getForUser() {
+		$count = AppReward::where('user_id', $_GET['user_id'])->active()->count();
+		$rewards = AppReward::where('user_id', $_GET['user_id'])->active()->get()->toArray();
+
+		$returnRewards = array();
+		$rewardIDs = array();
+
+		foreach ($rewards as $reward) {
+			$returnRewards[$reward["id"]] = $reward;
+			array_push($rewardIDs, $reward["id"]);
+		}
+
 		return response()->json([
 			'success' => true,
-			'count' => AppReward::where('user_id', $_GET['user_id'])->active()->count(),
-			'rewards' => AppReward::where('user_id', $_GET['user_id'])->active()->get()->toArray()
+			'count' => $count,
+			'rewards' => $returnRewards,
+			'reward_ids' => $rewardIDs
 		], 200);
 	}
 
