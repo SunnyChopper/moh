@@ -36,11 +36,6 @@ class AppHabitsController extends Controller
 	public function update(Request $data) {
 		$data = $data["postVariables"];
 
-		return response()->json([
-			'success' => true,
-			'postVariables' => $data
-		], 200);
-
 		$habit = AppHabit::find($data["habit_id"]);
 
 		if (isset($data["current_level"])) {
