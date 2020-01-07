@@ -10,14 +10,9 @@ class AppHabitsController extends Controller
 {
     
 	public function create(Request $data) {
-		return response()->json([
-			'success' => false,
-			'error' => $data["postVariables"]
-		], 200);
-
 		$habit = new AppHabit;
-		$habit->user_id = $data["postVariables"]["user_id"];
-		$habit->points = $data["postVariables"]["points"];
+		$habit->user_id = $data->user_id;
+		$habit->points = $data["points"];
 		$habit->title = $data["postVariables"]["title"];
 		$habit->description = $data["postVariables"]["description"];
 		$habit->why = $data["postVariables"]["why"];
@@ -86,7 +81,7 @@ class AppHabitsController extends Controller
 		return response()->json([
 			'success' => true,
 			'count' => $count,
-			'habits' => $return_habits,
+			'habits' => $returnHabits,
 			'habit_ids' => $habitIDs
 		], 200);
 	}
