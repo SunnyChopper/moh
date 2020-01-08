@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\AppHabitLog;
+use App\Habit;
+use App\AppUser;
 
 use Illuminate\Http\Request;
 
@@ -17,6 +19,12 @@ class AppHabitLogsController extends Controller
 		$log->habit_id = $data["habit_id"];
 		$log->level_id = $data["level_id"];
 		$log->save();
+
+		$habit = AppHabit::find($data["habit_id"]);
+		$user = AppUser::find($data["user_id"]);
+
+		$user->points = $user->points + $habit->points;
+		$user->save();
 
 		return response()->json([
 			'success' => true,
