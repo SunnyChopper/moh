@@ -22,7 +22,7 @@ class AppRewardsController extends Controller
 
 		return response()->json([
 			'success' => true,
-			'reward_id' => $reward->toArray()
+			'reward' => $reward->toArray()
 		], 200);
 	}
 
