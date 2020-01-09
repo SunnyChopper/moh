@@ -99,6 +99,7 @@ Route::prefix('app-users')->group(function() {
 	Route::post('login', 'AppUsersController@login');
 	Route::post('update', 'AppUsersController@update');
 	Route::post('delete', 'AppUsersController@delete');
+	Route::get('get-points', 'AppUsersController@getUserPoints');
 });
 
 Route::prefix('app-habits')->group(function() {

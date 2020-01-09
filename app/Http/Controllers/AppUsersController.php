@@ -94,4 +94,18 @@ class AppUsersController extends Controller
 		], 200);
 	}
 
+	public function getUserPoints() {
+		if (AppUser::find($_GET['user_id'])->count() > 0) {
+			return response()->json([
+				'success' => true,
+				'points' => AppUser::find($_GET['user_id'])->points
+			], 200);
+		} else {
+			return response()->json([
+				'success' => false,
+				'error' => 'User with ID ' . $_GET['user_id'] . ' was not found.'
+			], 200);
+		}
+	}
+
 }
