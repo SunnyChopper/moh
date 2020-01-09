@@ -33,6 +33,20 @@ class AppUsersController extends Controller
 		}
 	}
 
+	public function read() {
+		if (AppUser::find($_GET['user_id'])->count() > 0) {
+			return response()->json([
+				'success' => true,
+				'user' => AppUser::find($_GET['user_id'])->toArray()
+			], 200);
+		} else {
+			return response()->json([
+				'success' => false,
+				'error' => 'User with ID ' . $_GET['user_id'] . ' was not found.'
+			], 200);
+		}
+	}
+
 	public function login(Request $data) {
 		$data = $data["postVariables"];
 
