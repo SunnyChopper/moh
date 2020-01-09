@@ -96,6 +96,7 @@ Route::post('/leads/submit', 'LeadsController@create');
 
 Route::prefix('app-users')->group(function() {
 	Route::post('create', 'AppUsersController@create');
+	Route::get('read', 'AppUsersController@read');
 	Route::post('login', 'AppUsersController@login');
 	Route::post('update', 'AppUsersController@update');
 	Route::post('delete', 'AppUsersController@delete');
