@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AppHabitLog;
-use App\Habit;
+use App\AppHabit;
 use App\AppUser;
 
 use Illuminate\Http\Request;
