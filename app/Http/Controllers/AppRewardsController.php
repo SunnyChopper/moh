@@ -76,7 +76,7 @@ class AppRewardsController extends Controller
 		$user = AppUser::find($data["user_id"]);
 		$reward = AppReward::find($data["reward_id"]);
 
-		if ($user->points > $reward->points) {
+		if ($user->points >= $reward->points) {
 			$user->points = $user->points - $reward->points;
 			$user->save();
 
