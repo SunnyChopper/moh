@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Custom\BlogPostHelper;
+use App\BlogPost;
 
 use Auth;
 use Session;
@@ -67,6 +68,21 @@ class BlogPostsController extends Controller
 
         // Redirect to admin view
     	return redirect(url('/admin/posts'));
+    }
+
+    public function getRecent() {
+        // Get data
+        if (isset($_GET['limit'])) {
+            $limit = $_GET['limit'];
+        } else {
+            $limit = 4;
+        }
+
+        // Get blog posts
+        return response()->json([
+            'success' => true,
+            'blogs' => BlogPost::where('is_active', 1)->orderBy('created_at', 'DESC')->limit($limit)->get()->toArray()
+        ], 200);
     }
 
     /* Public Admin CRUD Functions */

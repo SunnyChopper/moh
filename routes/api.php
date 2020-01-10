@@ -137,3 +137,7 @@ Route::prefix('app-rewards')->group(function() {
 	Route::post('delete', 'AppRewardsController@delete');
 	Route::get('get-for-user', 'AppRewardsController@getForUser');
 });
+
+Route::prefix('app-blogs')->group(function() {
+	Route::get('get-recent', 'BlogPostsController@getRecent');
+});
