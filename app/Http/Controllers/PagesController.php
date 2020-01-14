@@ -24,10 +24,10 @@ use Stripe\Error\Card;
 class PagesController extends Controller
 {
 
-    public function test() {
-        $stripe = new StripeHelper();
-        $plans = $stripe->getPlans();
-        dd($plans);
+    public function test(Request $data) {
+        return response()->json([
+            'challenge' => $data->challenge
+        ], 200);
     }
 
     public function index() {
