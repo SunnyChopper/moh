@@ -30,7 +30,7 @@ Route::get('/focus/cheatsheet', 'PagesController@focus_cheatsheet');
 Route::get('/habit-tracker', 'PagesController@habit_tracker');
 Route::get('/book-club', 'PagesController@book_club');
 Route::get('/webhooks', function() { echo "Testing"; });
-Route::get('/webhooks/test', 'PagesController@test');
+Route::post('/webhooks/test', 'PagesController@test');
 
 // Admin functions
 Route::get('/admin', 'AdminController@login');
