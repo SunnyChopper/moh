@@ -26,7 +26,7 @@ class PagesController extends Controller
 
     public function test(Request $data) {
         return response()->json([
-            'challenge' => $data->challenge
+            'challenge' => $_GET['challenge']
         ], 200);
     }
 
